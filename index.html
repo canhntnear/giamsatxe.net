@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- ================= SEO Meta ================= -->
     <title>GIAMSATXE.NET | Vạn Phú Khánh - 0585.114.114 - Thiết Bị Giám Sát Hành Trình & Camera Ô Tô</title>
     <meta name="description" content="Chuyên thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe chuẩn QCVN 06:2024/BCA & Camera khoang chở khách. Truyền dữ liệu vi phạm Real-time về Cục CSGT. Phân phối bởi 114 Vạn Phú Khánh.">
@@ -11,8 +12,10 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://giamsatxe.net/">
     <link rel="icon" href="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" type="image/png">
+
     <!-- ================= Preconnect ================= -->
     <link rel="preconnect" href="https://dinhvi.khanhhoa.vn">
+    
     <!-- ================= Schema.org ================= -->
     <script type="application/ld+json">
     {
@@ -21,7 +24,7 @@
       "name": "Vạn Phú Khánh",
       "url": "https://giamsatxe.net/",
       "logo": "https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png",
-      "telephone": "+845858114114",
+      "telephone": "+84585114114",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Khánh Hòa",
@@ -29,6 +32,7 @@
       }
     }
     </script>
+
     <!-- ================= Social Meta ================= -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://giamsatxe.net/">
@@ -41,14 +45,18 @@
     <meta name="twitter:image" content="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png">
 
     <style>
-        /* ===== CSS ===== */
+        /* ===== Modern Tech CSS Variables ===== */
         :root {
-            --primary: #004d99;
-            --primary-dark: #003366;
-            --accent: #ff6600;
-            --light-bg: #f4f7fa;
-            --dark-text: #2c3e50;
-            --card-border: #e2e8f0;
+            --bg-body: #0a0f1d;
+            --bg-surface: #121929;
+            --bg-card: #1a233a;
+            --primary-blue: #0066ff;
+            --cyan-neon: #00f2ff;
+            --accent-orange: #ff6600;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --shadow-glow: 0 0 25px rgba(0, 242, 255, 0.15);
         }
 
         * {
@@ -60,322 +68,451 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
+            color: var(--text-main);
+            background-color: var(--bg-body);
             overflow-x: hidden;
         }
 
         /* ===== Animations ===== */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes floatEffect {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.6); }
-            70% { box-shadow: 0 0 0 12px rgba(255, 102, 0, 0); }
+
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
         }
 
-        /* ===== Header ===== */
+        /* ===== Sticky Header & Navigation ===== */
         header {
-            background-color: var(--primary);
-            color: #ffffff;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            animation: fadeInDown 0.8s ease-out;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 0.8rem 1rem;
         }
+
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo-group {
+            display: flex;
+            align-items: center;
             gap: 1rem;
         }
+
         .logo-img {
-            max-height: 85px;
+            max-height: 55px;
             width: auto;
             background: #ffffff;
-            padding: 6px 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            padding: 4px 12px;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
             transition: transform 0.3s ease;
         }
+
         .logo-img:hover { transform: scale(1.05); }
+
         .header-title h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffffff, var(--cyan-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
         }
+
         .header-title p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 0.82rem;
+            color: var(--text-muted);
         }
 
-        /* ===== Hero ===== */
-        .hero-banner {
-            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
-            color: white;
-            padding: 2.5rem 1rem;
-            text-align: center;
-            animation: fadeInUp 0.9s ease-out;
+        .header-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
+            color: #ffffff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            transition: all 0.3s ease;
         }
+
+        .header-contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero-banner {
+            position: relative;
+            padding: 4rem 1rem;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, var(--bg-body) 70%);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--cyan-neon);
+            border: 1px solid var(--cyan-neon);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
         .hero-banner h2 {
-            font-size: 1.5rem;
+            font-size: 2.2rem;
             max-width: 900px;
             margin: 0 auto 1rem auto;
-            color: #ffe600;
-        }
-        .hero-banner p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.05rem;
+            color: #ffffff;
+            line-height: 1.3;
         }
 
-        /* ===== Container ===== */
+        .hero-banner p {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Layout Container ===== */
         .container {
-            max-width: 1100px;
-            margin: 2rem auto;
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 0 1rem;
         }
+
         section {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         section.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         section h2 {
-            color: var(--primary-dark);
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            color: #ffffff;
+            border-left: 4px solid var(--cyan-neon);
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.6rem;
         }
 
-        /* ===== Cards ===== */
+        /* ===== Highlighting Grid ===== */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 1.2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-4px);
+            border-color: var(--cyan-neon);
+        }
+
+        .highlight-box strong {
+            color: var(--cyan-neon);
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        /* ===== Cards & Grid ===== */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
+
         .card {
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            background: #fafbfc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
         }
+
         .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-            border-color: var(--primary);
+            transform: translateY(-8px);
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-glow);
         }
+
         .card h3 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-        .card ul {
-            list-style-type: disc;
-            padding-left: 1.2rem;
-        }
-        .card ul li { margin-bottom: 0.5rem; }
-
-        /* ===== Highlight Box ===== */
-        .highlight-box {
-            background-color: #fff9f0;
-            border-left: 4px solid var(--accent);
-            padding: 1rem 1.2rem;
+            color: #ffffff;
             margin-bottom: 1rem;
-            border-radius: 0 6px 6px 0;
-            transition: background-color 0.3s ease;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .highlight-box:hover { background-color: #fff2e0; }
 
-        /* ===== Table ===== */
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--cyan-neon);
+            font-weight: bold;
+        }
+
+        /* ===== Comparison Table ===== */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-glass);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        table th, table td {
-            border: 1px solid #cbd5e1;
-            padding: 0.8rem;
             text-align: left;
+            background: var(--bg-card);
         }
-        table th {
-            background-color: var(--primary);
-            color: white;
-        }
-        table tr:nth-child(even) { background-color: #f8fafc; }
-        table tr:hover { background-color: #e2e8f0; }
 
-        /* ===== Contact Box ===== */
+        table th, table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        table th {
+            background-color: #0d1527;
+            color: var(--cyan-neon);
+            font-size: 1rem;
+        }
+
+        table tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        /* ===== Contact Section ===== */
         .contact-box {
-            background: linear-gradient(to right, #004d99, #003366);
-            color: white;
-            border-radius: 8px;
-            padding: 2rem;
+            background: linear-gradient(135deg, #101f3c 0%, #0a1124 100%);
+            border: 1px solid var(--primary-blue);
         }
-        .contact-box h2 {
-            color: #ffffff;
-            border-bottom: 2px solid var(--accent);
-        }
-        .contact-info {
-            margin-top: 1rem;
+
+        .contact-info p {
+            margin-bottom: 0.8rem;
             font-size: 1.05rem;
-            line-height: 1.8;
         }
-        .contact-info strong { color: #ffe600; }
+
+        .contact-info strong {
+            color: var(--cyan-neon);
+        }
+
+        .phone-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
         .phone-highlight {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #ffffff;
-            background: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            display: inline-block;
-            margin-top: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
             text-decoration: none;
-            animation: pulseGlow 2s infinite;
+            display: inline-block;
+            animation: pulseRing 2.5s infinite;
             transition: transform 0.2s ease;
         }
+
         .phone-highlight:hover { transform: scale(1.05); }
 
         /* ===== Footer ===== */
         footer {
             text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary-dark);
-            color: white;
+            padding: 2rem 1rem;
+            background-color: #060913;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
+
         .ai-disclaimer {
             font-size: 0.8rem;
-            opacity: 0.75;
-            margin-top: 0.5rem;
+            opacity: 0.7;
+            margin-top: 0.6rem;
             font-style: italic;
+            color: #f59e0b;
         }
 
-        /* ===== Accessibility ===== */
-        a:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
+        /* ===== Floating Call-to-Action Bar (Mobile) ===== */
+        .floating-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(10, 15, 29, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border-glass);
+            justify-content: space-around;
+            gap: 0.5rem;
         }
 
-        /* ===== Responsive ===== */
-        @media (min-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                justify-content: center;
-                text-align: left;
-                gap: 2rem;
-            }
+        .floating-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.6rem 0;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 767px) {
-            .header-title h1 { font-size: 1.6rem; }
-            .hero-banner h2 { font-size: 1.2rem; }
-            section { padding: 1.2rem; }
-            table { font-size: 0.85rem; }
-            .grid-3 {
-                grid-template-columns: 1fr;   /* 1 cột trên mobile */
-            }
-        }
+        .btn-call { background: var(--accent-orange); }
+        .btn-zalo { background: var(--primary-blue); }
 
-        @media (max-width: 480px) {
-            .phone-highlight {
-                font-size: 1.1rem;
-                padding: 0.3rem 0.7rem;
-            }
+        /* ===== Responsive Media Queries ===== */
+        @media (max-width: 768px) {
+            header { padding: 0.8rem; }
+            .header-title h1 { font-size: 1.2rem; }
+            .header-contact-btn { display: none; }
+            .hero-banner h2 { font-size: 1.5rem; }
+            section { padding: 1.5rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .floating-cta { display: flex; }
+            body { padding-bottom: 60px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sticky Navigation -->
     <header>
         <div class="header-container">
-            <img src="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" alt="Logo Vạn Phú Khánh – Định vị Khánh Hòa" class="logo-img" loading="lazy" decoding="async" width="200" height="70">
-            <div class="header-title">
-                <h1>GIAMSATXE.NET</h1>
-                <p>Hệ Thống Giám Sát Hành Trình & Camera Ô Tô Chuẩn Quy Định Bộ Công An</p>
+            <div class="brand-logo-group">
+                <img src="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" alt="Logo Vạn Phú Khánh – Định vị Khánh Hòa" class="logo-img" loading="lazy" decoding="async" width="200" height="70">
+                <div class="header-title">
+                    <h1>GIAMSATXE.NET</h1>
+                    <p>Chuẩn Quy Định Bộ Công An QCVN 06:2024/BCA</p>
+                </div>
             </div>
+            <a href="tel:0585114114" class="header-contact-btn">
+                <span>📞 Hotline: 0585.114.114</span>
+            </a>
         </div>
     </header>
 
+    <!-- Hero Banner -->
     <div class="hero-banner">
-        <h2>ĐÓN ĐẦU LUẬT TRẬT TỰ, AN TOÀN GIAO THÔNG ĐƯỜNG BỘ</h2>
-        <p>Cung cấp thiết bị Giám sát hành trình (GPS), Camera người lái xe chuẩn <strong>QCVN 06:2024/BCA</strong> và Camera khoang chở khách. Tự động truyền dữ liệu vi phạm & an toàn theo <strong>thời gian thực (Real-time)</strong> về máy chủ Cục CSGT.</p>
+        <span class="hero-badge">Luật Trật Tự, An Toàn Giao Thông Đường Bộ</span>
+        <h2>GIẢI PHÁP GIÁM SÁT HÀNH TRÌNH & CAMERA Ô TÔ REAL-TIME</h2>
+        <p>Cung cấp thiết bị Định vị GPS, Camera ghi nhận hình ảnh người lái xe và Camera khoang chở khách. Tự động truyền dữ liệu vi phạm về máy chủ Cục CSGT theo thời gian thực.</p>
     </div>
 
+    <!-- Main Container -->
     <div class="container">
 
-        <!-- Điểm mới -->
+        <!-- Điểm mới pháp lý -->
         <section>
-            <h2>💥 Điểm Mới Quan Trọng Trong Quy Định Kỹ Thuật & Pháp Lý Mới</h2>
-            <div class="highlight-box">
-                <strong>Truyền dữ liệu vi phạm Thời gian thực (Real-time):</strong> Dữ liệu hành trình GPS, tốc độ và các cảnh báo vi phạm được truyền ngay lập tức từ thiết bị → Máy chủ dịch vụ → Máy chủ Cục CSGT, giúp xử lý kịp thời hành vi mất an toàn.
-            </div>
-            <div class="highlight-box">
-                <strong>Tự động Cảnh báo An toàn trên Cabin:</strong> Thiết bị đạt chuẩn có tính năng tự kiểm tra lỗi và tự động nhận diện, cảnh báo trực tiếp bằng âm thanh khi tài xế vi phạm (ngủ gật, mất tập trung, sử dụng điện thoại, chạy quá giờ/quá tốc độ).
-            </div>
-            <div class="highlight-box">
-                <strong>Ghi hình chuẩn nét & Lưu trữ an toàn:</strong> Camera ghi video liên tục với chuẩn hồng ngoại ban đêm, lưu trữ dữ liệu tại xe từ 72 giờ trở lên và hỗ trợ trích xuất dữ liệu nhanh chóng theo quy định bảo vệ dữ liệu cá nhân.
-            </div>
-            <div class="highlight-box">
-                <strong>Lộ trình áp dụng rõ ràng:</strong> Bắt buộc trang bị đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ của người lái xe) và các phương tiện vận tải thuộc diện quy định.
+            <h2>💥 Điểm Mới Quan Trọng Trong Quy Định Kỹ Thuật & Pháp Lý</h2>
+            <div class="highlight-grid">
+                <div class="highlight-box">
+                    <strong>Truyền dữ liệu Real-time</strong>
+                    Dữ liệu GPS và cảnh báo vi phạm được truyền ngay lập tức từ thiết bị về máy chủ CSGT để xử lý sự cố tức thì.
+                </div>
+                <div class="highlight-box">
+                    <strong>Tự động Cảnh báo Cabin</strong>
+                    Cảnh báo âm thanh trực tiếp khi tài xế ngủ gật, mất tập trung, dùng điện thoại hoặc chạy quá tốc độ quy định.
+                </div>
+                <div class="highlight-box">
+                    <strong>Ghi hình & Lưu trữ An toàn</strong>
+                    Camera hồng ngoại ban đêm ghi video liên tục, lưu trữ tại xe từ 72 giờ và hỗ trợ trích xuất theo luật bảo mật cá nhân.
+                </div>
+                <div class="highlight-box">
+                    <strong>Lộ trình Áp dụng Rõ ràng</strong>
+                    Bắt buộc trang bị đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên và các dòng xe tải thuộc diện quy định.
+                </div>
             </div>
         </section>
 
-        <!-- Giải pháp sản phẩm -->
+        <!-- Sản phẩm phân phối -->
         <section>
-            <h2>🚛 Giải Pháp Sản Phẩm Phân Phối Tại GIAMSATXE.NET</h2>
+            <h2>🚛 Sản Phẩm Phân Phối Tại GIAMSATXE.NET</h2>
             <div class="grid-3">
                 <div class="card">
-                    <h3>1. Thiết Bị Giám Sát Hành Trình (GPS)</h3>
+                    <h3>📡 1. Thiết Bị Giám Sát Hành Trình (GPS)</h3>
                     <ul>
                         <li>Định vị vị trí, tốc độ, lộ trình di chuyển chính xác theo thời gian thực.</li>
-                        <li>Đạt chuẩn hợp quy <strong>QCVN 06:2024/BCA</strong> do Bộ Công an ban hành.</li>
-                        <li>Cảnh báo quá tốc độ, vi phạm thời gian lái xe liên tục của tài xế.</li>
+                        <li>Đạt chuẩn hợp quy <strong>QCVN 06:2024/BCA</strong> của Bộ Công an.</li>
+                        <li>Cảnh báo quá tốc độ, vi phạm thời gian lái xe liên tục.</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>2. Camera Ghi Nhận Hình Ảnh Lái Xe</h3>
+                    <h3>📷 2. Camera Ghi Nhận Hình Ảnh Lái Xe</h3>
                     <ul>
-                        <li>Ghi nhận hình ảnh người lái xe trong cabin theo chuẩn QCVN 06:2024/BCA.</li>
-                        <li>Tích hợp cảm biến nhận diện hành vi mất an toàn (ngủ gật, nghe điện thoại).</li>
-                        <li>Phát cảnh báo âm thanh tức thì trên cabin phòng ngừa tai nạn.</li>
+                        <li>Ghi nhận hình ảnh tài xế trong cabin theo chuẩn QCVN 06:2024/BCA.</li>
+                        <li>Cảm biến thông minh nhận diện hành vi nguy hiểm (ngủ gật, điện thoại).</li>
+                        <li>Cảnh báo âm thanh tức thì trên cabin giúp phòng ngừa tai nạn từ sớm.</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>3. Camera Khoang Chở Khách</h3>
+                    <h3>🚌 3. Camera Khoang Chở Khách</h3>
                     <ul>
                         <li>Dành cho xe từ 8 chỗ trở lên, xe khách, xe buýt, xe hợp đồng.</li>
-                        <li>Ghi hình toàn cảnh khoang hành khách, đảm bảo an ninh và giải quyết tranh chấp.</li>
-                        <li>Tuân thủ đúng quy định pháp luật về bảo vệ dữ liệu cá nhân.</li>
+                        <li>Ghi hình toàn cảnh khoang hành khách, hỗ trợ an ninh và giải quyết tranh chấp.</li>
+                        <li>Tuân thủ nghiêm ngặt quy định bảo vệ dữ liệu cá nhân.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- So sánh -->
+        <!-- Bảng so sánh -->
         <section>
             <h2>🌟 So Sánh Giải Pháp Cũ & Mới</h2>
-            <div style="overflow-x: auto;">
+            <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
@@ -415,38 +552,45 @@
             </div>
         </section>
 
-        <!-- Liên hệ -->
+        <!-- Thông tin liên hệ -->
         <section class="contact-box">
             <h2>📞 ĐƠN VỊ PHÂN PHỐI - BẢO HÀNH - GIA HẠN</h2>
             <div class="contact-info">
                 <p><strong>ĐƠN VỊ THỰC HIỆN:</strong> 114 VẠN PHÚ KHÁNH</p>
                 <p><strong>Website:</strong> giamsatxe.net</p>
-                <p><strong>Hotline / Zalo:</strong> 
-                    <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">0585.114.114</a> - 
-                    <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114">0588.588.114</a>
-                </p>
                 <p><strong>Trụ sở chính:</strong> Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p>
                 <p><strong>Trung tâm bảo hành Nha Trang:</strong> KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p>
                 <p><strong>Trung tâm bảo hành Nam Khánh Hòa:</strong> Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p>
+                <div class="phone-group">
+                    <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">📞 0585.114.114</a>
+                    <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114">📞 0588.588.114</a>
+                </div>
             </div>
         </section>
 
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 GIAMSATXE.NET - Phân phối & Bảo hành bởi 114 Vạn Phú Khánh. All Rights Reserved.</p>
         <p class="ai-disclaimer">⚠️ Lưu ý: Nội dung trang web đang được thử nghiệm phát triển bằng AI, có thể xảy ra sai sót. Quý khách vui lòng liên hệ hotline để xác nhận thông tin chính xác nhất.</p>
     </footer>
 
+    <!-- Floating Call-to-Action Bar for Mobile -->
+    <div class="floating-cta">
+        <a href="tel:0585114114" class="floating-btn btn-call">📞 Gọi 0585.114.114</a>
+        <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="floating-btn btn-zalo">💬 Chat Zalo</a>
+    </div>
+
+    <!-- JavaScript Scroll Animation -->
     <script>
-        // ===== JavaScript =====
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("section");
 
             const observerOptions = {
                 root: null,
                 rootMargin: "0px",
-                threshold: 0.15
+                threshold: 0.12
             };
 
             const observer = new IntersectionObserver((entries) => {
