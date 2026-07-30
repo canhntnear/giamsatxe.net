@@ -1,26 +1,21 @@
-readme_content = """# GIAMSATXE.NET - Hệ Thống Giám Sát Hành Trình & Camera Ô Tô Chuẩn Bộ Công An
+# GIAMSATXE.NET – Hệ thống giám sát hành trình & camera ô tô
 
-Website quảng cáo, giới thiệu giải pháp và dịch vụ lắp đặt, bảo hành, gia hạn thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe chuẩn **QCVN 06:2024/BCA** và Camera khoang chở khách.
+Đây là mã nguồn website giới thiệu sản phẩm giám sát hành trình GPS và camera cho xe ô tô, đáp ứng quy chuẩn QCVN 06:2024/BCA do Bộ Công an ban hành.
 
-Phân phối và bảo hành chính thức bởi **114 VẠN PHÚ KHÁNH**.
+## 🚀 Tính năng
+- Hiển thị thông tin về thiết bị giám sát hành trình, camera người lái, camera khoang hành khách.
+- So sánh giải pháp cũ và mới.
+- Tối ưu SEO, schema.org, responsive, accessibility.
+- Hiệu ứng xuất hiện khi cuộn trang.
 
----
+## 📂 Cấu trúc thư mục
+- `index.html` – Trang chính
+- `style.css` – Tất cả định dạng
+- `script.js` – JavaScript cho hiệu ứng scroll
+- `README.md` – Tài liệu dự án
+- `.gitignore` – Bỏ qua file không cần thiết
 
-## 📌 Tính Năng & Điểm Nổi Bật
-
-- **Đáp ứng chuẩn quy định mới nhất:** Cập nhật theo Luật Trật tự, an toàn giao thông đường bộ và quy chuẩn kỹ thuật quốc gia QCVN 06:2024/BCA của Bộ Công an.
-- **Truyền dữ liệu Real-time:** Truyền dữ liệu vi phạm & an toàn theo thời gian thực về máy chủ Cục CSGT.
-- **Cảnh báo an toàn trên cabin:** Tự động phát hiện và cảnh báo âm thanh tức thì khi người lái xe mất tập trung, ngủ gật, dùng điện thoại hoặc chạy quá tốc độ/quá giờ.
-- **Tối ưu SEO & Responsive:** Tích hợp đầy đủ thẻ Open Graph, Twitter Cards, Schema cho Zalo/Facebook và hiển thị chuẩn nét trên mọi thiết bị di động/máy tính.
-- **Giao diện hiện đại:** Tích hợp hiệu ứng cuộn trang mượt mà (Scroll Reveal Animation) và hiệu ứng tương tác.
-
----
-
-## 🛠 Cấu Trúc Mã Nguồn
-
-Thư mục dự án bao gồm:
-```text
-.
-├── index.html     # Trang chủ chính (Landing page HTML/CSS/JS)
-├── README.md      # Tài liệu hướng dẫn dự án
-└── (Media)        # Tài nguyên logo và hình ảnh sử dụng qua CDN
+## 🔧 Cài đặt và chạy
+1. Clone repository:
+   ```bash
+   git clone https://github.com/your-username/giamsatxe-website.git
