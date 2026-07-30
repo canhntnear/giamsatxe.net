@@ -25,6 +25,12 @@
       "url": "https://giamsatxe.net/",
       "logo": "https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png",
       "telephone": "+84585114114",
+      "hasMap": "https://maps.app.goo.gl/nePVen1FDzinLxLk9",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Khánh Hòa",
@@ -53,6 +59,7 @@
             --primary-blue: #0066ff;
             --cyan-neon: #00f2ff;
             --accent-orange: #ff6600;
+            --google-yellow: #ffb703;
             --text-main: #f0f4f8;
             --text-muted: #94a3b8;
             --border-glass: rgba(255, 255, 255, 0.08);
@@ -73,19 +80,14 @@
             overflow-x: hidden;
         }
 
-        /* ===== Animations ===== */
-        @keyframes floatEffect {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
+        /* ===== Keyframes ===== */
         @keyframes pulseRing {
             0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
         }
 
-        /* ===== Sticky Header & Navigation ===== */
+        /* ===== Sticky Header ===== */
         header {
             position: sticky;
             top: 0;
@@ -158,7 +160,7 @@
         /* ===== Hero Section ===== */
         .hero-banner {
             position: relative;
-            padding: 4rem 1rem;
+            padding: 3.5rem 1rem 3rem 1rem;
             text-align: center;
             background: radial-gradient(circle at center, #1e293b 0%, var(--bg-body) 70%);
             border-bottom: 1px solid var(--border-glass);
@@ -187,7 +189,7 @@
 
         .hero-banner p {
             max-width: 800px;
-            margin: 0 auto 2rem auto;
+            margin: 0 auto;
             font-size: 1.1rem;
             color: var(--text-muted);
         }
@@ -276,9 +278,6 @@
             color: #ffffff;
             margin-bottom: 1rem;
             font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .card ul {
@@ -329,10 +328,17 @@
             background-color: rgba(255, 255, 255, 0.02);
         }
 
-        /* ===== Contact Section ===== */
+        /* ===== Contact Section (Chế độ Grid 2 Cột Đối Xứng) ===== */
         .contact-box {
             background: linear-gradient(135deg, #101f3c 0%, #0a1124 100%);
             border: 1px solid var(--primary-blue);
+        }
+
+        .contact-grid-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
         }
 
         .contact-info p {
@@ -348,7 +354,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
         }
 
         .phone-highlight {
@@ -365,6 +371,93 @@
         }
 
         .phone-highlight:hover { transform: scale(1.05); }
+
+        /* ===== Google Rating Widget Bên Phải ===== */
+        .google-rating-side-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .google-rating-card {
+            background: rgba(255, 255, 255, 0.98);
+            color: #1f2937;
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .google-rating-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .google-g-logo {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+        }
+
+        .rating-card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .rating-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
+
+        .rating-score-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .rating-number {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #f59e0b;
+            line-height: 1;
+        }
+
+        .rating-stars-svg {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .star-icon {
+            width: 22px;
+            height: 22px;
+            fill: #fbc02d;
+        }
+
+        .rating-card-link {
+            font-size: 0.88rem;
+            color: #4b5563;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .rating-card-link span {
+            text-decoration: underline;
+        }
 
         /* ===== Footer ===== */
         footer {
@@ -415,6 +508,16 @@
         .btn-zalo { background: var(--primary-blue); }
 
         /* ===== Responsive Media Queries ===== */
+        @media (max-width: 900px) {
+            .contact-grid-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+            .google-rating-side-col {
+                justify-content: flex-start;
+            }
+        }
+
         @media (max-width: 768px) {
             header { padding: 0.8rem; }
             .header-title h1 { font-size: 1.2rem; }
@@ -424,6 +527,21 @@
             .grid-3 { grid-template-columns: 1fr; }
             .floating-cta { display: flex; }
             body { padding-bottom: 60px; }
+            .google-rating-card {
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+            .google-g-logo {
+                width: 42px;
+                height: 42px;
+            }
+            .rating-number {
+                font-size: 1.6rem;
+            }
+            .star-icon {
+                width: 19px;
+                height: 19px;
+            }
         }
     </style>
 </head>
@@ -552,19 +670,51 @@
             </div>
         </section>
 
-        <!-- Thông tin liên hệ -->
+        <!-- Thông tin liên hệ (Cấu trúc 2 cột bên trái Thông tin - bên phải Google Rating Widget) -->
         <section class="contact-box">
             <h2>📞 ĐƠN VỊ PHÂN PHỐI - BẢO HÀNH - GIA HẠN</h2>
-            <div class="contact-info">
-                <p><strong>ĐƠN VỊ THỰC HIỆN:</strong> 114 VẠN PHÚ KHÁNH</p>
-                <p><strong>Website:</strong> giamsatxe.net</p>
-                <p><strong>Trụ sở chính:</strong> Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p>
-                <p><strong>Trung tâm bảo hành Nha Trang:</strong> KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p>
-                <p><strong>Trung tâm bảo hành Nam Khánh Hòa:</strong> Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p>
-                <div class="phone-group">
-                    <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">📞 0585.114.114</a>
-                    <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114">📞 0588.588.114</a>
+            <div class="contact-grid-wrapper">
+                
+                <!-- Cột trái: Thông tin đơn vị & Hotline -->
+                <div class="contact-info">
+                    <p><strong>ĐƠN VỊ THỰC HIỆN:</strong> 114 VẠN PHÚ KHÁNH</p>
+                    <p><strong>Website:</strong> giamsatxe.net</p>
+                    <p><strong>Trụ sở chính:</strong> Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p>
+                    <p><strong>Trung tâm bảo hành Nha Trang:</strong> KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p>
+                    <p><strong>Trung tâm bảo hành Nam Khánh Hòa:</strong> Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p>
+                    
+                    <div class="phone-group">
+                        <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">📞 0585.114.114</a>
+                        <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114">📞 0588.588.114</a>
+                    </div>
                 </div>
+
+                <!-- Cột phải: Google Rating Card Widget đúng vị trí yêu cầu -->
+                <div class="google-rating-side-col">
+                    <a href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener" class="google-rating-card" title="Xem vị trí và đánh giá Vạn Phú Khánh trên Google Maps">
+                        <svg class="google-g-logo" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                        <div class="rating-card-content">
+                            <div class="rating-card-title">Google Rating</div>
+                            <div class="rating-score-row">
+                                <span class="rating-number">4.9</span>
+                                <div class="rating-stars-svg">
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24" style="clip-path: inset(0 10% 0 0);"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                </div>
+                            </div>
+                            <div class="rating-card-link"><span>See all our reviews</span> ➔</div>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </section>
 
