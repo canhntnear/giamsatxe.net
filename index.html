@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ================= SEO Meta Tags ================= -->
+    <!-- ================= SEO Meta ================= -->
     <title>GIAMSATXE.NET | Vạn Phú Khánh - 0585.114.114 - Thiết Bị Giám Sát Hành Trình & Camera Ô Tô</title>
     <meta name="description" content="Chuyên thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe chuẩn QCVN 06:2024/BCA & Camera khoang chở khách. Truyền dữ liệu vi phạm Real-time về Cục CSGT. Phân phối bởi 114 Vạn Phú Khánh.">
     <meta name="keywords" content="giám sát hành trình, định vị ô tô, QCVN 06:2024/BCA, camera khoang chở khách, camera lái xe, định vị Khánh Hòa, Vạn Phú Khánh, giamsatxe.net, thiết bị giám sát hành trình real-time, camera hành trình Nha Trang">
@@ -12,292 +11,42 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://giamsatxe.net/">
     <link rel="icon" href="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" type="image/png">
-
-    <!-- ================= Social Media Meta Tags ================= -->
+    <!-- ================= Preconnect ================= -->
+    <link rel="preconnect" href="https://dinhvi.khanhhoa.vn">
+    <!-- ================= Schema.org ================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Vạn Phú Khánh",
+      "url": "https://giamsatxe.net/",
+      "logo": "https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png",
+      "telephone": "+845858114114",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khánh Hòa",
+        "addressCountry": "VN"
+      }
+    }
+    </script>
+    <!-- ================= Social Meta ================= -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://giamsatxe.net/">
     <meta property="og:title" content="GIAMSATXE.NET | Vạn Phú Khánh - Giám Sát Hành Trình & Camera Ô Tô Chuẩn QCVN 06:2024/BCA">
     <meta property="og:description" content="Thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe & khoang hành khách truyền dữ liệu vi phạm Real-time về Cục CSGT. Hotline: 0585.114.114.">
     <meta property="og:image" content="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png">
-
-    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GIAMSATXE.NET | Vạn Phú Khánh">
     <meta name="twitter:description" content="Giám sát hành trình - Ghi nhận hình ảnh người lái xe - Giám sát khoang hành khách chuẩn Bộ Công An">
     <meta name="twitter:image" content="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png">
-
-    <style>
-        :root {
-            --primary: #004d99;
-            --primary-dark: #003366;
-            --accent: #ff6600;
-            --light-bg: #f4f7fa;
-            --dark-text: #2c3e50;
-            --card-border: #e2e8f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
-            overflow-x: hidden;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.6); }
-            70% { box-shadow: 0 0 0 12px rgba(255, 102, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
-        }
-
-        header {
-            background-color: var(--primary);
-            color: #ffffff;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .header-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .logo-img {
-            max-height: 85px;
-            width: auto;
-            object-fit: contain;
-            background: #ffffff;
-            padding: 6px 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover { transform: scale(1.05); }
-
-        .header-title h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.3rem;
-            letter-spacing: 1px;
-        }
-
-        .header-title p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .hero-banner {
-            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
-            color: white;
-            padding: 2.5rem 1rem;
-            text-align: center;
-            animation: fadeInUp 0.9s ease-out;
-        }
-
-        .hero-banner h2 {
-            font-size: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto 1rem auto;
-            color: #ffe600;
-        }
-
-        .hero-banner p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section h2 {
-            color: var(--primary-dark);
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            background: #fafbfc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-            border-color: var(--primary);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .card ul {
-            list-style-type: disc;
-            padding-left: 1.2rem;
-        }
-
-        .card ul li { margin-bottom: 0.5rem; }
-
-        .highlight-box {
-            background-color: #fff9f0;
-            border-left: 4px solid var(--accent);
-            padding: 1rem 1.2rem;
-            margin-bottom: 1rem;
-            border-radius: 0 6px 6px 0;
-            transition: background-color 0.3s ease;
-        }
-
-        .highlight-box:hover { background-color: #fff2e0; }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        table th, table td {
-            border: 1px solid #cbd5e1;
-            padding: 0.8rem;
-            text-align: left;
-        }
-
-        table th {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        table tr { transition: background-color 0.2s ease; }
-        table tr:nth-child(even) { background-color: #f8fafc; }
-        table tr:hover { background-color: #e2e8f0; }
-
-        .contact-box {
-            background: linear-gradient(to right, #004d99, #003366);
-            color: white;
-            border-radius: 8px;
-            padding: 2rem;
-        }
-
-        .contact-box h2 {
-            color: #ffffff;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .contact-info {
-            margin-top: 1rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .contact-info strong { color: #ffe600; }
-
-        .phone-highlight {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #ffffff;
-            background: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            display: inline-block;
-            margin-top: 0.5rem;
-            text-decoration: none;
-            animation: pulseGlow 2s infinite;
-            transition: transform 0.2s ease;
-        }
-
-        .phone-highlight:hover { transform: scale(1.05); }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary-dark);
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .ai-disclaimer {
-            font-size: 0.8rem;
-            opacity: 0.75;
-            margin-top: 0.5rem;
-            font-style: italic;
-        }
-
-        @media (min-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                justify-content: center;
-                text-align: left;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .header-title h1 { font-size: 1.6rem; }
-            .hero-banner h2 { font-size: 1.2rem; }
-            section { padding: 1.2rem; }
-            table { font-size: 0.85rem; }
-        }
-    </style>
+    <!-- ================= CSS ================= -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="header-container">
-            <img src="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" alt="Logo Vạn Phú Khánh - Định Vị Khánh Hòa" class="logo-img">
+            <img src="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" alt="Logo Vạn Phú Khánh – Định vị Khánh Hòa" class="logo-img" loading="lazy" decoding="async" width="200" height="70">
             <div class="header-title">
                 <h1>GIAMSATXE.NET</h1>
                 <p>Hệ Thống Giám Sát Hành Trình & Camera Ô Tô Chuẩn Quy Định Bộ Công An</p>
@@ -312,11 +61,11 @@
 
     <div class="container">
 
-        <!-- Điểm mới dự thảo -->
+        <!-- Điểm mới -->
         <section>
             <h2>💥 Điểm Mới Quan Trọng Trong Quy Định Kỹ Thuật & Pháp Lý Mới</h2>
             <div class="highlight-box">
-                <strong>Truyền dữ liệu vi phạm Thời gian thực (Real-time):</strong> Dữ liệu hành trình GPS, tốc độ và các cảnh báo vi phạm được truyền ngay lập tức từ thiết bị &rarr; Máy chủ dịch vụ &rarr; Máy chủ Cục CSGT, giúp xử lý kịp thời hành vi mất an toàn.
+                <strong>Truyền dữ liệu vi phạm Thời gian thực (Real-time):</strong> Dữ liệu hành trình GPS, tốc độ và các cảnh báo vi phạm được truyền ngay lập tức từ thiết bị → Máy chủ dịch vụ → Máy chủ Cục CSGT, giúp xử lý kịp thời hành vi mất an toàn.
             </div>
             <div class="highlight-box">
                 <strong>Tự động Cảnh báo An toàn trên Cabin:</strong> Thiết bị đạt chuẩn có tính năng tự kiểm tra lỗi và tự động nhận diện, cảnh báo trực tiếp bằng âm thanh khi tài xế vi phạm (ngủ gật, mất tập trung, sử dụng điện thoại, chạy quá giờ/quá tốc độ).
@@ -403,13 +152,16 @@
             </div>
         </section>
 
-        <!-- Thông tin liên hệ -->
+        <!-- Liên hệ -->
         <section class="contact-box">
             <h2>📞 ĐƠN VỊ PHÂN PHỐI - BẢO HÀNH - GIA HẠN</h2>
             <div class="contact-info">
                 <p><strong>ĐƠN VỊ THỰC HIỆN:</strong> 114 VẠN PHÚ KHÁNH</p>
                 <p><strong>Website:</strong> giamsatxe.net</p>
-                <p><strong>Hotline / Zalo:</strong> <a href="tel:0585114114" class="phone-highlight">0585.114.114</a> - <a href="tel:0588588114" class="phone-highlight">0588.588.114</a></p>
+                <p><strong>Hotline / Zalo:</strong> 
+                    <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">0585.114.114</a> - 
+                    <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114">0588.588.114</a>
+                </p>
                 <p><strong>Trụ sở chính:</strong> Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p>
                 <p><strong>Trung tâm bảo hành Nha Trang:</strong> KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p>
                 <p><strong>Trung tâm bảo hành Nam Khánh Hòa:</strong> Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p>
@@ -423,30 +175,6 @@
         <p class="ai-disclaimer">⚠️ Lưu ý: Nội dung trang web đang được thử nghiệm phát triển bằng AI, có thể xảy ra sai sót. Quý khách vui lòng liên hệ hotline để xác nhận thông tin chính xác nhất.</p>
     </footer>
 
-    <!-- JS Animation Scroll Effect -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll("section");
-
-            const observerOptions = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
