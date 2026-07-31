@@ -1,36 +1,336 @@
-/* Thêm vào phần <style> */
-html { scroll-behavior: smooth; }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-/* Hiệu ứng rung nhẹ cho nút Zalo trên mobile để thu hút sự chú ý */
-@keyframes subtle-shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-3deg); }
-    75% { transform: rotate(3deg); }
-}
+    <!-- ================= Security Headers (Cơ bản cho Static Site) ================= -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://dinhvi.khanhhoa.vn https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://maps.googleapis.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
-.btn-zalo {
-    position: relative;
-    overflow: hidden;
-}
+    <!-- ================= SEO Meta ================= -->
+    <title>GIAMSATXE.NET | Vạn Phú Khánh - 0585.114.114 - Thiết Bị Giám Sát Hành Trình & Camera Ô Tô</title>
+    <meta name="description" content="Chuyên thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe chuẩn QCVN 06:2024/BCA & Camera khoang chở khách. Truyền dữ liệu vi phạm Real-time về Cục CSGT. Phân phối bởi 114 Vạn Phú Khánh.">
+    <meta name="keywords" content="giám sát hành trình, định vị ô tô, QCVN 06:2024/BCA, camera khoang chở khách, camera lái xe, định vị Khánh Hòa, Vạn Phú Khánh, giamsatxe.net, thiết bị giám sát hành trình real-time, camera hành trình Nha Trang">
+    <meta name="author" content="Vạn Phú Khánh">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://giamsatxe.net/">
+    <link rel="icon" href="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" type="image/png">
 
-.btn-zalo::after {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-}
+    <!-- ================= Performance: Preconnect & Preload ================= -->
+    <link rel="preconnect" href="https://dinhvi.khanhhoa.vn">
+    <link rel="preload" as="image" href="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" fetchpriority="high">
+    
+    <!-- ================= Schema.org: LocalBusiness ================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Vạn Phú Khánh",
+      "url": "https://giamsatxe.net/",
+      "logo": "https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png",
+      "telephone": "+84585114114",
+      "hasMap": "https://maps.app.goo.gl/nePVen1FDzinLxLk9",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khánh Hòa",
+        "addressCountry": "VN"
+      }
+    }
+    </script>
 
-@keyframes shine {
-    0% { left: -100%; }
-    20% { left: 100%; }
-    100% { left: 100%; }
-}
+    <!-- ================= Schema.org: FAQPage (Nâng cấp SEO Rich Snippets) ================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Thiết bị giám sát hành trình mới cần đạt chuẩn gì theo quy định 2024?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Theo QCVN 06:2024/BCA, thiết bị phải có khả năng truyền dữ liệu vi phạm real-time về máy chủ Cục CSGT, tích hợp camera ghi nhận hình ảnh người lái xe và cảnh báo âm thanh khi tài xế vi phạm (ngủ gật, dùng điện thoại)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vạn Phú Khánh có hỗ trợ lắp đặt tận nơi tại Nha Trang không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có. Chúng tôi có trung tâm bảo hành và lắp đặt tại KĐT Phước Long, Nam Nha Trang và các khu vực khác tại Khánh Hòa, đảm bảo xử lý sự cố trong vòng 2 giờ."
+          }
+        }
+      ]
+    }
+    </script>
 
-/* Cải thiện khả năng đọc trên thiết bị di động */
-@media (max-width: 768px) {
-    .highlight-grid, .grid-3 { gap: 1rem; }
-    .phone-group { flex-direction: column; }
-    .phone-highlight { text-align: center; width: 100%; }
-}
+    <!-- ================= Social Meta ================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://giamsatxe.net/">
+    <meta property="og:title" content="GIAMSATXE.NET | Vạn Phú Khánh - Giám Sát Hành Trình & Camera Ô Tô Chuẩn QCVN 06:2024/BCA">
+    <meta property="og:description" content="Thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe & khoang hành khách truyền dữ liệu vi phạm Real-time về Cục CSGT. Hotline: 0585.114.114.">
+    <meta property="og:image" content="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GIAMSATXE.NET | Vạn Phú Khánh">
+    <meta name="twitter:description" content="Giám sát hành trình - Ghi nhận hình ảnh người lái xe - Giám sát khoang hành khách chuẩn Bộ Công An">
+    <meta name="twitter:image" content="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png">
+
+    <style>
+        /* ===== Modern Tech CSS Variables ===== */
+        :root {
+            --bg-body: #0a0f1d;
+            --bg-surface: #121929;
+            --bg-card: #1a233a;
+            --primary-blue: #0066ff;
+            --cyan-neon: #00f2ff;
+            --accent-orange: #ff6600;
+            --google-yellow: #ffb703;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --shadow-glow: 0 0 25px rgba(0, 242, 255, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            overflow-x: hidden;
+        }
+
+        /* ===== Keyframes ===== */
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        /* ===== Sticky Header ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 0.8rem 1rem;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo-group { display: flex; align-items: center; gap: 1rem; }
+
+        .logo-img {
+            max-height: 55px;
+            width: auto;
+            background: #ffffff;
+            padding: 4px 12px;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover { transform: scale(1.05); }
+
+        .header-title h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffffff, var(--cyan-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .header-title p { font-size: 0.82rem; color: var(--text-muted); }
+
+        .header-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
+            color: #ffffff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        .header-contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero-banner {
+            position: relative;
+            padding: 3.5rem 1rem 3rem 1rem;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, var(--bg-body) 70%);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--cyan-neon);
+            border: 1px solid var(--cyan-neon);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-banner h2 {
+            font-size: 2.2rem;
+            max-width: 900px;
+            margin: 0 auto 1rem auto;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .hero-banner p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Layout Container ===== */
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
+
+        section {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        section h2 {
+            color: #ffffff;
+            border-left: 4px solid var(--cyan-neon);
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.6rem;
+        }
+
+        /* ===== Highlighting Grid ===== */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 1.2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .highlight-box:hover { transform: translateY(-4px); border-color: var(--cyan-neon); }
+        .highlight-box strong { color: var(--cyan-neon); display: block; margin-bottom: 0.4rem; font-size: 1.05rem; }
+
+        /* ===== Cards & Grid ===== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary-blue); box-shadow: var(--shadow-glow); }
+        .card h3 { color: #ffffff; margin-bottom: 1rem; font-size: 1.25rem; }
+        .card ul { list-style-type: none; }
+        .card ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.7rem; color: var(--text-muted); }
+        .card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan-neon); font-weight: bold; }
+
+        /* ===== Comparison Table ===== */
+        .table-responsive { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border-glass); }
+        table { width: 100%; border-collapse: collapse; text-align: left; background: var(--bg-card); }
+        table th, table td { padding: 1rem 1.2rem; border-bottom: 1px solid var(--border-glass); }
+        table th { background-color: #0d1527; color: var(--cyan-neon); font-size: 1rem; }
+        table tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+
+        /* ===== NEW: Lead Form & Trust Badges ===== */
+        .lead-form { display: flex; flex-direction: column; gap: 1rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 0.9rem; background: var(--bg-card);
+            border: 1px solid var(--border-glass); border-radius: 8px;
+            color: var(--text-main); font-size: 1rem; outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--cyan-neon); }
+        
+        .trust-badges h3 { color: var(--cyan-neon); margin-bottom: 1rem; font-size: 1.2rem; }
+        .badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .badge-item {
+            background: rgba(0, 242, 255, 0.05); border: 1px solid var(--border-glass);
+            padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; color: var(--text-main);
+            transition: transform 0.3s;
+        }
+        .badge-item:hover { transform: translateY(-3px); border-color: var(--cyan-neon); }
+
+        /* ===== Contact Section ===== */
+        .contact-box { background: linear-gradient(135deg, #101f3c 0%, #0a1124 100%); border: 1px solid var(--primary-blue); }
+        .contact-grid-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+        .contact-info p { margin-bottom: 0.8rem; font-size: 1.05rem; }
+        .contact-info strong { color: var(--cyan-neon); }
+        .phone-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.2rem; }
+        
+        .phone-highlight {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            animation: pulseRing 2.5s infinite;
+            transition: transform 0.2s ease;
+        }
+        .phone-highlight:hover { transform: scale(1.05); }
+
+        /* ===== Google Rating Widget ===== */
+        .google-rating-side-col { display: flex; justify-content: center; align-items: center; width: 100%; }
+        .google-rating-card {
+            background: rgba(255, 255, 255, 0.9
