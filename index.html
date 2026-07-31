@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- ================= Security Headers (Cơ bản cho Static Site) ================= -->
+    <!-- ================= Security Headers ================= -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://dinhvi.khanhhoa.vn https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://maps.googleapis.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -46,7 +46,7 @@
     }
     </script>
 
-    <!-- ================= Schema.org: FAQPage (Nâng cấp SEO Rich Snippets) ================= -->
+    <!-- ================= Schema.org: FAQPage ================= -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -92,7 +92,6 @@
             --primary-blue: #0066ff;
             --cyan-neon: #00f2ff;
             --accent-orange: #ff6600;
-            --google-yellow: #ffb703;
             --text-main: #f0f4f8;
             --text-muted: #94a3b8;
             --border-glass: rgba(255, 255, 255, 0.08);
@@ -128,7 +127,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(10, 15, 29, 0.85);
+            background: rgba(10, 15, 29, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-glass);
             padding: 0.8rem 1rem;
@@ -172,7 +171,7 @@
             gap: 0.5rem;
             background: linear-gradient(135deg, var(--accent-orange), #ff3300);
             color: #ffffff;
-            padding: 0.5rem 1.2rem;
+            padding: 0.6rem 1.4rem;
             border-radius: 30px;
             font-weight: bold;
             text-decoration: none;
@@ -187,7 +186,7 @@
         /* ===== Hero Section ===== */
         .hero-banner {
             position: relative;
-            padding: 3.5rem 1rem 3rem 1rem;
+            padding: 4rem 1rem 3.5rem 1rem;
             text-align: center;
             background: radial-gradient(circle at center, #1e293b 0%, var(--bg-body) 70%);
             border-bottom: 1px solid var(--border-glass);
@@ -198,16 +197,17 @@
             background: rgba(0, 242, 255, 0.1);
             color: var(--cyan-neon);
             border: 1px solid var(--cyan-neon);
-            padding: 0.3rem 1rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .hero-banner h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             max-width: 900px;
             margin: 0 auto 1rem auto;
             color: #ffffff;
@@ -216,9 +216,52 @@
 
         .hero-banner p {
             max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
+            margin: 0 auto 2rem auto;
+            font-size: 1.15rem;
             color: var(--text-muted);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn-call {
+            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+        }
+        .hero-btn-call:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 102, 0, 0.5); }
+
+        .hero-btn-zalo {
+            background: linear-gradient(135deg, #0068ff, #0041a3);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 104, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-btn-zalo:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 104, 255, 0.4); }
+        .hero-btn-zalo::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
         }
 
         /* ===== Layout Container ===== */
@@ -256,12 +299,12 @@
         .highlight-box {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            padding: 1.2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
         .highlight-box:hover { transform: translateY(-4px); border-color: var(--cyan-neon); }
-        .highlight-box strong { color: var(--cyan-neon); display: block; margin-bottom: 0.4rem; font-size: 1.05rem; }
+        .highlight-box strong { color: var(--cyan-neon); display: block; margin-bottom: 0.5rem; font-size: 1.05rem; }
 
         /* ===== Cards & Grid ===== */
         .grid-3 {
@@ -290,47 +333,389 @@
         table th { background-color: #0d1527; color: var(--cyan-neon); font-size: 1rem; }
         table tr:hover { background-color: rgba(255, 255, 255, 0.02); }
 
-        /* ===== NEW: Lead Form & Trust Badges ===== */
-        .lead-form { display: flex; flex-direction: column; gap: 1rem; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 0.9rem; background: var(--bg-card);
-            border: 1px solid var(--border-glass); border-radius: 8px;
-            color: var(--text-main); font-size: 1rem; outline: none;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus, .form-group select:focus { border-color: var(--cyan-neon); }
-        
-        .trust-badges h3 { color: var(--cyan-neon); margin-bottom: 1rem; font-size: 1.2rem; }
-        .badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .badge-item {
-            background: rgba(0, 242, 255, 0.05); border: 1px solid var(--border-glass);
-            padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; color: var(--text-main);
-            transition: transform 0.3s;
-        }
-        .badge-item:hover { transform: translateY(-3px); border-color: var(--cyan-neon); }
-
         /* ===== Contact Section ===== */
-        .contact-box { background: linear-gradient(135deg, #101f3c 0%, #0a1124 100%); border: 1px solid var(--primary-blue); }
-        .contact-grid-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-        .contact-info p { margin-bottom: 0.8rem; font-size: 1.05rem; }
+        .contact-box { 
+            background: linear-gradient(135deg, #101f3c 0%, #0a1124 100%); 
+            border: 1px solid var(--primary-blue); 
+            text-align: center;
+        }
+        .contact-box h2 { border-left: none; padding-left: 0; text-align: center; }
+        
+        .contact-info { max-width: 800px; margin: 0 auto; }
+        .contact-info p { margin-bottom: 0.8rem; font-size: 1.1rem; }
         .contact-info strong { color: var(--cyan-neon); }
-        .phone-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.2rem; }
+        
+        .phone-group { 
+            display: flex; 
+            justify-content: center;
+            flex-wrap: wrap; 
+            gap: 1.5rem; 
+            margin-top: 2rem; 
+        }
         
         .phone-highlight {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: #ffffff;
             background: linear-gradient(135deg, var(--accent-orange), #ff3300);
-            padding: 0.5rem 1.2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             animation: pulseRing 2.5s infinite;
             transition: transform 0.2s ease;
         }
         .phone-highlight:hover { transform: scale(1.05); }
 
+        .zalo-highlight {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0068ff, #0041a3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .zalo-highlight:hover { transform: scale(1.05); }
+        .zalo-highlight::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
         /* ===== Google Rating Widget ===== */
-        .google-rating-side-col { display: flex; justify-content: center; align-items: center; width: 100%; }
+        .google-rating-side-col { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 2.5rem; }
         .google-rating-card {
-            background: rgba(255, 255, 255, 0.9
+            background: rgba(255, 255, 255, 0.98);
+            color: #1f2937;
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 380px;
+        }
+        .google-rating-card:hover { transform: translateY(-5px); box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5); }
+        .google-g-logo { width: 52px; height: 52px; flex-shrink: 0; }
+        .rating-card-content { display: flex; flex-direction: column; align-items: flex-start; }
+        .rating-card-title { font-size: 1.15rem; font-weight: 700; color: #111827; line-height: 1.2; margin-bottom: 0.3rem; }
+        .rating-score-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem; }
+        .rating-number { font-size: 1.9rem; font-weight: 800; color: #f59e0b; line-height: 1; }
+        .rating-stars-svg { display: flex; align-items: center; gap: 2px; }
+        .star-icon { width: 22px; height: 22px; fill: #fbc02d; }
+        .rating-card-link { font-size: 0.88rem; color: #4b5563; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; }
+        .rating-card-link span { text-decoration: underline; }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #060913;
+            border-top: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .ai-disclaimer { font-size: 0.8rem; opacity: 0.7; margin-top: 0.6rem; font-style: italic; color: #f59e0b; }
+
+        /* ===== Floating Call-to-Action Bar (Mobile) ===== */
+        .floating-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(10, 15, 29, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border-glass);
+            justify-content: space-around;
+            gap: 0.5rem;
+        }
+        .floating-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.9rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .btn-call { background: linear-gradient(135deg, var(--accent-orange), #ff3300); }
+        .btn-zalo { 
+            background: linear-gradient(135deg, #0068ff, #0041a3); 
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-zalo::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        /* ===== Responsive Media Queries ===== */
+        @media (max-width: 768px) {
+            header { padding: 0.8rem; }
+            .header-title h1 { font-size: 1.2rem; }
+            .header-contact-btn { display: none; }
+            .hero-banner { padding: 3rem 1rem 2.5rem 1rem; }
+            .hero-banner h2 { font-size: 1.6rem; }
+            .hero-banner p { font-size: 1rem; }
+            section { padding: 1.5rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .floating-cta { display: flex; }
+            body { padding-bottom: 75px; }
+            .google-rating-card { padding: 1.2rem; gap: 1rem; }
+            .google-g-logo { width: 42px; height: 42px; }
+            .rating-number { font-size: 1.6rem; }
+            .star-icon { width: 19px; height: 19px; }
+            .phone-group { flex-direction: column; align-items: center; }
+            .phone-highlight, .zalo-highlight { width: 100%; justify-content: center; max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="brand-logo-group">
+                <picture>
+                    <source srcset="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.webp" type="image/webp">
+                    <img src="https://dinhvi.khanhhoa.vn/Images/DinhViKhanhHoa/logo.png" alt="Logo Vạn Phú Khánh – Định vị Khánh Hòa" class="logo-img" loading="eager" fetchpriority="high" decoding="async" width="200" height="70">
+                </picture>
+                <div class="header-title">
+                    <h1>GIAMSATXE.NET</h1>
+                    <p>Chuẩn Quy Định Bộ Công An QCVN 06:2024/BCA</p>
+                </div>
+            </div>
+            <a href="tel:0585114114" class="header-contact-btn">
+                <span>📞 0585.114.114</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <span class="hero-badge">Luật Trật Tự, An Toàn Giao Thông Đường Bộ</span>
+        <h2>GIẢI PHÁP GIÁM SÁT HÀNH TRÌNH & CAMERA Ô TÔ REAL-TIME</h2>
+        <p>Cung cấp thiết bị Định vị GPS, Camera ghi nhận hình ảnh người lái xe và Camera khoang chở khách. Tự động truyền dữ liệu vi phạm về máy chủ Cục CSGT theo thời gian thực.</p>
+        
+        <!-- Nút CTA nổi bật ngay ở Hero -->
+        <div class="hero-cta-group">
+            <a href="tel:0585114114" class="hero-btn hero-btn-call">📞 Gọi Ngay: 0585.114.114</a>
+            <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="hero-btn hero-btn-zalo">💬 Chat Zalo Tư Vấn</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Điểm mới pháp lý -->
+        <section>
+            <h2>💥 Điểm Mới Quan Trọng Trong Quy Định Kỹ Thuật & Pháp Lý</h2>
+            <div class="highlight-grid">
+                <div class="highlight-box">
+                    <strong>Truyền dữ liệu Real-time</strong>
+                    Dữ liệu GPS và cảnh báo vi phạm được truyền ngay lập tức từ thiết bị về máy chủ CSGT để xử lý sự cố tức thì.
+                </div>
+                <div class="highlight-box">
+                    <strong>Tự động Cảnh báo Cabin</strong>
+                    Cảnh báo âm thanh trực tiếp khi tài xế ngủ gật, mất tập trung, dùng điện thoại hoặc chạy quá tốc độ quy định.
+                </div>
+                <div class="highlight-box">
+                    <strong>Ghi hình & Lưu trữ An toàn</strong>
+                    Camera hồng ngoại ban đêm ghi video liên tục, lưu trữ tại xe từ 72 giờ và hỗ trợ trích xuất theo luật bảo mật cá nhân.
+                </div>
+                <div class="highlight-box">
+                    <strong>Lộ trình Áp dụng Rõ ràng</strong>
+                    Bắt buộc trang bị đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên và các dòng xe tải thuộc diện quy định.
+                </div>
+            </div>
+        </section>
+
+        <!-- Sản phẩm phân phối -->
+        <section>
+            <h2>🚛 Sản Phẩm Phân Phối Tại GIAMSATXE.NET</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>📡 1. Thiết Bị Giám Sát Hành Trình (GPS)</h3>
+                    <ul>
+                        <li>Định vị vị trí, tốc độ, lộ trình di chuyển chính xác theo thời gian thực.</li>
+                        <li>Đạt chuẩn hợp quy <strong>QCVN 06:2024/BCA</strong> của Bộ Công an.</li>
+                        <li>Cảnh báo quá tốc độ, vi phạm thời gian lái xe liên tục.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📷 2. Camera Ghi Nhận Hình Ảnh Lái Xe</h3>
+                    <ul>
+                        <li>Ghi nhận hình ảnh tài xế trong cabin theo chuẩn QCVN 06:2024/BCA.</li>
+                        <li>Cảm biến thông minh nhận diện hành vi nguy hiểm (ngủ gật, điện thoại).</li>
+                        <li>Cảnh báo âm thanh tức thì trên cabin giúp phòng ngừa tai nạn từ sớm.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🚌 3. Camera Khoang Chở Khách</h3>
+                    <ul>
+                        <li>Dành cho xe từ 8 chỗ trở lên, xe khách, xe buýt, xe hợp đồng.</li>
+                        <li>Ghi hình toàn cảnh khoang hành khách, hỗ trợ an ninh và giải quyết tranh chấp.</li>
+                        <li>Tuân thủ nghiêm ngặt quy định bảo vệ dữ liệu cá nhân.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bảng so sánh -->
+        <section>
+            <h2>🌟 So Sánh Giải Pháp Cũ & Mới</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tiêu Chí</th>
+                            <th>Thiết Bị Cũ / Chụp Định Kỳ</th>
+                            <th>Giải Pháp Mới Tại GIAMSATXE.NET</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Truyền dữ liệu vi phạm</strong></td>
+                            <td>Chụp ảnh định kỳ (dễ trễ, thiếu nét)</td>
+                            <td><strong>Truyền dữ liệu vi phạm Real-time về Cục CSGT</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cảnh báo vi phạm</strong></td>
+                            <td>Không có hoặc phát hiện chậm</td>
+                            <td><strong>Tự động cảnh báo tức thì cho tài xế trên cabin</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hạ tầng Máy chủ</strong></td>
+                            <td>Hay nghẽn mạng, tốn bộ nhớ</td>
+                            <td><strong>Cloud tốc độ cao, tối ưu băng thông & lưu trữ</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tiêu chuẩn kỹ thuật</strong></td>
+                            <td>Theo quy chuẩn cũ (Bộ GTVT)</td>
+                            <td><strong>Đạt chuẩn QCVN 06:2024/BCA (Bộ Công an)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hỗ trợ kỹ thuật</strong></td>
+                            <td>Gia hạn / Bảo hành chậm</td>
+                            <td><strong>Bảo hành tận nơi tại Khánh Hòa & lân cận</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Thông tin liên hệ (Tập trung tối đa vào Gọi & Zalo) -->
+        <section class="contact-box" id="lien-he">
+            <h2>📞 LIÊN HỆ TƯ VẤN & LẮP ĐẶT NGAY HÔM NAY</h2>
+            <div class="contact-info">
+                <p><strong>ĐƠN VỊ THỰC HIỆN:</strong> 114 VẠN PHÚ KHÁNH</p>
+                <p><strong>Website:</strong> giamsatxe.net</p>
+                <p><strong>Trụ sở chính:</strong> Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p>
+                <p><strong>Trung tâm bảo hành Nha Trang:</strong> KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p>
+                <p><strong>Trung tâm bảo hành Nam Khánh Hòa:</strong> Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p>
+                
+                <div class="phone-group">
+                    <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">
+                        📞 0585.114.114
+                    </a>
+                    <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114" style="animation-delay: 0.5s;">
+                        📞 0588.588.114
+                    </a>
+                    <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="zalo-highlight" aria-label="Chat Zalo với Vạn Phú Khánh">
+                        💬 Chat Zalo Tư Vấn
+                    </a>
+                </div>
+
+                <!-- Google Rating Card Widget -->
+                <div class="google-rating-side-col">
+                    <a href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener" class="google-rating-card" title="Xem vị trí và đánh giá Vạn Phú Khánh trên Google Maps">
+                        <svg class="google-g-logo" viewBox="0 0 24 24">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                        </svg>
+                        <div class="rating-card-content">
+                            <div class="rating-card-title">Google Rating</div>
+                            <div class="rating-score-row">
+                                <span class="rating-number">4.9</span>
+                                <div class="rating-stars-svg">
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                    <svg class="star-icon" viewBox="0 0 24 24" style="clip-path: inset(0 10% 0 0);"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                </div>
+                            </div>
+                            <div class="rating-card-link"><span>See all our reviews</span> ➔</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 GIAMSATXE.NET - Phân phối & Bảo hành bởi 114 Vạn Phú Khánh. All Rights Reserved.</p>
+        <p class="ai-disclaimer">⚠️ Lưu ý: Nội dung trang web đang được thử nghiệm phát triển bằng AI, có thể xảy ra sai sót. Quý khách vui lòng liên hệ hotline để xác nhận thông tin chính xác nhất.</p>
+    </footer>
+
+    <!-- Floating Call-to-Action Bar for Mobile (Luôn hiển thị để thúc đẩy Gọi/Zalo) -->
+    <div class="floating-cta">
+        <a href="tel:0585114114" class="floating-btn btn-call">📞 Gọi 0585.114.114</a>
+        <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="floating-btn btn-zalo">💬 Chat Zalo</a>
+    </div>
+
+    <!-- JavaScript Scroll Animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.12
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
