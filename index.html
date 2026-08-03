@@ -109,6 +109,79 @@
             color: var(--text-main);
             background-color: var(--bg-body);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===== GLOWING FLOWER ANIMATION BACKGROUND ===== */
+        .flower-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.35;
+        }
+
+        .glowing-flower {
+            position: absolute;
+            transform-origin: center center;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.6));
+            animation: flowerSpin 25s linear infinite, flowerGlow 6s ease-in-out infinite alternate;
+        }
+
+        .flower-1 {
+            top: -5%;
+            left: -5%;
+            width: 450px;
+            height: 450px;
+            animation-duration: 40s, 7s;
+        }
+
+        .flower-2 {
+            top: 45%;
+            right: -8%;
+            width: 500px;
+            height: 500px;
+            animation-duration: 50s, 9s;
+            animation-direction: reverse, alternate;
+        }
+
+        .flower-3 {
+            bottom: -10%;
+            left: 20%;
+            width: 380px;
+            height: 380px;
+            animation-duration: 35s, 6s;
+        }
+
+        @keyframes flowerSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.08); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes flowerGlow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3)) drop-shadow(0 0 25px rgba(0, 102, 255, 0.2));
+                opacity: 0.5;
+            }
+            50% {
+                filter: drop-shadow(0 0 25px rgba(0, 242, 255, 0.8)) drop-shadow(0 0 45px rgba(157, 0, 255, 0.5));
+                opacity: 0.85;
+            }
+            100% {
+                filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4)) drop-shadow(0 0 30px rgba(0, 102, 255, 0.3));
+                opacity: 0.6;
+            }
+        }
+
+        /* Đảm bảo nội dung trang nằm phía trên hiệu ứng nền */
+        header, .hero-banner, .container, footer, .floating-cta {
+            position: relative;
+            z-index: 1;
         }
 
         /* ===== Keyframes ===== */
@@ -190,7 +263,7 @@
             position: relative;
             padding: 4rem 1rem 3.5rem 1rem;
             text-align: center;
-            background: radial-gradient(circle at center, #1e293b 0%, var(--bg-body) 70%);
+            background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(10, 15, 29, 0.9) 70%);
             border-bottom: 1px solid var(--border-glass);
         }
 
@@ -270,7 +343,8 @@
         .container { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
 
         section {
-            background: var(--bg-surface);
+            background: rgba(18, 25, 41, 0.85);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-glass);
             border-radius: 12px;
             padding: 2.5rem;
@@ -337,7 +411,7 @@
 
         /* ===== Contact Section ===== */
         .contact-box { 
-            background: linear-gradient(135deg, #101f3c 0%, #0a1124 100%); 
+            background: linear-gradient(135deg, rgba(16, 31, 60, 0.9) 0%, rgba(10, 17, 36, 0.95) 100%); 
             border: 1px solid var(--primary-blue); 
             text-align: center;
         }
@@ -492,10 +566,86 @@
             .star-icon { width: 19px; height: 19px; }
             .phone-group { flex-direction: column; align-items: center; }
             .phone-highlight, .zalo-highlight { width: 100%; justify-content: center; max-width: 320px; }
+            .flower-1 { width: 280px; height: 280px; }
+            .flower-2 { width: 320px; height: 320px; }
+            .flower-3 { width: 250px; height: 250px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Glowing Flower Background Elements -->
+    <div class="flower-bg-container" aria-hidden="true">
+        <!-- Glowing Flower 1 -->
+        <svg class="glowing-flower flower-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="petalGrad1" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00f2ff" stop-opacity="0.8"/>
+                    <stop offset="60%" stop-color="#0066ff" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#8a2be2" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <g fill="url(#petalGrad1)">
+                <ellipse cx="100" cy="50" rx="22" ry="45" />
+                <ellipse cx="100" cy="150" rx="22" ry="45" />
+                <ellipse cx="50" cy="100" rx="45" ry="22" />
+                <ellipse cx="150" cy="100" rx="45" ry="22" />
+                <ellipse cx="100" cy="50" rx="22" ry="45" transform="rotate(45 100 100)" />
+                <ellipse cx="100" cy="150" rx="22" ry="45" transform="rotate(45 100 100)" />
+                <ellipse cx="50" cy="100" rx="45" ry="22" transform="rotate(45 100 100)" />
+                <ellipse cx="150" cy="100" rx="45" ry="22" transform="rotate(45 100 100)" />
+            </g>
+            <circle cx="100" cy="100" r="18" fill="#00f2ff" opacity="0.9" />
+        </svg>
+
+        <!-- Glowing Flower 2 -->
+        <svg class="glowing-flower flower-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="petalGrad2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8"/>
+                    <stop offset="70%" stop-color="#00f2ff" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#0066ff" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <g fill="url(#petalGrad2)">
+                <ellipse cx="100" cy="40" rx="18" ry="50" />
+                <ellipse cx="100" cy="160" rx="18" ry="50" />
+                <ellipse cx="40" cy="100" rx="50" ry="18" />
+                <ellipse cx="160" cy="100" rx="50" ry="18" />
+                <ellipse cx="100" cy="40" rx="18" ry="50" transform="rotate(30 100 100)" />
+                <ellipse cx="100" cy="160" rx="18" ry="50" transform="rotate(30 100 100)" />
+                <ellipse cx="40" cy="100" rx="50" ry="18" transform="rotate(30 100 100)" />
+                <ellipse cx="160" cy="100" rx="50" ry="18" transform="rotate(30 100 100)" />
+                <ellipse cx="100" cy="40" rx="18" ry="50" transform="rotate(60 100 100)" />
+                <ellipse cx="100" cy="160" rx="18" ry="50" transform="rotate(60 100 100)" />
+                <ellipse cx="40" cy="100" rx="50" ry="18" transform="rotate(60 100 100)" />
+                <ellipse cx="160" cy="100" rx="50" ry="18" transform="rotate(60 100 100)" />
+            </g>
+            <circle cx="100" cy="100" r="16" fill="#ffffff" opacity="0.85" />
+        </svg>
+
+        <!-- Glowing Flower 3 -->
+        <svg class="glowing-flower flower-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="petalGrad3" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#00f2ff" stop-opacity="0.9"/>
+                    <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#0a0f1d" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <g fill="url(#petalGrad3)">
+                <ellipse cx="100" cy="45" rx="20" ry="48" />
+                <ellipse cx="100" cy="155" rx="20" ry="48" />
+                <ellipse cx="45" cy="100" rx="48" ry="20" />
+                <ellipse cx="155" cy="100" rx="48" ry="20" />
+                <ellipse cx="100" cy="45" rx="20" ry="48" transform="rotate(45 100 100)" />
+                <ellipse cx="100" cy="155" rx="20" ry="48" transform="rotate(45 100 100)" />
+                <ellipse cx="45" cy="100" rx="48" ry="20" transform="rotate(45 100 100)" />
+                <ellipse cx="155" cy="100" rx="48" ry="20" transform="rotate(45 100 100)" />
+            </g>
+            <circle cx="100" cy="100" r="14" fill="#00f2ff" opacity="0.95" />
+        </svg>
+    </div>
 
     <!-- Sticky Navigation -->
     <header>
@@ -517,7 +667,6 @@
     <div class="hero-banner">
         <span class="hero-badge">Luật Trật Tự, An Toàn Giao Thông Đường Bộ</span>
         <h2>GIẢI PHÁP GIÁM SÁT HÀNH TRÌNH & CAMERA Ô TÔ REAL-TIME</h2>
-        <!-- ĐÃ CẬP NHẬT: Thay "dữ liệu vi phạm" thành "dữ liệu hành trình xe" -->
         <p>Cung cấp thiết bị Định vị GPS, Camera ghi nhận hình ảnh người lái xe và Camera khoang chở khách. Tự động truyền dữ liệu hành trình xe về máy chủ Cục CSGT theo thời gian thực.</p>
         
         <div class="hero-cta-group">
