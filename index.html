@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- ================= Security Headers ================= -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://maps.googleapis.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://maps.googleapis.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
@@ -24,6 +24,7 @@
     <!-- ================= Performance: Preconnect & Preload ================= -->
     <link rel="preconnect" href="https://raw.githubusercontent.com">
     <link rel="preload" as="image" href="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png" fetchpriority="high">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png" fetchpriority="high">
     
     <!-- ================= Schema.org: LocalBusiness ================= -->
     <script type="application/ld+json">
@@ -112,8 +113,8 @@
             position: relative;
         }
 
-        /* ===== GLOWING FLOWER ANIMATION BACKGROUND ===== */
-        .flower-bg-container {
+        /* ===== TRỐNG ĐỒNG ANIMATED BACKGROUND ===== */
+        .trong-dong-bg-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -122,59 +123,52 @@
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
-            opacity: 0.35;
+            opacity: 0.25;
         }
 
-        .glowing-flower {
+        .trong-dong-img {
             position: absolute;
             transform-origin: center center;
-            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.6));
-            animation: flowerSpin 25s linear infinite, flowerGlow 6s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.6));
+            animation: trongDongSpin 60s linear infinite, trongDongGlow 8s ease-in-out infinite alternate;
         }
 
-        .flower-1 {
-            top: -5%;
-            left: -5%;
-            width: 450px;
-            height: 450px;
-            animation-duration: 40s, 7s;
+        /* Trống đồng góc trên bên trái */
+        .td-1 {
+            top: -15vh;
+            left: -15vw;
+            width: 70vw;
+            max-width: 750px;
+            animation-duration: 75s, 8s;
         }
 
-        .flower-2 {
-            top: 45%;
-            right: -8%;
-            width: 500px;
-            height: 500px;
-            animation-duration: 50s, 9s;
+        /* Trống đồng góc dưới bên phải */
+        .td-2 {
+            bottom: -20vh;
+            right: -15vw;
+            width: 80vw;
+            max-width: 850px;
+            animation-duration: 90s, 10s;
             animation-direction: reverse, alternate;
         }
 
-        .flower-3 {
-            bottom: -10%;
-            left: 20%;
-            width: 380px;
-            height: 380px;
-            animation-duration: 35s, 6s;
+        @keyframes trongDongSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        @keyframes flowerSpin {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.08); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        @keyframes flowerGlow {
+        @keyframes trongDongGlow {
             0% {
-                filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3)) drop-shadow(0 0 25px rgba(0, 102, 255, 0.2));
-                opacity: 0.5;
+                filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4)) drop-shadow(0 0 35px rgba(0, 102, 255, 0.2));
+                opacity: 0.6;
             }
             50% {
-                filter: drop-shadow(0 0 25px rgba(0, 242, 255, 0.8)) drop-shadow(0 0 45px rgba(157, 0, 255, 0.5));
-                opacity: 0.85;
+                filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.85)) drop-shadow(0 0 50px rgba(0, 102, 255, 0.5));
+                opacity: 0.9;
             }
             100% {
-                filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4)) drop-shadow(0 0 30px rgba(0, 102, 255, 0.3));
-                opacity: 0.6;
+                filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 102, 255, 0.3));
+                opacity: 0.7;
             }
         }
 
@@ -566,85 +560,17 @@
             .star-icon { width: 19px; height: 19px; }
             .phone-group { flex-direction: column; align-items: center; }
             .phone-highlight, .zalo-highlight { width: 100%; justify-content: center; max-width: 320px; }
-            .flower-1 { width: 280px; height: 280px; }
-            .flower-2 { width: 320px; height: 320px; }
-            .flower-3 { width: 250px; height: 250px; }
+            .td-1 { width: 100vw; top: -10vh; left: -25vw; }
+            .td-2 { width: 110vw; bottom: -15vh; right: -25vw; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Glowing Flower Background Elements -->
-    <div class="flower-bg-container" aria-hidden="true">
-        <!-- Glowing Flower 1 -->
-        <svg class="glowing-flower flower-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <radialGradient id="petalGrad1" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#00f2ff" stop-opacity="0.8"/>
-                    <stop offset="60%" stop-color="#0066ff" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#8a2be2" stop-opacity="0"/>
-                </radialGradient>
-            </defs>
-            <g fill="url(#petalGrad1)">
-                <ellipse cx="100" cy="50" rx="22" ry="45" />
-                <ellipse cx="100" cy="150" rx="22" ry="45" />
-                <ellipse cx="50" cy="100" rx="45" ry="22" />
-                <ellipse cx="150" cy="100" rx="45" ry="22" />
-                <ellipse cx="100" cy="50" rx="22" ry="45" transform="rotate(45 100 100)" />
-                <ellipse cx="100" cy="150" rx="22" ry="45" transform="rotate(45 100 100)" />
-                <ellipse cx="50" cy="100" rx="45" ry="22" transform="rotate(45 100 100)" />
-                <ellipse cx="150" cy="100" rx="45" ry="22" transform="rotate(45 100 100)" />
-            </g>
-            <circle cx="100" cy="100" r="18" fill="#00f2ff" opacity="0.9" />
-        </svg>
-
-        <!-- Glowing Flower 2 -->
-        <svg class="glowing-flower flower-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <radialGradient id="petalGrad2" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8"/>
-                    <stop offset="70%" stop-color="#00f2ff" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#0066ff" stop-opacity="0"/>
-                </radialGradient>
-            </defs>
-            <g fill="url(#petalGrad2)">
-                <ellipse cx="100" cy="40" rx="18" ry="50" />
-                <ellipse cx="100" cy="160" rx="18" ry="50" />
-                <ellipse cx="40" cy="100" rx="50" ry="18" />
-                <ellipse cx="160" cy="100" rx="50" ry="18" />
-                <ellipse cx="100" cy="40" rx="18" ry="50" transform="rotate(30 100 100)" />
-                <ellipse cx="100" cy="160" rx="18" ry="50" transform="rotate(30 100 100)" />
-                <ellipse cx="40" cy="100" rx="50" ry="18" transform="rotate(30 100 100)" />
-                <ellipse cx="160" cy="100" rx="50" ry="18" transform="rotate(30 100 100)" />
-                <ellipse cx="100" cy="40" rx="18" ry="50" transform="rotate(60 100 100)" />
-                <ellipse cx="100" cy="160" rx="18" ry="50" transform="rotate(60 100 100)" />
-                <ellipse cx="40" cy="100" rx="50" ry="18" transform="rotate(60 100 100)" />
-                <ellipse cx="160" cy="100" rx="50" ry="18" transform="rotate(60 100 100)" />
-            </g>
-            <circle cx="100" cy="100" r="16" fill="#ffffff" opacity="0.85" />
-        </svg>
-
-        <!-- Glowing Flower 3 -->
-        <svg class="glowing-flower flower-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <radialGradient id="petalGrad3" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#00f2ff" stop-opacity="0.9"/>
-                    <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.5"/>
-                    <stop offset="100%" stop-color="#0a0f1d" stop-opacity="0"/>
-                </radialGradient>
-            </defs>
-            <g fill="url(#petalGrad3)">
-                <ellipse cx="100" cy="45" rx="20" ry="48" />
-                <ellipse cx="100" cy="155" rx="20" ry="48" />
-                <ellipse cx="45" cy="100" rx="48" ry="20" />
-                <ellipse cx="155" cy="100" rx="48" ry="20" />
-                <ellipse cx="100" cy="45" rx="20" ry="48" transform="rotate(45 100 100)" />
-                <ellipse cx="100" cy="155" rx="20" ry="48" transform="rotate(45 100 100)" />
-                <ellipse cx="45" cy="100" rx="48" ry="20" transform="rotate(45 100 100)" />
-                <ellipse cx="155" cy="100" rx="48" ry="20" transform="rotate(45 100 100)" />
-            </g>
-            <circle cx="100" cy="100" r="14" fill="#00f2ff" opacity="0.95" />
-        </svg>
+    <!-- Animated Trong Dong Background Container -->
+    <div class="trong-dong-bg-container" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png" alt="Họa tiết trống đồng Vạn Phú Khánh" class="trong-dong-img td-1" loading="eager" decoding="async">
+        <img src="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png" alt="Họa tiết trống đồng Vạn Phú Khánh" class="trong-dong-img td-2" loading="lazy" decoding="async">
     </div>
 
     <!-- Sticky Navigation -->
