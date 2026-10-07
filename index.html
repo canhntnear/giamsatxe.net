@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- ================= Security Headers ================= -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://maps.googleapis.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://maps.googleapis.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
@@ -19,12 +19,11 @@
     <link rel="canonical" href="https://giamsatxe.net/">
     
     <!-- Favicon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png" type="image/png">
+    <link rel="icon" href="logoVPK.png" type="image/png">
 
     <!-- ================= Performance: Preconnect & Preload ================= -->
     <link rel="preconnect" href="https://raw.githubusercontent.com">
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png" fetchpriority="high">
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png" fetchpriority="high">
+    <link rel="preload" as="image" href="logoVPK.png" fetchpriority="high">
     
     <!-- ================= Schema.org: LocalBusiness ================= -->
     <script type="application/ld+json">
@@ -86,744 +85,634 @@
     <meta name="twitter:description" content="Giám sát hành trình - Ghi nhận hình ảnh người lái xe - Giám sát khoang hành khách chuẩn Bộ Công An">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png">
 
-    <style>
-        /* ===== Modern Tech CSS Variables ===== */
-        :root {
-            --bg-body: #0a0f1d;
-            --bg-surface: #121929;
-            --bg-card: #1a233a;
-            --primary-blue: #0066ff;
-            --cyan-neon: #00f2ff;
-            --accent-orange: #ff6600;
-            --text-main: #f0f4f8;
-            --text-muted: #94a3b8;
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --shadow-glow: 0 0 25px rgba(0, 242, 255, 0.15);
-        }
+    <!-- ================= Fonts & Styles ================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-2:#0f2a5a; --navy-3:#163773; --navy-ink:#06142e;
+  --amber:#ffb400; --amber-2:#e9a300;
+  --ink:#0d1726; --ink-2:#3a4657; --muted:#6b7686; --line:#d9dee6; --line-2:#e9edf2;
+  --bg:#fff; --bg-2:#f3f5f8;
+  --green:#15803d; --red:#c62828;
+  --r:8px; --wrap:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:square;stroke-linejoin:miter}
+section[id]{scroll-margin-top:72px}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:.4px;text-transform:uppercase;padding:15px 24px;border-radius:var(--r);border:2px solid transparent;transition:.15s;white-space:nowrap}
+.btn .ico{width:18px;height:18px}
+.btn-amber{background:var(--amber);color:var(--navy-ink)}
+.btn-amber:hover{background:var(--amber-2)}
+.btn-line{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-3)}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-body);
-            overflow-x: hidden;
-            position: relative;
-        }
+/* Label */
+.label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy-3)}
+.label::before{content:"";width:28px;height:3px;background:var(--amber)}
+.dark .label{color:var(--amber)}
 
-        /* ===== TRỐNG ĐỒNG ANIMATED BACKGROUND ===== */
-        .trong-dong-bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-            opacity: 0.22;
-        }
+/* Topbar */
+.topbar{background:var(--navy-ink);color:#8d9bb5;font-size:12.5px}
+.topbar .wrap{display:flex;justify-content:space-between;height:36px;align-items:center}
+.topbar .l{display:flex;gap:28px}
+.topbar span{display:inline-flex;align-items:center;gap:7px}
+.topbar .ico{width:14px;height:14px;color:var(--amber)}
+.topbar b{color:#fff;font-weight:600}
 
-        .trong-dong-img {
-            position: absolute;
-            transform-origin: center center;
-            filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.6));
-            animation: trongDongSpin 60s linear infinite, trongDongGlow 8s ease-in-out infinite alternate;
-        }
+/* Header */
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:stretch;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{height:52px;width:auto;display:block}
+.brand-txt{padding-left:12px;border-left:1px solid var(--line)}
+.logo-tile{width:42px;height:42px;background:#fff;display:grid;place-items:center;padding:4px;border-radius:10px}
+.logo-tile img{width:100%;height:100%;object-fit:contain}
+.brand-name{font-weight:900;font-size:19px;letter-spacing:.3px;line-height:1.05;color:var(--navy)}
+.brand-name em{font-style:normal;color:var(--amber-2)}
+.brand-sub{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+nav{display:flex;align-items:stretch}
+nav a{display:flex;align-items:center;padding:0 18px;font-size:14px;font-weight:600;color:var(--ink-2);border-bottom:3px solid transparent;margin-bottom:-1px}
+nav a:hover{color:var(--navy);border-bottom-color:var(--amber)}
+.h-cta{display:flex;align-items:center;gap:20px}
+.h-phone{display:flex;align-items:center;gap:12px;padding-left:20px;border-left:1px solid var(--line)}
+.h-phone .ic{width:40px;height:40px;background:var(--amber);display:grid;place-items:center;color:var(--navy-ink)}
+.h-phone small{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;line-height:1.2}
+.h-phone b{font-size:18px;color:var(--navy);letter-spacing:.3px;line-height:1.2}
+.burger{display:none;width:44px;height:44px;align-self:center;border:1px solid var(--line);background:#fff;place-items:center;cursor:pointer}
+.burger .ico{width:22px;height:22px}
 
-        .td-1 {
-            top: -15vh;
-            left: -15vw;
-            width: 70vw;
-            max-width: 750px;
-            animation-duration: 75s, 8s;
-        }
+/* Drawer (mobile) */
+.drawer{position:fixed;inset:0;z-index:80;background:var(--navy);color:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s}
+.drawer.open{transform:none}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.drawer-top .brand-name{color:#fff}
+.drawer-top .d-brand{display:flex;align-items:center;gap:10px}
+.drawer-top button{width:44px;height:44px;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;cursor:pointer}
+.drawer ol{list-style:none;counter-reset:m}
+.drawer li a{display:flex;align-items:center;justify-content:space-between;padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:18px;font-weight:700}
+.drawer li a::before{counter-increment:m;content:"0" counter(m);font-size:12px;color:var(--amber);margin-right:16px;letter-spacing:1px}
+.drawer li a span{flex:1}
+.drawer li .ico{color:#7d8fb0}
+.drawer-bottom{margin-top:auto;padding:16px;display:grid;gap:10px}
+.drawer-bottom p{font-size:12.5px;color:#8d9bb5;margin-bottom:6px}
 
-        .td-2 {
-            bottom: -20vh;
-            right: -15vw;
-            width: 80vw;
-            max-width: 850px;
-            animation-duration: 90s, 10s;
-            animation-direction: reverse, alternate;
-        }
+/* Hero */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/80px 80px,
+  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/80px 80px;}
+.hero::after{content:"";position:absolute;right:0;top:0;bottom:0;width:45%;background:linear-gradient(90deg,transparent,rgba(22,55,115,.65))}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:76px;padding-bottom:76px}
+.std{display:inline-flex;border:1px solid rgba(255,255,255,.25);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.std span{padding:7px 12px}
+.std span:first-child{background:var(--amber);color:var(--navy-ink)}
+.hero h1{font-size:clamp(30px,3.5vw,46px);font-weight:900;line-height:1.1;letter-spacing:-.8px;margin:24px 0 20px;text-transform:uppercase}
+.hero h1 span{color:var(--amber)}
+.hero .lead{font-size:17px;color:#b5c2d9;max-width:540px;padding-left:18px;border-left:3px solid var(--amber)}
+.hero .ctas{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
 
-        @keyframes trongDongSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+/* Console */
+.console{background:var(--navy-ink);border:1px solid rgba(255,255,255,.14);box-shadow:24px 24px 0 rgba(255,180,0,.12)}
+.c-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.1);font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:#8d9bb5;font-weight:600}
+.c-live{display:flex;align-items:center;gap:7px;color:#4ade80}
+.c-live::before{content:"";width:7px;height:7px;background:#4ade80;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.c-body{display:grid;grid-template-columns:1.3fr 1fr}
+.c-map{position:relative;min-height:300px;border-right:1px solid rgba(255,255,255,.1)}
+.c-map svg{position:absolute;inset:0;width:100%;height:100%}
+.c-speed{position:absolute;left:0;bottom:0;background:var(--amber);color:var(--navy-ink);padding:8px 14px;font-weight:800}
+.c-speed small{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:700;opacity:.75}
+.c-speed b{font-size:22px;line-height:1}
+.c-list{font-size:12px}
+.c-row{display:grid;grid-template-columns:1fr auto;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.c-row b{font-size:13px;letter-spacing:.3px}
+.c-row small{grid-column:1/-1;color:#7d8fb0}
+.st{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 6px;border:1px solid}
+.st.run{color:#4ade80;border-color:rgba(74,222,128,.4)}
+.st.stop{color:#94a3b8;border-color:rgba(148,163,184,.4)}
+.st.warn{color:#fff;background:var(--red);border-color:var(--red)}
+.c-alert{background:rgba(198,40,40,.18);border-left:3px solid var(--red)}
+.c-note{font-size:11px;color:#7d8fb0;margin-top:14px;text-align:right}
 
-        @keyframes trongDongGlow {
-            0% {
-                filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.4)) drop-shadow(0 0 35px rgba(0, 102, 255, 0.2));
-                opacity: 0.6;
-            }
-            50% {
-                filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.85)) drop-shadow(0 0 50px rgba(0, 102, 255, 0.5));
-                opacity: 0.9;
-            }
-            100% {
-                filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 102, 255, 0.3));
-                opacity: 0.7;
-            }
-        }
+/* Stat bar */
+.stats{background:#fff;border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:28px 24px;border-left:1px solid var(--line)}
+.stat:last-child{border-right:1px solid var(--line)}
+.stat b{display:block;font-size:28px;font-weight:900;color:var(--navy);letter-spacing:-.5px;line-height:1.1}
+.stat span{font-size:13.5px;color:var(--muted);font-weight:500}
 
-        header, .hero-banner, .container, footer, .floating-cta {
-            position: relative;
-            z-index: 1;
-        }
+/* Section base */
+section{padding:96px 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+.head h2{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.2;letter-spacing:-.5px;margin-top:14px;color:var(--navy)}
+.head p{color:var(--muted);font-size:16px}
+.dark{background:var(--navy);color:#fff}
+.dark .head h2{color:#fff}
+.dark .head p{color:#a7b5cf}
+.gray{background:var(--bg-2)}
 
-        @keyframes pulseRing {
-            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
-        }
+/* Who must install */
+.who{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:#fff}
+.who > div{padding:32px 28px;display:flex;gap:18px}
+.who > div + div{border-left:1px solid var(--line)}
+.who .ic{flex:none;width:52px;height:52px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--navy)}
+.who .ic .ico{width:26px;height:26px}
+.who h3{font-size:16px;font-weight:800;color:var(--navy)}
+.who p{font-size:14px;color:var(--muted);margin-top:4px}
 
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
+/* Features grid */
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.f{padding:32px 26px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;position:relative;transition:.15s}
+.f::before{content:"";position:absolute;left:-1px;top:-1px;width:0;height:3px;background:var(--amber);transition:.25s}
+.f:hover::before{width:calc(100% + 2px)}
+.f .n{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:1.5px}
+.f .ico{width:30px;height:30px;color:var(--navy-3);margin:22px 0 18px;stroke-width:1.6}
+.f h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.f p{font-size:14.5px;color:var(--muted)}
 
-        /* ===== Sticky Header ===== */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10, 15, 29, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-glass);
-            padding: 0.8rem 1rem;
-        }
+/* Products */
+.plist{border-top:2px solid var(--navy)}
+.p{display:grid;grid-template-columns:90px 1.1fr 1.6fr auto;gap:32px;align-items:start;padding:36px 0;border-bottom:1px solid var(--line)}
+.p .num{font-size:44px;font-weight:900;color:var(--line);line-height:1;letter-spacing:-1px}
+.p:hover .num{color:var(--amber)}
+.p .tagline{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-3);background:#e7edf8;padding:3px 8px;margin-bottom:10px}
+.p h3{font-size:22px;font-weight:800;color:var(--navy);line-height:1.25}
+.p .for{font-size:14px;color:var(--muted);margin-top:6px}
+.p ul{list-style:none;display:grid;gap:10px}
+.p li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
+.p li::before{content:"";flex:none;width:8px;height:8px;background:var(--amber);margin-top:9px}
+.p .btn{align-self:center}
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+/* Compare */
+.cmp{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
+.cmp-wrap{border:1px solid var(--line)}
+.cmp th,.cmp td{padding:18px 24px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tr:last-child td{border-bottom:none}
+.cmp thead th{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);background:var(--bg-2)}
+.cmp thead th.new{background:var(--navy);color:#fff;border-top:4px solid var(--amber)}
+.cmp td:first-child{font-weight:700;color:var(--navy);width:24%}
+.cmp td.old{color:var(--muted);width:34%}
+.cmp td.new{background:#f6f9ff;font-weight:600;border-left:1px solid var(--line)}
+.cell{display:flex;gap:10px}
+.cell .ico{flex:none;width:18px;height:18px;margin-top:2px}
+.old .ico{color:#b3bcc8}
+.new .ico{color:var(--green)}
 
-        .brand-logo-group { display: flex; align-items: center; gap: 1rem; }
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:27px;border-top:2px dashed rgba(255,255,255,.25)}
+.s{position:relative;padding-right:24px}
+.s .sq{width:56px;height:56px;background:var(--amber);color:var(--navy-ink);display:grid;place-items:center;font-size:18px;font-weight:900;margin-bottom:22px}
+.s h4{font-size:17px;font-weight:800;margin-bottom:6px}
+.s p{font-size:14px;color:#a7b5cf}
 
-        .logo-img {
-            max-height: 55px;
-            width: auto;
-            background: #ffffff;
-            padding: 4px 12px;
-            border-radius: 6px;
-            box-shadow: 0 0 15px rgba(255,255,255,0.2);
-            transition: transform 0.3s ease;
-        }
-        .logo-img:hover { transform: scale(1.05); }
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
+.c-left{padding:44px;background:#fff}
+.c-left h2{font-size:clamp(26px,3vw,36px);font-weight:900;color:var(--navy);line-height:1.2;margin:14px 0 12px}
+.c-left > p{color:var(--muted)}
+.lines{margin:28px 0;border-top:1px solid var(--line)}
+.ln{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ln .ic{width:44px;height:44px;display:grid;place-items:center;background:var(--navy);color:#fff;flex:none}
+.ln .ic.z{background:#0068ff}
+.ln small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:700}
+.ln b{font-size:22px;color:var(--navy);letter-spacing:.3px}
+.ln .go{margin-left:auto;color:var(--muted)}
+.ln:hover .go{color:var(--navy)}
+.rate{display:flex;align-items:center;gap:14px}
+.rate .sc{font-size:34px;font-weight:900;color:var(--navy);line-height:1}
+.stars{display:flex;gap:2px;color:#f4b400}
+.stars svg{width:15px;height:15px;fill:currentColor}
+.rate small{font-size:13px;color:var(--muted)}
+.c-right{background:var(--navy);color:#fff;padding:44px;display:flex;flex-direction:column}
+.c-right h3{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--amber);font-weight:700;margin-bottom:8px}
+.loc{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:36px 1fr;gap:14px}
+.loc .ico{color:var(--amber);margin-top:2px}
+.loc small{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#8d9bb5;font-weight:700}
+.loc h4{font-size:17px;font-weight:800;margin:2px 0}
+.loc p{font-size:14.5px;color:#b5c2d9}
+.c-map-ph{margin-top:auto;height:150px;border:1px solid rgba(255,255,255,.15);background:
+  linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px) 0 0/28px 28px,
+  linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px) 0 0/28px 28px;display:grid;place-items:center;font-size:12px;color:#8d9bb5;letter-spacing:1px;text-transform:uppercase;margin-top:28px}
 
-        .header-title h1 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, #ffffff, var(--cyan-neon));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
-        }
+/* CTA band */
+.band{background:var(--amber);color:var(--navy-ink);padding:0}
+.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:30px;padding-bottom:30px}
+.band h3{font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
+.band p{font-size:14.5px;font-weight:500;opacity:.8}
 
-        .header-title p { font-size: 0.82rem; color: var(--text-muted); }
+footer{background:var(--navy-ink);color:#7d8fb0;font-size:13px;padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .note{max-width:560px;color:#5b6c8c}
 
-        .header-contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
-            color: #ffffff;
-            padding: 0.6rem 1.4rem;
-            border-radius: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
-            transition: all 0.3s ease;
-        }
-        .header-contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
-        }
+.m-bar{display:none}
 
-        /* ===== Hero Section ===== */
-        .hero-banner {
-            position: relative;
-            padding: 4rem 1rem 3.5rem 1rem;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(30, 41, 59, 0.8) 0%, rgba(10, 15, 29, 0.9) 70%);
-            border-bottom: 1px solid var(--border-glass);
-        }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(0, 242, 255, 0.1);
-            color: var(--cyan-neon);
-            border: 1px solid var(--cyan-neon);
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-        }
-        .hero-badge:hover {
-            box-shadow: 0 0 18px rgba(0, 242, 255, 0.5);
-            background: rgba(0, 242, 255, 0.18);
-        }
+/* ---------- Bo góc cân bằng (v3) ---------- */
+.label::before{border-radius:2px}
+.h-phone .ic,.burger,.drawer-top button{border-radius:10px}
+.std{border-radius:8px;overflow:hidden}
+.console{border-radius:16px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.65),0 0 0 6px rgba(255,180,0,.08)}
+.c-speed{border-top-right-radius:10px}
+.st{border-radius:4px}
+.who,.cmp-wrap{border-radius:14px;overflow:hidden}
+.who .ic{border-radius:12px}
+.fgrid{border-radius:14px;overflow:hidden}
+.f .ico{padding:10px;width:50px;height:50px;background:#eef2f9;border-radius:12px}
+.p .tagline{border-radius:4px}
+.p li::before{border-radius:2px}
+.plist{border-top:none}
+.plist .p:first-child{border-top:2px solid var(--navy)}
+.s .sq{border-radius:14px}
+.contact{border-radius:18px;overflow:hidden}
+.ln .ic{border-radius:10px}
+.c-map-ph{border-radius:12px;font-weight:700;transition:.15s}
+.c-map-ph:hover{color:#fff;border-color:var(--amber)}
+.stats .wrap{padding-top:0}
 
-        .hero-banner h2 {
-            font-size: 2.4rem;
-            max-width: 900px;
-            margin: 0 auto 1rem auto;
-            color: #ffffff;
-            line-height: 1.3;
-        }
-
-        .hero-banner p {
-            max-width: 800px;
-            margin: 0 auto 2rem auto;
-            font-size: 1.15rem;
-            color: var(--text-muted);
-        }
-
-        .hero-cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .hero-btn-call {
-            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
-        }
-        .hero-btn-call:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 102, 0, 0.5); }
-
-        .hero-btn-zalo {
-            background: linear-gradient(135deg, #0068ff, #0041a3);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(0, 104, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-btn-zalo:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 104, 255, 0.4); }
-        .hero-btn-zalo::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        /* ===== Layout Container ===== */
-        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1rem; }
-
-        section {
-            background: rgba(18, 25, 41, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        section.visible { opacity: 1; transform: translateY(0); }
-
-        section h2 {
-            color: #ffffff;
-            border-left: 4px solid var(--cyan-neon);
-            padding-left: 1rem;
-            margin-bottom: 1.8rem;
-            font-size: 1.6rem;
-        }
-
-        /* ===== Highlighting Grid (Hover Neon Sáng Dần) ===== */
-        .highlight-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .highlight-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .highlight-box:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.4),
-                        0 0 45px rgba(0, 102, 255, 0.2),
-                        inset 0 0 12px rgba(0, 242, 255, 0.1);
-        }
-        .highlight-box strong { color: var(--cyan-neon); display: block; margin-bottom: 0.5rem; font-size: 1.05rem; }
-
-        /* ===== Cards (Hover Neon Sáng Dần) ===== */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 10px;
-            padding: 1.8rem;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--cyan-neon); 
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.45),
-                        0 0 50px rgba(0, 102, 255, 0.25),
-                        inset 0 0 15px rgba(0, 242, 255, 0.1);
-        }
-        .card h3 { color: #ffffff; margin-bottom: 1rem; font-size: 1.25rem; }
-        .card ul { list-style-type: none; }
-        .card ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.7rem; color: var(--text-muted); }
-        .card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan-neon); font-weight: bold; }
-
-        /* ===== Comparison Table (Hover Neon) ===== */
-        .table-responsive { 
-            overflow-x: auto; 
-            border-radius: 8px; 
-            border: 1px solid var(--border-glass);
-            transition: all 0.35s ease;
-        }
-        .table-responsive:hover {
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.35);
-        }
-        table { width: 100%; border-collapse: collapse; text-align: left; background: var(--bg-card); }
-        table th, table td { padding: 1rem 1.2rem; border-bottom: 1px solid var(--border-glass); }
-        table th { background-color: #0d1527; color: var(--cyan-neon); font-size: 1rem; }
-        table tr:hover { background-color: rgba(0, 242, 255, 0.04); }
-
-        /* ===== Contact Section (Hover Neon Sáng Dần) ===== */
-        .contact-box { 
-            background: linear-gradient(135deg, rgba(16, 31, 60, 0.9) 0%, rgba(10, 17, 36, 0.95) 100%); 
-            border: 1px solid var(--primary-blue); 
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-        .contact-box:hover {
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 35px rgba(0, 242, 255, 0.45),
-                        0 0 60px rgba(0, 102, 255, 0.3),
-                        inset 0 0 15px rgba(0, 242, 255, 0.1);
-        }
-        .contact-box h2 { border-left: none; padding-left: 0; text-align: center; }
-        
-        .contact-info { max-width: 800px; margin: 0 auto; }
-        .contact-info p { margin-bottom: 0.8rem; font-size: 1.1rem; }
-        .contact-info strong { color: var(--cyan-neon); }
-        
-        .phone-group { 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 1.5rem; 
-            margin-top: 2rem; 
-        }
-        
-        .phone-highlight {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-            background: linear-gradient(135deg, var(--accent-orange), #ff3300);
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            animation: pulseRing 2.5s infinite;
-            transition: transform 0.2s ease;
-        }
-        .phone-highlight:hover { transform: scale(1.05); }
-
-        .zalo-highlight {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-            background: linear-gradient(135deg, #0068ff, #0041a3);
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .zalo-highlight:hover { transform: scale(1.05); }
-        .zalo-highlight::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        /* ===== Google Rating Widget ===== */
-        .google-rating-side-col { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 2.5rem; }
-        .google-rating-card {
-            background: rgba(255, 255, 255, 0.98);
-            color: #1f2937;
-            padding: 1.5rem;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            border: 2px solid transparent;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-            text-decoration: none;
-            transition: all 0.35s ease;
-            width: 100%;
-            max-width: 380px;
-        }
-        .google-rating-card:hover { 
-            transform: translateY(-6px); 
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.5), 0 18px 35px rgba(0, 0, 0, 0.5); 
-        }
-        .google-g-logo { width: 52px; height: 52px; flex-shrink: 0; }
-        .rating-card-content { display: flex; flex-direction: column; align-items: flex-start; }
-        .rating-card-title { font-size: 1.15rem; font-weight: 700; color: #111827; line-height: 1.2; margin-bottom: 0.3rem; }
-        .rating-score-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem; }
-        .rating-number { font-size: 1.9rem; font-weight: 800; color: #f59e0b; line-height: 1; }
-        .rating-stars-svg { display: flex; align-items: center; gap: 2px; }
-        .star-icon { width: 22px; height: 22px; fill: #fbc02d; }
-        .rating-card-link { font-size: 0.88rem; color: #4b5563; font-weight: 500; display: flex; align-items: center; gap: 0.3rem; }
-        .rating-card-link span { text-decoration: underline; }
-
-        /* ===== Footer ===== */
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: #060913;
-            border-top: 1px solid var(--border-glass);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .ai-disclaimer { font-size: 0.8rem; opacity: 0.7; margin-top: 0.6rem; font-style: italic; color: #f59e0b; }
-
-        /* ===== Floating Call-to-Action Bar (Mobile) ===== */
-        .floating-cta {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            background: rgba(10, 15, 29, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 1rem;
-            border-top: 1px solid var(--border-glass);
-            justify-content: space-around;
-            gap: 0.5rem;
-        }
-        .floating-btn {
-            flex: 1;
-            text-align: center;
-            padding: 0.9rem 0;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-        .btn-call { background: linear-gradient(135deg, var(--accent-orange), #ff3300); }
-        .btn-zalo { 
-            background: linear-gradient(135deg, #0068ff, #0041a3); 
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-zalo::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        /* ===== Responsive Media Queries ===== */
-        @media (max-width: 768px) {
-            header { padding: 0.8rem; }
-            .header-title h1 { font-size: 1.2rem; }
-            .header-contact-btn { display: none; }
-            .hero-banner { padding: 3rem 1rem 2.5rem 1rem; }
-            .hero-banner h2 { font-size: 1.6rem; }
-            .hero-banner p { font-size: 1rem; }
-            section { padding: 1.5rem; }
-            .grid-3 { grid-template-columns: 1fr; }
-            .floating-cta { display: flex; }
-            body { padding-bottom: 75px; }
-            .google-rating-card { padding: 1.2rem; gap: 1rem; }
-            .google-g-logo { width: 42px; height: 42px; }
-            .rating-number { font-size: 1.6rem; }
-            .star-icon { width: 19px; height: 19px; }
-            .phone-group { flex-direction: column; align-items: center; }
-            .phone-highlight, .zalo-highlight { width: 100%; justify-content: center; max-width: 320px; }
-            .td-1 { width: 100vw; top: -10vh; left: -25vw; }
-            .td-2 { width: 110vw; bottom: -15vh; right: -25vw; }
-        }
-    </style>
+/* ---------- Tablet ---------- */
+@media (max-width:1080px){
+  nav,.h-phone{display:none}
+  .burger{display:grid}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero::after{display:none}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .stat:nth-child(2){border-right:1px solid var(--line)}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .who{grid-template-columns:1fr}
+  .who > div + div{border-left:none;border-top:1px solid var(--line)}
+  .p{grid-template-columns:70px 1fr;gap:16px 24px}
+  .p ul,.p .btn{grid-column:2}
+  .p .btn{justify-self:start}
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps::before{left:27px;right:auto;top:0;bottom:0;border-top:none;border-left:2px dashed rgba(255,255,255,.25)}
+  .s{display:grid;grid-template-columns:56px 1fr;column-gap:20px}
+  .s .sq{grid-row:span 2;margin:0}
+  .contact{grid-template-columns:1fr}
+  .head{grid-template-columns:1fr;gap:12px}
+}
+/* ---------- Mobile ---------- */
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .topbar{display:none}
+  header .wrap{height:64px}
+  .brand-logo{height:44px}
+  .brand-txt{padding-left:10px}
+  .brand-name{font-size:17px}
+  section{padding:64px 0}
+  .hero .wrap{padding-top:40px;padding-bottom:48px;gap:36px}
+  .std span{white-space:nowrap}
+  .std span:last-child{display:none}
+  .hero h1{font-size:30px;margin:18px 0 16px}
+  .hero .lead{font-size:15.5px}
+  .hero .ctas{display:grid;grid-template-columns:1fr;margin-top:26px}
+  .console{margin-right:0}
+  .c-body{grid-template-columns:1fr}
+  .c-map{min-height:200px;border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .c-row:nth-child(3){display:none}
+  .stat{padding:20px 16px}
+  .stat b{font-size:22px}
+  .stat span{font-size:12.5px}
+  .head{margin-bottom:28px}
+  .head h2{font-size:26px}
+  .who > div{padding:22px 18px}
+  .fgrid{grid-template-columns:1fr}
+  .f{padding:24px 20px;display:grid;grid-template-columns:auto 1fr;column-gap:16px}
+  .f .n{display:none}
+  .f .ico{grid-row:span 2;margin:2px 0 0;width:44px;height:44px;padding:9px}
+  .p{grid-template-columns:1fr;padding:28px 0;gap:14px}
+  .p .num{font-size:30px}
+  .p ul,.p .btn{grid-column:1}
+  .p .btn{justify-self:stretch}
+  .p h3{font-size:20px}
+  /* compare -> stacked cards */
+  .cmp-wrap{border:none}
+  .cmp thead{display:none}
+  .cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%!important}
+  .cmp tr{border:1px solid var(--line);margin-bottom:12px;border-radius:12px;overflow:hidden}
+  .cmp-wrap{border-radius:0;overflow:visible}
+  .cmp td{padding:12px 16px;border-bottom:1px solid var(--line-2)}
+  .cmp td:first-child{background:var(--navy);color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.6px}
+  .cmp td.old::before,.cmp td.new::before{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:4px}
+  .cmp td.old::before{content:"Thiết bị cũ";color:var(--muted)}
+  .cmp td.new::before{content:"GIAMSATXE.NET";color:var(--navy-3)}
+  .cmp td.new{border-left:3px solid var(--amber);border-bottom:none}
+  .c-left,.c-right{padding:28px 18px}
+  .ln b{font-size:19px}
+  .band .wrap{flex-direction:column;align-items:stretch;text-align:left}
+  .band h3{font-size:19px}
+  .m-bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;padding-bottom:env(safe-area-inset-bottom);background:var(--navy-ink)}
+  .m-bar a{display:flex;align-items:center;justify-content:center;gap:8px;height:56px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
+  .m-bar a:first-child{background:var(--amber);color:var(--navy-ink)}
+  .m-bar a:last-child{background:#0068ff;color:#fff}
+  footer{padding-bottom:84px}
+}
+</style>
 </head>
 <body>
 
-    <!-- Animated Trong Dong Background Container -->
-    <div class="trong-dong-bg-container" aria-hidden="true">
-        <img src="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png" alt="Họa tiết trống đồng Vạn Phú Khánh" class="trong-dong-img td-1" loading="eager" decoding="async">
-        <img src="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png" alt="Họa tiết trống đồng Vạn Phú Khánh" class="trong-dong-img td-2" loading="lazy" decoding="async">
-    </div>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-signal" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M12 19.5h.01"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-gps" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15"/><path d="M4 11h16M8 18v3M16 18v3M4 7h16"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 4h14v12H1zM15 9h4l3 3v4h-7"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  </defs>
+</svg>
 
-    <!-- Sticky Navigation -->
-    <header>
-        <div class="header-container">
-            <div class="brand-logo-group">
-                <img src="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png" alt="Logo Vạn Phú Khánh – Định vị Khánh Hòa" class="logo-img" loading="eager" fetchpriority="high" decoding="async" width="200" height="70">
-                <div class="header-title">
-                    <h1>GIAMSATXE.NET</h1>
-                    <p>Chuẩn Quy Định Bộ Công An QCVN 06:2024/BCA</p>
-                </div>
-            </div>
-            <a href="tel:0585114114" class="header-contact-btn">
-                <span>📞 0585.114.114</span>
-            </a>
+<div class="topbar">
+  <div class="wrap">
+    <div class="l">
+      <span><svg class="ico"><use href="#i-shield"/></svg>Đạt chuẩn <b>QCVN 06:2024/BCA</b></span>
+      <span><svg class="ico"><use href="#i-pin"/></svg>Lắp đặt &amp; bảo hành tận nơi tại Khánh Hòa</span>
+    </div>
+    <span>Hotline 2: <b>0588.588.114</b></span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="brand">
+      <img class="brand-logo" src="logoVPK.png" alt="Logo Vạn Phú Khánh">
+      <div class="brand-txt"><div class="brand-name">GIAMSATXE<em>.NET</em></div><div class="brand-sub">114 Vạn Phú Khánh</div></div>
+    </a>
+    <nav>
+      <a href="#doi-tuong">Quy định</a>
+      <a href="#giai-phap">Giải pháp</a>
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#so-sanh">So sánh</a>
+      <a href="#quy-trinh">Quy trình</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+    <div class="h-cta">
+      <a href="tel:0585114114" class="h-phone"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Hotline tư vấn</small><b>0585.114.114</b></div></a>
+    </div>
+    <button class="burger" aria-label="Mở menu" onclick="toggleMenu(true)"><svg class="ico"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-top">
+    <div class="d-brand"><div class="logo-tile"><img src="logoVPK.png" alt="Logo Vạn Phú Khánh"></div><div class="brand-name">GIAMSATXE<em>.NET</em></div></div>
+    <button aria-label="Đóng menu" onclick="toggleMenu(false)"><svg class="ico"><use href="#i-x"/></svg></button>
+  </div>
+  <ol>
+    <li><a href="#doi-tuong" onclick="toggleMenu(false)"><span>Quy định</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#giai-phap" onclick="toggleMenu(false)"><span>Giải pháp</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#san-pham" onclick="toggleMenu(false)"><span>Sản phẩm</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#so-sanh" onclick="toggleMenu(false)"><span>So sánh</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#quy-trinh" onclick="toggleMenu(false)"><span>Quy trình</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#lien-he" onclick="toggleMenu(false)"><span>Liên hệ</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+  </ol>
+  <div class="drawer-bottom">
+    <p>Tư vấn &amp; báo giá miễn phí — phản hồi trong giờ hành chính</p>
+    <a href="tel:0585114114" class="btn btn-amber"><svg class="ico"><use href="#i-phone"/></svg>0585.114.114</a>
+    <a href="https://zalo.me/0585114114" class="btn btn-line"><svg class="ico"><use href="#i-chat"/></svg>Chat Zalo</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <div class="std"><span>QCVN 06:2024/BCA</span><span>Luật TTATGT đường bộ</span></div>
+      <h1>Giải pháp giám sát hành trình &amp; camera <span>cho doanh nghiệp vận tải</span></h1>
+      <p class="lead">Định vị GPS, camera ghi hình người lái và camera khoang khách. Tự động truyền dữ liệu hành trình về máy chủ Cục CSGT theo thời gian thực.</p>
+      <div class="ctas">
+        <a href="tel:0585114114" class="btn btn-amber"><svg class="ico"><use href="#i-phone"/></svg>Gọi 0585.114.114</a>
+        <a href="#san-pham" class="btn btn-line">Xem thiết bị<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="console" aria-label="Minh họa phần mềm giám sát">
+        <div class="c-bar"><span>Trung tâm giám sát đội xe</span><span class="c-live">Real-time</span></div>
+        <div class="c-body">
+          <div class="c-map">
+            <svg viewBox="0 0 320 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="320" height="300" fill="#06142e"/>
+              <g stroke="#13284d" stroke-width="9" fill="none"><path d="M-10 70 L330 100"/><path d="M60 -10 L85 310"/><path d="M-10 190 L330 165"/><path d="M215 -10 L200 310"/></g>
+              <g stroke="#0f2142" stroke-width="3" fill="none"><path d="M-10 128 L330 136"/><path d="M148 -10 L140 310"/><path d="M270 -10 L280 310"/></g>
+              <path d="M30 290 L72 190 L140 150 L148 100 L210 82 L295 30" stroke="#ffb400" stroke-width="3" fill="none" stroke-linejoin="miter"/>
+              <rect x="25" y="285" width="10" height="10" fill="#06142e" stroke="#ffb400" stroke-width="2"/>
+              <defs>
+                <g id="car">
+                  <rect x="-3.4" y="-8.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/><rect x="1.8" y="-8.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/>
+                  <rect x="-3.4" y="4.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/><rect x="1.8" y="4.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/>
+                  <rect x="-7" y="-12" width="14" height="24" rx="5" fill="currentColor" stroke="#fff" stroke-width="1.6"/>
+                  <path d="M-5 -4.5h10l-1.4 4.2h-7.2z" fill="#06142e" opacity=".8"/>
+                  <rect x="-4.6" y="5.6" width="9.2" height="3.2" rx="1.2" fill="#06142e" opacity=".7"/>
+                  <rect x="-3.6" y="-0.3" width="7.2" height="5.9" rx="1" fill="#fff" opacity=".18"/>
+                  <rect x="-5.2" y="-11.4" width="3" height="1.8" rx=".8" fill="#fff7c2"/><rect x="2.2" y="-11.4" width="3" height="1.8" rx=".8" fill="#fff7c2"/>
+                </g>
+              </defs>
+              <circle cx="148" cy="150" r="21" fill="#ffb400" opacity=".18"/>
+              <use href="#car" transform="translate(148 150) rotate(9) scale(1.05)" style="color:#ffb400"/>
+              <use href="#car" transform="translate(231 199) rotate(183) scale(.95)" style="color:#94a3b8"/>
+              <circle cx="85.5" cy="67.5" r="19" fill="#c62828" opacity=".25"/>
+              <use href="#car" transform="translate(85.5 67.5) rotate(5) scale(.95)" style="color:#e53935"/>
+              <use href="#car" transform="translate(267 133) rotate(91) scale(.95)" style="color:#22c55e"/>
+            </svg>
+            <div class="c-speed"><small>79B-012.34 · QL1A</small><b>62 km/h</b></div>
+          </div>
+          <div class="c-list">
+            <div class="c-row"><b>79B-012.34</b><span class="st run">Chạy</span><small>Xe khách 29 chỗ · 62 km/h</small></div>
+            <div class="c-row"><b>79C-245.67</b><span class="st run">Chạy</span><small>Xe tải 8T · 48 km/h</small></div>
+            <div class="c-row"><b>79B-098.21</b><span class="st stop">Dừng</span><small>Xe 16 chỗ · đỗ 12 phút</small></div>
+            <div class="c-row c-alert"><b>79B-310.05</b><span class="st warn">Cảnh báo</span><small style="color:#fecaca">Tài xế có dấu hiệu ngủ gật — đã phát cảnh báo cabin</small></div>
+          </div>
         </div>
-    </header>
+      </div>
+      <div class="c-note">* Hình minh họa giao diện phần mềm giám sát</div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <span class="hero-badge">Luật Trật Tự, An Toàn Giao Thông Đường Bộ</span>
-        <h2>GIẢI PHÁP GIÁM SÁT HÀNH TRÌNH & CAMERA Ô TÔ REAL-TIME</h2>
-        <p>Cung cấp thiết bị Định vị GPS, Camera ghi nhận hình ảnh người lái xe và Camera khoang chở khách. Tự động truyền dữ liệu hành trình xe về máy chủ Cục CSGT theo thời gian thực.</p>
-        
-        <div class="hero-cta-group">
-            <a href="tel:0585114114" class="hero-btn hero-btn-call">📞 Gọi Ngay: 0585.114.114</a>
-            <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="hero-btn hero-btn-zalo">💬 Chat Zalo Tư Vấn</a>
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>QCVN 06:2024</b><span>Hợp quy Bộ Công an</span></div>
+    <div class="stat"><b>72 giờ</b><span>Lưu trữ video tại xe</span></div>
+    <div class="stat"><b>03</b><span>Điểm bảo hành tại Khánh Hòa</span></div>
+    <div class="stat"><b>4.9 / 5</b><span>Đánh giá Google</span></div>
+  </div>
+</div>
+
+<!-- WHO -->
+<section id="doi-tuong" class="gray">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="label">Đối tượng bắt buộc</span><h2>Phương tiện nào phải lắp đặt theo quy định mới?</h2></div>
+      <p>Theo Luật Trật tự, an toàn giao thông đường bộ, các phương tiện kinh doanh vận tải phải trang bị thiết bị giám sát hành trình và camera đạt chuẩn của Bộ Công an.</p>
+    </div>
+    <div class="who">
+      <div><div class="ic"><svg class="ico"><use href="#i-bus"/></svg></div><div><h3>Xe kinh doanh vận tải hành khách</h3><p>Ô tô từ 08 chỗ trở lên (không kể chỗ người lái): xe khách, xe buýt, xe hợp đồng, xe du lịch.</p></div></div>
+      <div><div class="ic"><svg class="ico"><use href="#i-truck"/></svg></div><div><h3>Xe tải, xe đầu kéo</h3><p>Các dòng xe tải, xe container thuộc diện quy định phải lắp thiết bị giám sát.</p></div></div>
+      <div><div class="ic"><svg class="ico"><use href="#i-shield"/></svg></div><div><h3>Chuẩn kỹ thuật áp dụng</h3><p>QCVN 06:2024/BCA — dữ liệu truyền trực tiếp về máy chủ Cục CSGT.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="giai-phap">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="label">Điểm mới quan trọng</span><h2>Đáp ứng đầy đủ yêu cầu kỹ thuật &amp; pháp lý</h2></div>
+      <p>Một giải pháp trọn gói giúp doanh nghiệp vận tải tuân thủ quy định, giảm rủi ro tai nạn và quản lý đội xe hiệu quả.</p>
+    </div>
+    <div class="fgrid">
+      <div class="f"><span class="n">01</span><svg class="ico"><use href="#i-signal"/></svg><h3>Truyền dữ liệu real-time</h3><p>GPS và cảnh báo vi phạm truyền ngay về máy chủ CSGT để xử lý sự cố tức thì.</p></div>
+      <div class="f"><span class="n">02</span><svg class="ico"><use href="#i-bell"/></svg><h3>Tự động cảnh báo cabin</h3><p>Cảnh báo âm thanh khi tài xế ngủ gật, mất tập trung, dùng điện thoại hoặc quá tốc độ.</p></div>
+      <div class="f"><span class="n">03</span><svg class="ico"><use href="#i-video"/></svg><h3>Ghi hình &amp; lưu trữ an toàn</h3><p>Camera hồng ngoại ghi hình liên tục cả ban đêm, lưu tại xe từ 72 giờ, trích xuất theo luật bảo vệ dữ liệu cá nhân.</p></div>
+      <div class="f"><span class="n">04</span><svg class="ico"><use href="#i-cal"/></svg><h3>Lộ trình áp dụng rõ ràng</h3><p>Bắt buộc với xe kinh doanh vận tải hành khách từ 08 chỗ và xe tải thuộc diện quy định.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="san-pham" class="gray">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="label">Sản phẩm phân phối</span><h2>Thiết bị đạt chuẩn cho mọi loại phương tiện</h2></div>
+      <p>Lắp riêng từng thiết bị hoặc trọn bộ. Kỹ thuật viên tư vấn cấu hình phù hợp cho từng loại xe trong đội.</p>
+    </div>
+    <div class="plist">
+      <div class="p">
+        <div class="num">01</div>
+        <div><span class="tagline">Hợp quy BCA</span><h3>Thiết bị giám sát hành trình GPS</h3><p class="for">Cho tất cả xe kinh doanh vận tải</p></div>
+        <ul><li>Định vị vị trí, tốc độ, lộ trình chính xác theo thời gian thực</li><li>Đạt chuẩn hợp quy QCVN 06:2024/BCA của Bộ Công an</li><li>Cảnh báo quá tốc độ, vi phạm thời gian lái xe liên tục</li></ul>
+        <a href="#lien-he" class="btn btn-navy">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="p">
+        <div class="num">02</div>
+        <div><span class="tagline">Nhận diện hành vi</span><h3>Camera ghi nhận hình ảnh lái xe</h3><p class="for">Lắp trong cabin, hướng về tài xế</p></div>
+        <ul><li>Ghi hình tài xế trong cabin theo chuẩn QCVN 06:2024/BCA</li><li>Nhận diện hành vi nguy hiểm: ngủ gật, dùng điện thoại</li><li>Cảnh báo âm thanh tức thì, phòng ngừa tai nạn từ sớm</li></ul>
+        <a href="#lien-he" class="btn btn-navy">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="p">
+        <div class="num">03</div>
+        <div><span class="tagline">Xe từ 8 chỗ</span><h3>Camera khoang chở khách</h3><p class="for">Xe khách, xe buýt, xe hợp đồng</p></div>
+        <ul><li>Ghi hình toàn cảnh khoang hành khách</li><li>Hỗ trợ an ninh và giải quyết tranh chấp</li><li>Tuân thủ quy định bảo vệ dữ liệu cá nhân</li></ul>
+        <a href="#lien-he" class="btn btn-navy">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="so-sanh">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="label">Vì sao nên nâng cấp</span><h2>Giải pháp cũ và giải pháp mới</h2></div>
+      <p>Thiết bị theo quy chuẩn cũ của Bộ GTVT không còn đáp ứng yêu cầu truyền dữ liệu của Bộ Công an.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th>Tiêu chí</th><th>Thiết bị cũ / chụp định kỳ</th><th class="new">Giải pháp GIAMSATXE.NET</th></tr></thead>
+        <tbody>
+          <tr><td>Truyền dữ liệu hành trình</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Chụp ảnh định kỳ, dễ trễ, thiếu nét</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Truyền real-time về Cục CSGT</div></td></tr>
+          <tr><td>Cảnh báo vi phạm</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Không có hoặc phát hiện chậm</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Cảnh báo tức thì cho tài xế trên cabin</div></td></tr>
+          <tr><td>Hạ tầng máy chủ</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Hay nghẽn mạng, tốn bộ nhớ</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Cloud tốc độ cao, tối ưu băng thông &amp; lưu trữ</div></td></tr>
+          <tr><td>Tiêu chuẩn kỹ thuật</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Quy chuẩn cũ (Bộ GTVT)</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>QCVN 06:2024/BCA (Bộ Công an)</div></td></tr>
+          <tr><td>Hỗ trợ kỹ thuật</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Gia hạn, bảo hành chậm</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Bảo hành tận nơi tại Khánh Hòa &amp; lân cận</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="quy-trinh" class="dark">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="label">Quy trình triển khai</span><h2>Từ tư vấn đến vận hành trong 5 bước</h2></div>
+      <p>Lắp đặt tận nơi, hạn chế tối đa thời gian xe phải dừng hoạt động.</p>
+    </div>
+    <div class="steps">
+      <div class="s"><div class="sq">01</div><h4>Tư vấn</h4><p>Xác định loại xe và thiết bị bắt buộc theo quy định.</p></div>
+      <div class="s"><div class="sq">02</div><h4>Báo giá</h4><p>Báo giá minh bạch theo số lượng và cấu hình đội xe.</p></div>
+      <div class="s"><div class="sq">03</div><h4>Lắp đặt</h4><p>Kỹ thuật viên lắp đặt tận nơi, không gián đoạn vận hành.</p></div>
+      <div class="s"><div class="sq">04</div><h4>Kích hoạt</h4><p>Kết nối máy chủ, bàn giao tài khoản, hướng dẫn sử dụng.</p></div>
+      <div class="s"><div class="sq">05</div><h4>Bảo hành</h4><p>Hỗ trợ kỹ thuật tại 3 điểm bảo hành ở Khánh Hòa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="lien-he">
+  <div class="wrap">
+    <div class="contact">
+      <div class="c-left">
+        <span class="label">Liên hệ</span>
+        <h2>Tư vấn &amp; lắp đặt ngay hôm nay</h2>
+        <p>Đơn vị thực hiện: <b style="color:var(--navy)">114 Vạn Phú Khánh</b>. Gọi hotline hoặc nhắn Zalo để nhận tư vấn cấu hình và báo giá cho đội xe.</p>
+        <div class="lines">
+          <a href="tel:0585114114" class="ln"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Hotline tư vấn</small><b>0585.114.114</b></div><svg class="ico go"><use href="#i-arrow"/></svg></a>
+          <a href="tel:0588588114" class="ln"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Hotline 2</small><b>0588.588.114</b></div><svg class="ico go"><use href="#i-arrow"/></svg></a>
+          <a href="https://zalo.me/0585114114" class="ln"><div class="ic z"><svg class="ico"><use href="#i-chat"/></svg></div><div><small>Nhắn tin nhanh</small><b>Chat Zalo</b></div><svg class="ico go"><use href="#i-arrow"/></svg></a>
         </div>
+        <div class="rate"><div class="sc">4.9</div><div><div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><small>Đánh giá trên Google · <a href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener" style="color:var(--navy-3);font-weight:700">Xem đánh giá</a></small></div></div>
+      </div>
+      <div class="c-right">
+        <h3>Hệ thống điểm phục vụ</h3>
+        <div class="loc"><svg class="ico"><use href="#i-pin"/></svg><div><small>Trụ sở chính</small><h4>114 Vạn Phú Khánh</h4><p>Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p></div></div>
+        <div class="loc"><svg class="ico"><use href="#i-tool"/></svg><div><small>Trung tâm bảo hành</small><h4>Nha Trang</h4><p>KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p></div></div>
+        <div class="loc"><svg class="ico"><use href="#i-tool"/></svg><div><small>Trung tâm bảo hành</small><h4>Nam Khánh Hòa</h4><p>Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p></div></div>
+        <a class="c-map-ph" href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener">Xem bản đồ chỉ đường →</a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Main Container -->
-    <div class="container">
+<section class="band">
+  <div class="wrap">
+    <div><h3>Xe của bạn đã đạt chuẩn QCVN 06:2024/BCA?</h3><p>Kiểm tra miễn phí — kỹ thuật viên tư vấn trực tiếp qua điện thoại.</p></div>
+    <a href="tel:0585114114" class="btn btn-navy"><svg class="ico"><use href="#i-phone"/></svg>Gọi 0585.114.114</a>
+  </div>
+</section>
 
-        <!-- Điểm mới pháp lý -->
-        <section>
-            <h2>💥 Điểm Mới Quan Trọng Trong Quy Định Kỹ Thuật & Pháp Lý</h2>
-            <div class="highlight-grid">
-                <div class="highlight-box">
-                    <strong>Truyền dữ liệu Real-time</strong>
-                    Dữ liệu GPS và cảnh báo vi phạm được truyền ngay lập tức từ thiết bị về máy chủ CSGT để xử lý sự cố tức thì.
-                </div>
-                <div class="highlight-box">
-                    <strong>Tự động Cảnh báo Cabin</strong>
-                    Cảnh báo âm thanh trực tiếp khi tài xế ngủ gật, mất tập trung, dùng điện thoại hoặc chạy quá tốc độ quy định.
-                </div>
-                <div class="highlight-box">
-                    <strong>Ghi hình & Lưu trữ An toàn</strong>
-                    Camera hồng ngoại ban đêm ghi video liên tục, lưu trữ tại xe từ 72 giờ và hỗ trợ trích xuất theo luật bảo mật cá nhân.
-                </div>
-                <div class="highlight-box">
-                    <strong>Lộ trình Áp dụng Rõ ràng</strong>
-                    Bắt buộc trang bị đối với xe ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên và các dòng xe tải thuộc diện quy định.
-                </div>
-            </div>
-        </section>
+<footer>
+  <div class="wrap">
+    <div>© 2026 GIAMSATXE.NET — Phân phối &amp; bảo hành bởi 114 Vạn Phú Khánh.</div>
+    <div class="note">Thông tin trên website mang tính tham khảo. Vui lòng liên hệ hotline để được xác nhận thông tin chính xác nhất.</div>
+  </div>
+</footer>
 
-        <!-- Sản phẩm phân phối -->
-        <section>
-            <h2>🚛 Sản Phẩm Phân Phối Tại GIAMSATXE.NET</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>📡 1. Thiết Bị Giám Sát Hành Trình (GPS)</h3>
-                    <ul>
-                        <li>Định vị vị trí, tốc độ, lộ trình di chuyển chính xác theo thời gian thực.</li>
-                        <li>Đạt chuẩn hợp quy <strong>QCVN 06:2024/BCA</strong> của Bộ Công an.</li>
-                        <li>Cảnh báo quá tốc độ, vi phạm thời gian lái xe liên tục.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>📷 2. Camera Ghi Nhận Hình Ảnh Lái Xe</h3>
-                    <ul>
-                        <li>Ghi nhận hình ảnh tài xế trong cabin theo chuẩn QCVN 06:2024/BCA.</li>
-                        <li>Cảm biến thông minh nhận diện hành vi nguy hiểm (ngủ gật, điện thoại).</li>
-                        <li>Cảnh báo âm thanh tức thì trên cabin giúp phòng ngừa tai nạn từ sớm.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>🚌 3. Camera Khoang Chở Khách</h3>
-                    <ul>
-                        <li>Dành cho xe từ 8 chỗ trở lên, xe khách, xe buýt, xe hợp đồng.</li>
-                        <li>Ghi hình toàn cảnh khoang hành khách, hỗ trợ an ninh và giải quyết tranh chấp.</li>
-                        <li>Tuân thủ nghiêm ngặt quy định bảo vệ dữ liệu cá nhân.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<div class="m-bar">
+  <a href="tel:0585114114"><svg class="ico"><use href="#i-phone"/></svg>Gọi ngay</a>
+  <a href="https://zalo.me/0585114114"><svg class="ico"><use href="#i-chat"/></svg>Chat Zalo</a>
+</div>
 
-        <!-- Bảng so sánh -->
-        <section>
-            <h2>🌟 So Sánh Giải Pháp Cũ & Mới</h2>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tiêu Chí</th>
-                            <th>Thiết Bị Cũ / Chụp Định Kỳ</th>
-                            <th>Giải Pháp Mới Tại GIAMSATXE.NET</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Truyền dữ liệu hành trình</strong></td>
-                            <td>Chụp ảnh định kỳ (dễ trễ, thiếu nét)</td>
-                            <td><strong>Truyền dữ liệu hành trình xe Real-time về Cục CSGT</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cảnh báo vi phạm</strong></td>
-                            <td>Không có hoặc phát hiện chậm</td>
-                            <td><strong>Tự động cảnh báo tức thì cho tài xế trên cabin</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hạ tầng Máy chủ</strong></td>
-                            <td>Hay nghẽn mạng, tốn bộ nhớ</td>
-                            <td><strong>Cloud tốc độ cao, tối ưu băng thông & lưu trữ</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tiêu chuẩn kỹ thuật</strong></td>
-                            <td>Theo quy chuẩn cũ (Bộ GTVT)</td>
-                            <td><strong>Đạt chuẩn QCVN 06:2024/BCA (Bộ Công an)</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hỗ trợ kỹ thuật</strong></td>
-                            <td>Gia hạn / Bảo hành chậm</td>
-                            <td><strong>Bảo hành tận nơi tại Khánh Hòa & lân cận</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+<script>
+function toggleMenu(open){
+  document.getElementById('drawer').classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
 
-        <!-- Thông tin liên hệ -->
-        <section class="contact-box" id="lien-he">
-            <h2>📞 LIÊN HỆ TƯ VẤN & LẮP ĐẶT NGAY HÔM NAY</h2>
-            <div class="contact-info">
-                <p><strong>ĐƠN VỊ THỰC HIỆN:</strong> 114 VẠN PHÚ KHÁNH</p>
-                <p><strong>Website:</strong> giamsatxe.net</p>
-                <p><strong>Trụ sở chính:</strong> Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p>
-                <p><strong>Trung tâm bảo hành Nha Trang:</strong> KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p>
-                <p><strong>Trung tâm bảo hành Nam Khánh Hòa:</strong> Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p>
-                
-                <div class="phone-group">
-                    <a href="tel:0585114114" class="phone-highlight" aria-label="Gọi hotline 0585.114.114">
-                        📞 0585.114.114
-                    </a>
-                    <a href="tel:0588588114" class="phone-highlight" aria-label="Gọi hotline 0588.588.114" style="animation-delay: 0.5s;">
-                        📞 0588.588.114
-                    </a>
-                    <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="zalo-highlight" aria-label="Chat Zalo với Vạn Phú Khánh">
-                        💬 Chat Zalo Tư Vấn
-                    </a>
-                </div>
-
-                <!-- Google Rating Card Widget -->
-                <div class="google-rating-side-col">
-                    <a href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener" class="google-rating-card" title="Xem vị trí và đánh giá Vạn Phú Khánh trên Google Maps">
-                        <svg class="google-g-logo" viewBox="0 0 24 24">
-                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                        </svg>
-                        <div class="rating-card-content">
-                            <div class="rating-card-title">Google Rating</div>
-                            <div class="rating-score-row">
-                                <span class="rating-number">4.9</span>
-                                <div class="rating-stars-svg">
-                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                    <svg class="star-icon" viewBox="0 0 24 24" style="clip-path: inset(0 10% 0 0);"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                </div>
-                            </div>
-                            <div class="rating-card-link"><span>See all our reviews</span> ➔</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 GIAMSATXE.NET - Phân phối & Bảo hành bởi 114 Vạn Phú Khánh. All Rights Reserved.</p>
-        <p class="ai-disclaimer">⚠️ Lưu ý: Nội dung trang web đang được thử nghiệm phát triển bằng AI, có thể xảy ra sai sót. Quý khách vui lòng liên hệ hotline để xác nhận thông tin chính xác nhất.</p>
-    </footer>
-
-    <!-- Floating Call-to-Action Bar for Mobile -->
-    <div class="floating-cta">
-        <a href="tel:0585114114" class="floating-btn btn-call">📞 Gọi 0585.114.114</a>
-        <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="floating-btn btn-zalo">💬 Chat Zalo</a>
-    </div>
-
-    <!-- JavaScript Scroll Animation -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll("section");
-
-            const observerOptions = {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.12
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
-
+</script>
 </body>
 </html>
