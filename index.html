@@ -1,430 +1,1333 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- ================= Security Headers ================= -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://maps.googleapis.com;">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <!-- ================= Security Headers ================= -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://maps.googleapis.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="theme-color" content="#06142e">
 
-    <!-- ================= SEO Meta ================= -->
-    <title>GIAMSATXE.NET | Vạn Phú Khánh - 0585.114.114 - Thiết Bị Giám Sát Hành Trình & Camera Ô Tô</title>
-    <meta name="description" content="Chuyên thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe chuẩn QCVN 06:2024/BCA & Camera khoang chở khách. Truyền dữ liệu hành trình xe Real-time về Cục CSGT. Phân phối bởi 114 Vạn Phú Khánh.">
-    <meta name="keywords" content="giám sát hành trình, định vị ô tô, QCVN 06:2024/BCA, camera khoang chở khách, camera lái xe, định vị Khánh Hòa, Vạn Phú Khánh, giamsatxe.net, thiết bị giám sát hành trình real-time, camera hành trình Nha Trang">
-    <meta name="author" content="Vạn Phú Khánh">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://giamsatxe.net/">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="logoVPK.png" type="image/png">
+  <!-- ================= SEO & AI Search (GEO / AEO) Meta ================= -->
+  <title>Giám Sát Xe | GIAMSATXE.NET - Vạn Phú Khánh 0585.114.114 | Thiết Bị Giám Sát Hành Trình &amp; Camera Ô Tô QCVN 06:2024/BCA</title>
+  <meta name="description" content="GIAMSATXE.NET (114 Vạn Phú Khánh - 0585.114.114) chuyên giải pháp giám sát xe trực tuyến, thiết bị giám sát hành trình GPS 4G, camera ghi nhận hình ảnh người lái xe và khoang hành khách chuẩn QCVN 06:2024/BCA. Truyền dữ liệu giám sát xe Real-time về Cục CSGT, lắp đặt tận nơi tại Nha Trang, Khánh Hòa.">
+  <meta name="keywords" content="giám sát xe, hệ thống giám sát xe, thiết bị giám sát xe, phần mềm giám sát xe, giám sát xe ô tô, giám sát xe tải, giám sát xe khách, giamsatxe.net, giám sát hành trình, định vị ô tô, QCVN 06:2024/BCA, camera khoang chở khách, camera lái xe, định vị Khánh Hòa, Vạn Phú Khánh, camera hành trình Nha Trang">
+  <meta name="author" content="114 Vạn Phú Khánh - GIAMSATXE.NET">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://giamsatxe.net/">
 
-    <!-- ================= Performance: Preconnect & Preload ================= -->
-    <link rel="preconnect" href="https://raw.githubusercontent.com">
-    <link rel="preload" as="image" href="logoVPK.png" fetchpriority="high">
-    
-    <!-- ================= Schema.org: LocalBusiness ================= -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Vạn Phú Khánh",
-      "url": "https://giamsatxe.net/",
-      "logo": "https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png",
-      "telephone": "+84585114114",
-      "hasMap": "https://maps.app.goo.gl/nePVen1FDzinLxLk9",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "128"
+  <!-- Favicon -->
+  <link rel="icon" href="logoVPK.png" type="image/png">
+
+  <!-- ================= Performance: Preconnect & Preload ================= -->
+  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="logoVPK.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ================= Social Meta (OpenGraph & Twitter) ================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="GIAMSATXE.NET - Hệ Thống Giám Sát Xe Vạn Phú Khánh">
+  <meta property="og:url" content="https://giamsatxe.net/">
+  <meta property="og:title" content="Giám Sát Xe Chuẩn QCVN 06:2024/BCA | GIAMSATXE.NET - Vạn Phú Khánh">
+  <meta property="og:description" content="Giải pháp giám sát xe toàn diện: Định vị GPS 4G, Camera AI ghi nhận người lái &amp; khoang hành khách truyền dữ liệu Real-time về Cục CSGT. Hotline lắp đặt tận nơi: 0585.114.114.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Giám Sát Xe | GIAMSATXE.NET - 114 Vạn Phú Khánh">
+  <meta name="twitter:description" content="Hệ thống giám sát xe ô tô, xe tải, xe khách chuẩn QCVN 06:2024/BCA Bộ Công An. Hotline: 0585.114.114.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png">
+
+  <!-- ================= Schema.org Unified @graph for AI & Search Engines ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://giamsatxe.net/#website",
+        "url": "https://giamsatxe.net/",
+        "name": "GIAMSATXE.NET - Hệ Thống Giám Sát Xe Vạn Phú Khánh",
+        "alternateName": ["Giám Sát Xe", "GiamSatXe.net", "114 Vạn Phú Khánh"],
+        "description": "Nền tảng cung cấp thiết bị giám sát xe, định vị GPS và camera ô tô hợp quy QCVN 06:2024/BCA truyền dữ liệu trực tiếp về Cục CSGT.",
+        "inLanguage": "vi-VN"
       },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Khánh Hòa",
-        "addressCountry": "VN"
+      {
+        "@type": ["LocalBusiness", "AutoPartsStore"],
+        "@id": "https://giamsatxe.net/#organization",
+        "name": "114 Vạn Phú Khánh - GIAMSATXE.NET",
+        "url": "https://giamsatxe.net/",
+        "logo": "https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png",
+        "image": "https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png",
+        "telephone": "+84585114114",
+        "priceRange": "$$",
+        "hasMap": "https://maps.app.goo.gl/nePVen1FDzinLxLk9",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Khánh Hòa" },
+          { "@type": "City", "name": "Nha Trang" },
+          { "@type": "Country", "name": "Việt Nam" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Thôn Tân Mỹ, xã Tân Định & KĐT Phước Long, Nam Nha Trang",
+          "addressLocality": "Nha Trang",
+          "addressRegion": "Khánh Hòa",
+          "addressCountry": "VN"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+84585114114",
+            "contactType": "sales",
+            "areaServed": "VN",
+            "availableLanguage": ["Vietnamese"]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+84588588114",
+            "contactType": "customer support",
+            "areaServed": "VN",
+            "availableLanguage": ["Vietnamese"]
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://giamsatxe.net/#products",
+        "name": "Danh mục thiết bị giám sát xe chuẩn QCVN 06:2024/BCA",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Thiết bị giám sát xe định vị hành trình GPS 4G hợp quy QCVN 06:2024/BCA",
+            "description": "Định vị vị trí, tốc độ, lộ trình xe theo thời gian thực và truyền dữ liệu về máy chủ Cục CSGT."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Camera giám sát xe ghi nhận hình ảnh người lái (AI DMS)",
+            "description": "Ghi hình tài xế trong cabin, phát hiện và cảnh báo âm thanh khi ngủ gật, mất tập trung, dùng điện thoại."
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Camera giám sát khoang chở khách ô tô (từ 08 chỗ trở lên)",
+            "description": "Ghi hình hồng ngoại toàn cảnh khoang hành khách cho xe khách, xe buýt, xe hợp đồng, lưu trữ tối thiểu 72 giờ tại xe."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://giamsatxe.net/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Hệ thống giám sát xe là gì và cần đạt chuẩn nào theo quy định mới?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hệ thống giám sát xe là giải pháp kết hợp thiết bị định vị GPS 4G và camera ô tô chuyên dụng để quản lý vị trí, tốc độ, lộ trình và hình ảnh trên phương tiện. Theo quy chuẩn QCVN 06:2024/BCA và Luật Trật tự, an toàn giao thông đường bộ, thiết bị giám sát xe phải truyền dữ liệu hành trình real-time về máy chủ Cục CSGT, tích hợp camera ghi nhận hình ảnh người lái xe và phát cảnh báo âm thanh trên cabin khi tài xế ngủ gật, mất tập trung hoặc chạy quá tốc độ."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Những phương tiện nào bắt buộc phải lắp thiết bị giám sát xe và camera?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Các phương tiện kinh doanh vận tải bắt buộc trang bị thiết bị giám sát xe gồm: ô tô kinh doanh vận tải hành khách từ 08 chỗ trở lên (không kể chỗ người lái như xe khách, xe buýt, xe hợp đồng, xe du lịch), xe ô tô đầu kéo, xe container và các dòng xe tải kinh doanh vận tải theo quy định."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vạn Phú Khánh (GIAMSATXE.NET) có hỗ trợ lắp đặt giám sát xe tận nơi tại Nha Trang và Khánh Hòa không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Có. 114 Vạn Phú Khánh có trụ sở chính tại xã Tân Định cùng 2 trung tâm bảo hành tại KĐT Phước Long (Nam Nha Trang) và xã Thuận Bắc (Nam Khánh Hòa), hỗ trợ lắp đặt giám sát xe tận nơi và xử lý kỹ thuật nhanh chóng qua hotline 0585.114.114."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dữ liệu video giám sát xe được lưu trữ trong bao lâu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Camera giám sát xe ghi hình hồng ngoại liên tục cả ngày lẫn đêm, lưu trữ dữ liệu tối thiểu 72 giờ gần nhất trên bộ nhớ tại xe, đồng thời đồng bộ hình ảnh và tọa độ về máy chủ quản lý theo đúng quy định bảo vệ dữ liệu cá nhân."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy: #0a1f44;
+      --navy-2: #0f2a5a;
+      --navy-3: #163773;
+      --navy-ink: #06142e;
+      --navy-glass: rgba(10, 31, 68, 0.82);
+      --navy-card: rgba(12, 35, 76, 0.78);
+      --amber: #ffb400;
+      --amber-2: #e9a300;
+      --cyan: #38bdf8;
+      --ink: #f8fafc;
+      --ink-2: #dbe4f3;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.2);
+      --line-strong: rgba(56, 189, 248, 0.32);
+      --green: #22c55e;
+      --red: #ef4444;
+      --r: 10px;
+      --wrap: 1200px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body {
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background-color: var(--navy-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; transition: all 0.2s ease; }
+    svg { display: block; flex-shrink: 0; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+    .ico { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }
+    section[id] { scroll-margin-top: 76px; }
+
+    /* ==========================================================================
+       HIỆU ỨNG TRỐNG ĐỒNG ĐÔNG SƠN & VÒNG SÁNG NEON CÔNG NGHỆ
+       ========================================================================== */
+    .bg-pattern-corner {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .corner-top-left {
+      width: min(95vw, 520px);
+      height: min(95vw, 520px);
+      top: -115px;
+      left: -115px;
+    }
+    .corner-bottom-right {
+      width: min(145vw, 800px);
+      height: min(145vw, 800px);
+      bottom: -210px;
+      right: -210px;
+    }
+    .bg-neon-aura {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        rgba(56, 189, 248, 0.42) 0%,
+        rgba(255, 180, 0, 0.35) 30%,
+        transparent 58%,
+        rgba(22, 55, 115, 0.5) 82%,
+        transparent 100%
+      );
+      filter: blur(36px);
+      will-change: transform;
+      animation: neonPulse 12s linear infinite;
+    }
+    .bg-neon-ring {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top: 2.5px solid rgba(56, 189, 248, 0.88);
+      border-bottom: 2.5px solid rgba(255, 180, 0, 0.9);
+      border-left: 1.5px dashed rgba(56, 189, 248, 0.38);
+      border-right: 1.5px dashed rgba(255, 180, 0, 0.38);
+      box-shadow: 0 0 26px rgba(56, 189, 248, 0.35), inset 0 0 26px rgba(255, 180, 0, 0.25);
+      will-change: transform;
+      animation: rotateClockwise 18s linear infinite;
+    }
+    .bg-neon-ring::after {
+      content: "";
+      position: absolute;
+      inset: 7%;
+      border-radius: 50%;
+      border: 1.5px solid transparent;
+      border-left: 2px solid rgba(255, 180, 0, 0.78);
+      border-right: 2px solid rgba(56, 189, 248, 0.78);
+      box-shadow: 0 0 16px rgba(255, 180, 0, 0.32);
+      animation: rotateCounterClockwise 14s linear infinite;
+    }
+    .bg-trongdong {
+      position: absolute;
+      width: 82%;
+      height: 82%;
+      background-image:
+        url("https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png"),
+        radial-gradient(circle, rgba(255, 180, 0, 0.22) 0%, transparent 70%);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      opacity: 0.38;
+      filter: drop-shadow(0 0 18px rgba(255, 180, 0, 0.5));
+      transform-origin: center center;
+      will-change: transform;
+      animation: rotateClockwise 32s linear infinite;
+    }
+    @keyframes rotateClockwise {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes rotateCounterClockwise {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes neonPulse {
+      0% { transform: rotate(0deg) scale(0.95); opacity: 0.75; }
+      50% { transform: rotate(180deg) scale(1.06); opacity: 1; }
+      100% { transform: rotate(360deg) scale(0.95); opacity: 0.75; }
+    }
+
+    /* ================= Buttons & Labels ================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      border-radius: var(--r);
+      border: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn .ico { width: 18px; height: 18px; }
+    .btn-amber {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber-2) 100%);
+      color: var(--navy-ink);
+      box-shadow: 0 8px 24px rgba(255, 180, 0, 0.32);
+    }
+    .btn-amber:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 180, 0, 0.48);
+    }
+    .btn-line {
+      border-color: rgba(56, 189, 248, 0.45);
+      background: rgba(10, 31, 68, 0.55);
+      color: #fff;
+      backdrop-filter: blur(8px);
+    }
+    .btn-line:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+      background: rgba(255, 180, 0, 0.1);
+    }
+    .btn-navy {
+      background: var(--navy-ink);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .btn-navy:hover {
+      background: var(--navy-2);
+      border-color: var(--cyan);
+      transform: translateY(-1px);
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    .label::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--cyan));
+      border-radius: 2px;
+    }
+
+    /* ================= Topbar & Header ================= */
+    .topbar {
+      position: relative;
+      z-index: 50;
+      background: rgba(4, 12, 28, 0.92);
+      border-bottom: 1px solid var(--line);
+      color: #94a3b8;
+      font-size: 12.5px;
+    }
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      height: 36px;
+      align-items: center;
+    }
+    .topbar .l { display: flex; gap: 28px; }
+    .topbar span { display: inline-flex; align-items: center; gap: 7px; }
+    .topbar .ico { width: 14px; height: 14px; color: var(--amber); }
+    .topbar b { color: #fff; font-weight: 600; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(6, 20, 46, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      height: 74px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #fff;
+      padding: 4px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+      border: 1px solid rgba(255, 180, 0, 0.5);
+    }
+    .brand-logo { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .brand-txt { padding-left: 12px; border-left: 1px solid var(--line); }
+    .brand-name { font-weight: 900; font-size: 19px; letter-spacing: 0.3px; line-height: 1.08; color: #fff; }
+    .brand-name em { font-style: normal; color: var(--amber); }
+    .brand-sub { font-size: 11px; color: var(--cyan); font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-top: 2px; }
+
+    nav { display: flex; align-items: stretch; }
+    nav a {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-2);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+    }
+    nav a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+    .h-cta { display: flex; align-items: center; gap: 18px; }
+    .h-phone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-left: 18px;
+      border-left: 1px solid var(--line);
+    }
+    .h-phone .ic {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      display: grid;
+      place-items: center;
+      color: var(--navy-ink);
+      box-shadow: 0 0 16px rgba(255, 180, 0, 0.4);
+    }
+    .h-phone small {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .h-phone b { font-size: 18px; color: #fff; letter-spacing: 0.3px; line-height: 1.2; }
+    .burger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      align-self: center;
+      border: 1px solid var(--line);
+      background: rgba(15, 42, 90, 0.7);
+      color: #fff;
+      place-items: center;
+      cursor: pointer;
+    }
+    .burger .ico { width: 22px; height: 22px; }
+
+    /* ================= Mobile Drawer ================= */
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(6, 20, 46, 0.98);
+      backdrop-filter: blur(18px);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .drawer.open { transform: none; }
+    .drawer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .drawer-top .d-brand { display: flex; align-items: center; gap: 10px; }
+    .drawer-top button {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: none;
+      border: 1px solid var(--line);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+    .drawer ol { list-style: none; counter-reset: m; }
+    .drawer li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .drawer li a::before {
+      counter-increment: m;
+      content: "0" counter(m);
+      font-size: 12px;
+      color: var(--amber);
+      margin-right: 16px;
+      letter-spacing: 1px;
+    }
+    .drawer li a span { flex: 1; }
+    .drawer li .ico { color: var(--cyan); }
+    .drawer-bottom { margin-top: auto; padding: 16px; display: grid; gap: 10px; }
+    .drawer-bottom p { font-size: 12.5px; color: var(--muted); margin-bottom: 4px; }
+
+    /* ================= Hero Section ================= */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 0;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 82% 20%, rgba(56, 189, 248, 0.14), transparent 46%),
+        radial-gradient(circle at 18% 80%, rgba(255, 180, 0, 0.1), transparent 42%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 72px 72px,
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 72px 72px;
+      pointer-events: none;
+    }
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding-top: 68px;
+      padding-bottom: 68px;
+    }
+    .std {
+      display: inline-flex;
+      border: 1px solid rgba(255, 180, 0, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      background: rgba(6, 20, 46, 0.7);
+    }
+    .std span { padding: 7px 12px; }
+    .std span:first-child { background: var(--amber); color: var(--navy-ink); font-weight: 800; }
+    .hero h1 {
+      font-size: clamp(29px, 3.4vw, 44px);
+      font-weight: 900;
+      line-height: 1.14;
+      letter-spacing: -0.6px;
+      margin: 22px 0 18px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--amber) 0%, #fde047 50%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .lead {
+      font-size: 16.5px;
+      color: var(--ink-2);
+      max-width: 550px;
+      padding-left: 18px;
+      border-left: 3px solid var(--amber);
+    }
+    .hero .ctas { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+
+    /* ================= Animated Fleet Map Console ================= */
+    .console {
+      background: rgba(6, 20, 46, 0.9);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 32px 70px -24px rgba(0, 0, 0, 0.75), 0 0 28px rgba(56, 189, 248, 0.16);
+    }
+    .c-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ink-2);
+      font-weight: 700;
+      background: rgba(4, 12, 28, 0.75);
+    }
+    .c-live { display: inline-flex; align-items: center; gap: 7px; color: #4ade80; font-weight: 800; }
+    .c-live::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 10px #4ade80;
+      animation: blink 1.4s infinite;
+    }
+    @keyframes blink { 50% { opacity: 0.25; } }
+    .c-body { display: grid; grid-template-columns: 1.38fr 1fr; }
+    .c-map {
+      position: relative;
+      min-height: 320px;
+      border-right: 1px solid var(--line);
+      background: #041026;
+      overflow: hidden;
+    }
+    .c-map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+    /* Route dash animation */
+    .route-glow {
+      filter: drop-shadow(0 0 6px rgba(255, 180, 0, 0.65));
+    }
+    .route-flow {
+      stroke-dasharray: 10 8;
+      animation: routeDash 1.2s linear infinite;
+    }
+    .route-flow-cyan {
+      stroke-dasharray: 8 8;
+      animation: routeDash 1.6s linear infinite;
+    }
+    @keyframes routeDash {
+      to { stroke-dashoffset: -36; }
+    }
+    .veh-pulse {
+      animation: radarRing 2s ease-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+    @keyframes radarRing {
+      0% { transform: scale(0.55); opacity: 0.85; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+
+    .c-hud-top {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .c-hud-tag {
+      background: rgba(6, 20, 46, 0.86);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #e2e8f0;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 6px;
+      backdrop-filter: blur(6px);
+    }
+    .c-hud-tag b { color: var(--amber); }
+
+    .c-speed {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      color: var(--navy-ink);
+      padding: 9px 14px;
+      font-weight: 800;
+      border-top-right-radius: 12px;
+      z-index: 3;
+      box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.35);
+      min-width: 158px;
+    }
+    .c-speed small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-weight: 800;
+      opacity: 0.82;
+    }
+    .c-speed b { font-size: 21px; line-height: 1.1; display: block; font-variant-numeric: tabular-nums; }
+
+    .c-list { font-size: 12px; display: flex; flex-direction: column; }
+    .c-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: background 0.18s ease;
+    }
+    .c-row:hover, .c-row.active {
+      background: rgba(56, 189, 248, 0.12);
+    }
+    .c-row b { font-size: 13px; letter-spacing: 0.3px; color: #fff; }
+    .c-row small { grid-column: 1 / -1; color: #94a3b8; margin-top: 2px; }
+    .st {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid;
+      align-self: center;
+    }
+    .st.run { color: #4ade80; border-color: rgba(74, 222, 128, 0.45); background: rgba(34, 197, 94, 0.1); }
+    .st.stop { color: #cbd5e1; border-color: rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
+    .st.warn { color: #fff; background: var(--red); border-color: var(--red); }
+    .c-alert {
+      background: rgba(239, 68, 68, 0.16);
+      border-left: 3px solid var(--red);
+      margin-top: auto;
+    }
+    .c-note { font-size: 11.5px; color: var(--muted); margin-top: 12px; text-align: right; }
+
+    /* ================= Stat Bar ================= */
+    .stats {
+      position: relative;
+      z-index: 2;
+      background: rgba(10, 31, 68, 0.78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 26px 24px; border-left: 1px solid var(--line); }
+    .stat:last-child { border-right: 1px solid var(--line); }
+    .stat b {
+      display: block;
+      font-size: 27px;
+      font-weight: 900;
+      color: var(--amber);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+    }
+    .stat span { font-size: 13.5px; color: var(--ink-2); font-weight: 500; }
+
+    /* ================= Section Layouts ================= */
+    section { padding: 88px 0; position: relative; z-index: 1; }
+    .head {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 44px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+    .head h2 {
+      font-size: clamp(25px, 3vw, 36px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-top: 12px;
+      color: #fff;
+    }
+    .head p { color: var(--ink-2); font-size: 15.5px; }
+    .gray {
+      background: rgba(10, 28, 62, 0.52);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .dark {
+      background: rgba(4, 14, 34, 0.78);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ================= Who Must Install ================= */
+    .who {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--navy-card);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+    .who > div { padding: 30px 26px; display: flex; gap: 18px; }
+    .who > div + div { border-left: 1px solid var(--line); }
+    .who .ic {
+      flex: none;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(255, 180, 0, 0.14);
+      border: 1px solid rgba(255, 180, 0, 0.4);
+      display: grid;
+      place-items: center;
+      color: var(--amber);
+    }
+    .who .ic .ico { width: 26px; height: 26px; }
+    .who h3 { font-size: 16.5px; font-weight: 800; color: #fff; }
+    .who p { font-size: 14px; color: var(--ink-2); margin-top: 5px; }
+
+    /* ================= Features Grid ================= */
+    .fgrid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--navy-card);
+      backdrop-filter: blur(14px);
+    }
+    .f {
+      padding: 30px 24px 34px;
+      border-right: 1px solid var(--line);
+      position: relative;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .f:last-child { border-right: none; }
+    .f::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--cyan));
+      transition: width 0.28s ease;
+    }
+    .f:hover { background: rgba(22, 55, 115, 0.55); }
+    .f:hover::before { width: 100%; }
+    .f .n { font-size: 12px; font-weight: 800; color: var(--cyan); letter-spacing: 1.5px; }
+    .f .ico {
+      width: 48px;
+      height: 48px;
+      padding: 11px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      color: var(--amber);
+      margin: 18px 0 16px;
+    }
+    .f h3 { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .f p { font-size: 14.5px; color: var(--ink-2); }
+
+    /* ================= Products List ================= */
+    .plist {
+      display: grid;
+      gap: 18px;
+    }
+    .p {
+      display: grid;
+      grid-template-columns: 80px 1.15fr 1.6fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 28px;
+      background: var(--navy-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .p:hover {
+      border-color: var(--amber);
+      transform: translateY(-2px);
+    }
+    .p .num {
+      font-size: 42px;
+      font-weight: 900;
+      color: rgba(148, 163, 184, 0.35);
+      line-height: 1;
+      letter-spacing: -1px;
+      transition: color 0.2s ease;
+    }
+    .p:hover .num { color: var(--amber); }
+    .p .tagline {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--navy-ink);
+      background: var(--amber);
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .p h3 { font-size: 21px; font-weight: 800; color: #fff; line-height: 1.25; }
+    .p .for { font-size: 14px; color: var(--muted); margin-top: 5px; }
+    .p ul { list-style: none; display: grid; gap: 9px; }
+    .p li { display: flex; gap: 12px; font-size: 14.5px; color: var(--ink-2); }
+    .p li::before {
+      content: "";
+      flex: none;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--amber);
+      margin-top: 8px;
+    }
+
+    /* ================= Comparison Table ================= */
+    .cmp-wrap {
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--navy-card);
+      backdrop-filter: blur(14px);
+    }
+    .cmp { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .cmp th, .cmp td {
+      padding: 18px 24px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    .cmp tr:last-child td { border-bottom: none; }
+    .cmp thead th {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--ink-2);
+      background: rgba(4, 14, 34, 0.85);
+    }
+    .cmp thead th.new {
+      background: rgba(22, 55, 115, 0.9);
+      color: var(--amber);
+      border-top: 3px solid var(--amber);
+    }
+    .cmp td:first-child { font-weight: 700; color: #fff; width: 24%; }
+    .cmp td.old { color: var(--muted); width: 35%; }
+    .cmp td.new {
+      background: rgba(56, 189, 248, 0.08);
+      color: #fff;
+      font-weight: 600;
+      border-left: 1px solid var(--line);
+    }
+    .cell { display: flex; gap: 10px; }
+    .cell .ico { flex: none; width: 18px; height: 18px; margin-top: 2px; }
+    .old .ico { color: #ef4444; }
+    .new .ico { color: #4ade80; }
+
+    /* ================= Process Steps ================= */
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; gap: 20px; }
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      top: 27px;
+      border-top: 2px dashed rgba(255, 180, 0, 0.35);
+      z-index: 0;
+    }
+    .s { position: relative; z-index: 1; }
+    .s .sq {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      color: var(--navy-ink);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(255, 180, 0, 0.3);
+    }
+    .s h4 { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .s p { font-size: 14px; color: var(--ink-2); }
+
+    /* ================= Visible FAQ Section (AI & SEO Optimized) ================= */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .faq-item {
+      background: var(--navy-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      padding: 22px 24px;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item:hover { border-color: var(--amber); }
+    .faq-item h3 {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--amber);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .faq-item p {
+      font-size: 14.5px;
+      color: var(--ink-2);
+    }
+
+    /* ================= Contact Section ================= */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--navy-card);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .c-left { padding: 44px; }
+    .c-left h2 {
+      font-size: clamp(25px, 3vw, 34px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+    .c-left > p { color: var(--ink-2); }
+    .lines { margin: 26px 0; border-top: 1px solid var(--line); }
+    .ln {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .ln .ic {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      color: var(--navy-ink);
+      flex: none;
+    }
+    .ln .ic.z { background: #0068ff; color: #fff; }
+    .ln small {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .ln b { font-size: 21px; color: #fff; letter-spacing: 0.3px; }
+    .ln .go { margin-left: auto; color: var(--muted); transition: transform 0.2s ease, color 0.2s ease; }
+    .ln:hover .go { color: var(--amber); transform: translateX(4px); }
+
+    .rate { display: flex; align-items: center; gap: 14px; }
+    .rate .sc { font-size: 34px; font-weight: 900; color: var(--amber); line-height: 1; }
+    .stars { display: flex; gap: 3px; color: var(--amber); }
+    .stars svg { width: 15px; height: 15px; fill: currentColor; }
+    .rate small { font-size: 13px; color: var(--ink-2); }
+
+    .c-right {
+      background: rgba(4, 14, 34, 0.85);
+      border-left: 1px solid var(--line);
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+    }
+    .c-right h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--amber);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .loc {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+    }
+    .loc .ico { color: var(--amber); margin-top: 3px; }
+    .loc small {
+      font-size: 11px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    .loc h4 { font-size: 17px; font-weight: 800; color: #fff; margin: 2px 0; }
+    .loc p { font-size: 14.5px; color: var(--ink-2); }
+    .c-map-ph {
+      margin-top: 26px;
+      height: 120px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background:
+        linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px) 0 0 / 26px 26px,
+        linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px) 0 0 / 26px 26px,
+        rgba(10, 31, 68, 0.6);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .c-map-ph:hover {
+      border-color: var(--amber);
+      background-color: rgba(255, 180, 0, 0.12);
+      color: #fff;
+    }
+
+    /* ================= CTA Band & Footer ================= */
+    .band {
+      background: linear-gradient(90deg, var(--amber) 0%, #fbbf24 55%, var(--amber-2) 100%);
+      color: var(--navy-ink);
+      padding: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .band .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+    .band h3 { font-size: 21px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.2px; }
+    .band p { font-size: 14.5px; font-weight: 600; opacity: 0.88; }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      background: rgba(3, 10, 24, 0.96);
+      border-top: 1px solid var(--line);
+      color: #94a3b8;
+      font-size: 13px;
+      padding: 28px 0;
+    }
+    footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    footer .note { max-width: 580px; color: #64748b; }
+
+    .m-bar { display: none; }
+
+    /* ================= Responsive Tablet ================= */
+    @media (max-width: 1080px) {
+      nav, .h-phone { display: none; }
+      .burger { display: grid; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .stats .wrap { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .stat:nth-child(2) { border-right: 1px solid var(--line); }
+      .fgrid { grid-template-columns: 1fr 1fr; }
+      .f:nth-child(2) { border-right: none; }
+      .f:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .who { grid-template-columns: 1fr; }
+      .who > div + div { border-left: none; border-top: 1px solid var(--line); }
+      .p { grid-template-columns: 64px 1fr; gap: 14px 20px; }
+      .p ul, .p .btn { grid-column: 2; }
+      .p .btn { justify-self: start; }
+      .steps { grid-template-columns: 1fr; gap: 24px; }
+      .steps::before {
+        left: 27px;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        border-top: none;
+        border-left: 2px dashed rgba(255, 180, 0, 0.35);
+      }
+      .s { display: grid; grid-template-columns: 56px 1fr; column-gap: 18px; }
+      .s .sq { grid-row: span 2; margin: 0; }
+      .faq-grid, .contact, .head { grid-template-columns: 1fr; gap: 16px; }
+      .c-right { border-left: none; border-top: 1px solid var(--line); }
+    }
+
+    /* ================= Responsive Mobile ================= */
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      .topbar { display: none; }
+      header .wrap { height: 64px; }
+      .brand-logo-wrap { width: 42px; height: 42px; }
+      .brand-txt { padding-left: 10px; }
+      .brand-name { font-size: 17px; }
+      section { padding: 60px 0; }
+      .hero .wrap { padding-top: 36px; padding-bottom: 44px; gap: 32px; }
+      .std span { white-space: nowrap; }
+      .std span:last-child { display: none; }
+      .hero h1 { font-size: 28px; margin: 16px 0 14px; }
+      .hero .lead { font-size: 15px; }
+      .hero .ctas { display: grid; grid-template-columns: 1fr; margin-top: 24px; }
+      .c-body { grid-template-columns: 1fr; }
+      .c-map { min-height: 235px; border-right: none; border-bottom: 1px solid var(--line); }
+      .stat { padding: 18px 14px; }
+      .stat b { font-size: 21px; }
+      .stat span { font-size: 12px; }
+      .head { margin-bottom: 26px; }
+      .head h2 { font-size: 24px; }
+      .who > div { padding: 20px 16px; }
+      .fgrid { grid-template-columns: 1fr; }
+      .f {
+        padding: 22px 18px;
+        border-right: none !important;
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 14px;
+      }
+      .f:last-child { border-bottom: none; }
+      .f .n { display: none; }
+      .f .ico { grid-row: span 2; margin: 2px 0 0; width: 44px; height: 44px; padding: 9px; }
+      .p { grid-template-columns: 1fr; padding: 22px 18px; gap: 12px; }
+      .p .num { font-size: 28px; }
+      .p ul, .p .btn { grid-column: 1; }
+      .p .btn { justify-self: stretch; }
+      .p h3 { font-size: 19px; }
+
+      /* Mobile stacked comparison cards */
+      .cmp-wrap { border: none; background: transparent; backdrop-filter: none; }
+      .cmp thead { display: none; }
+      .cmp, .cmp tbody, .cmp tr, .cmp td { display: block; width: 100% !important; }
+      .cmp tr {
+        border: 1px solid var(--line-strong);
+        margin-bottom: 14px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--navy-card);
+      }
+      .cmp td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+      .cmp td:first-child {
+        background: rgba(4, 14, 34, 0.9);
+        color: var(--amber);
+        font-size: 13.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+      .cmp td.old::before, .cmp td.new::before {
+        display: block;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .cmp td.old::before { content: "Thiết bị cũ"; color: var(--muted); }
+      .cmp td.new::before { content: "Hệ thống GIAMSATXE.NET"; color: var(--amber); }
+      .cmp td.new { border-left: 3px solid var(--amber); border-bottom: none; }
+
+      .c-left, .c-right { padding: 26px 18px; }
+      .ln b { font-size: 18px; }
+      .band .wrap { flex-direction: column; align-items: stretch; text-align: left; }
+      .band h3 { font-size: 18px; }
+      .m-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 80;
+        padding-bottom: env(safe-area-inset-bottom);
+        background: var(--navy-ink);
+        border-top: 1px solid var(--line);
+      }
+      .m-bar a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 54px;
+        font-weight: 800;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .m-bar a:first-child { background: var(--amber); color: var(--navy-ink); }
+      .m-bar a:last-child { background: #0068ff; color: #fff; }
+      footer { padding-bottom: 82px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
-    </script>
-
-    <!-- ================= Schema.org: FAQPage ================= -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Thiết bị giám sát hành trình mới cần đạt chuẩn gì theo quy định 2024?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Theo QCVN 06:2024/BCA, thiết bị phải có khả năng truyền dữ liệu hành trình xe real-time về máy chủ Cục CSGT, tích hợp camera ghi nhận hình ảnh người lái xe và cảnh báo âm thanh khi tài xế vi phạm (ngủ gật, dùng điện thoại)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vạn Phú Khánh có hỗ trợ lắp đặt tận nơi tại Nha Trang không?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Có. Chúng tôi có trung tâm bảo hành và lắp đặt tại KĐT Phước Long, Nam Nha Trang và các khu vực khác tại Khánh Hòa, đảm bảo xử lý sự cố trong vòng 2 giờ."
-          }
-        }
-      ]
-    }
-    </script>
-
-    <!-- ================= Social Meta ================= -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://giamsatxe.net/">
-    <meta property="og:title" content="GIAMSATXE.NET | Vạn Phú Khánh - Giám Sát Hành Trình & Camera Ô Tô Chuẩn QCVN 06:2024/BCA">
-    <meta property="og:description" content="Thiết bị Giám sát hành trình (GPS), Camera ghi nhận hình ảnh người lái xe & khoang hành khách truyền dữ liệu hành trình xe Real-time về Cục CSGT. Hotline: 0585.114.114.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GIAMSATXE.NET | Vạn Phú Khánh">
-    <meta name="twitter:description" content="Giám sát hành trình - Ghi nhận hình ảnh người lái xe - Giám sát khoang hành khách chuẩn Bộ Công An">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/logoVPK.png">
-
-    <!-- ================= Fonts & Styles ================= -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#0a1f44; --navy-2:#0f2a5a; --navy-3:#163773; --navy-ink:#06142e;
-  --amber:#ffb400; --amber-2:#e9a300;
-  --ink:#0d1726; --ink-2:#3a4657; --muted:#6b7686; --line:#d9dee6; --line-2:#e9edf2;
-  --bg:#fff; --bg-2:#f3f5f8;
-  --green:#15803d; --red:#c62828;
-  --r:8px; --wrap:1200px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-svg{display:block}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
-.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:square;stroke-linejoin:miter}
-section[id]{scroll-margin-top:72px}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:.4px;text-transform:uppercase;padding:15px 24px;border-radius:var(--r);border:2px solid transparent;transition:.15s;white-space:nowrap}
-.btn .ico{width:18px;height:18px}
-.btn-amber{background:var(--amber);color:var(--navy-ink)}
-.btn-amber:hover{background:var(--amber-2)}
-.btn-line{border-color:rgba(255,255,255,.35);color:#fff}
-.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.06)}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-3)}
-
-/* Label */
-.label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy-3)}
-.label::before{content:"";width:28px;height:3px;background:var(--amber)}
-.dark .label{color:var(--amber)}
-
-/* Topbar */
-.topbar{background:var(--navy-ink);color:#8d9bb5;font-size:12.5px}
-.topbar .wrap{display:flex;justify-content:space-between;height:36px;align-items:center}
-.topbar .l{display:flex;gap:28px}
-.topbar span{display:inline-flex;align-items:center;gap:7px}
-.topbar .ico{width:14px;height:14px;color:var(--amber)}
-.topbar b{color:#fff;font-weight:600}
-
-/* Header */
-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:stretch;justify-content:space-between;height:72px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-logo{height:52px;width:auto;display:block}
-.brand-txt{padding-left:12px;border-left:1px solid var(--line)}
-.logo-tile{width:42px;height:42px;background:#fff;display:grid;place-items:center;padding:4px;border-radius:10px}
-.logo-tile img{width:100%;height:100%;object-fit:contain}
-.brand-name{font-weight:900;font-size:19px;letter-spacing:.3px;line-height:1.05;color:var(--navy)}
-.brand-name em{font-style:normal;color:var(--amber-2)}
-.brand-sub{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase}
-nav{display:flex;align-items:stretch}
-nav a{display:flex;align-items:center;padding:0 18px;font-size:14px;font-weight:600;color:var(--ink-2);border-bottom:3px solid transparent;margin-bottom:-1px}
-nav a:hover{color:var(--navy);border-bottom-color:var(--amber)}
-.h-cta{display:flex;align-items:center;gap:20px}
-.h-phone{display:flex;align-items:center;gap:12px;padding-left:20px;border-left:1px solid var(--line)}
-.h-phone .ic{width:40px;height:40px;background:var(--amber);display:grid;place-items:center;color:var(--navy-ink)}
-.h-phone small{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;line-height:1.2}
-.h-phone b{font-size:18px;color:var(--navy);letter-spacing:.3px;line-height:1.2}
-.burger{display:none;width:44px;height:44px;align-self:center;border:1px solid var(--line);background:#fff;place-items:center;cursor:pointer}
-.burger .ico{width:22px;height:22px}
-
-/* Drawer (mobile) */
-.drawer{position:fixed;inset:0;z-index:80;background:var(--navy);color:#fff;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s}
-.drawer.open{transform:none}
-.drawer-top{display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.12)}
-.drawer-top .brand-name{color:#fff}
-.drawer-top .d-brand{display:flex;align-items:center;gap:10px}
-.drawer-top button{width:44px;height:44px;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;cursor:pointer}
-.drawer ol{list-style:none;counter-reset:m}
-.drawer li a{display:flex;align-items:center;justify-content:space-between;padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:18px;font-weight:700}
-.drawer li a::before{counter-increment:m;content:"0" counter(m);font-size:12px;color:var(--amber);margin-right:16px;letter-spacing:1px}
-.drawer li a span{flex:1}
-.drawer li .ico{color:#7d8fb0}
-.drawer-bottom{margin-top:auto;padding:16px;display:grid;gap:10px}
-.drawer-bottom p{font-size:12.5px;color:#8d9bb5;margin-bottom:6px}
-
-/* Hero */
-.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:
-  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/80px 80px,
-  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/80px 80px;}
-.hero::after{content:"";position:absolute;right:0;top:0;bottom:0;width:45%;background:linear-gradient(90deg,transparent,rgba(22,55,115,.65))}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:76px;padding-bottom:76px}
-.std{display:inline-flex;border:1px solid rgba(255,255,255,.25);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.std span{padding:7px 12px}
-.std span:first-child{background:var(--amber);color:var(--navy-ink)}
-.hero h1{font-size:clamp(30px,3.5vw,46px);font-weight:900;line-height:1.1;letter-spacing:-.8px;margin:24px 0 20px;text-transform:uppercase}
-.hero h1 span{color:var(--amber)}
-.hero .lead{font-size:17px;color:#b5c2d9;max-width:540px;padding-left:18px;border-left:3px solid var(--amber)}
-.hero .ctas{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-
-/* Console */
-.console{background:var(--navy-ink);border:1px solid rgba(255,255,255,.14);box-shadow:24px 24px 0 rgba(255,180,0,.12)}
-.c-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.1);font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:#8d9bb5;font-weight:600}
-.c-live{display:flex;align-items:center;gap:7px;color:#4ade80}
-.c-live::before{content:"";width:7px;height:7px;background:#4ade80;animation:blink 1.4s infinite}
-@keyframes blink{50%{opacity:.25}}
-.c-body{display:grid;grid-template-columns:1.3fr 1fr}
-.c-map{position:relative;min-height:300px;border-right:1px solid rgba(255,255,255,.1)}
-.c-map svg{position:absolute;inset:0;width:100%;height:100%}
-.c-speed{position:absolute;left:0;bottom:0;background:var(--amber);color:var(--navy-ink);padding:8px 14px;font-weight:800}
-.c-speed small{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:700;opacity:.75}
-.c-speed b{font-size:22px;line-height:1}
-.c-list{font-size:12px}
-.c-row{display:grid;grid-template-columns:1fr auto;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
-.c-row b{font-size:13px;letter-spacing:.3px}
-.c-row small{grid-column:1/-1;color:#7d8fb0}
-.st{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 6px;border:1px solid}
-.st.run{color:#4ade80;border-color:rgba(74,222,128,.4)}
-.st.stop{color:#94a3b8;border-color:rgba(148,163,184,.4)}
-.st.warn{color:#fff;background:var(--red);border-color:var(--red)}
-.c-alert{background:rgba(198,40,40,.18);border-left:3px solid var(--red)}
-.c-note{font-size:11px;color:#7d8fb0;margin-top:14px;text-align:right}
-
-/* Stat bar */
-.stats{background:#fff;border-bottom:1px solid var(--line)}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:28px 24px;border-left:1px solid var(--line)}
-.stat:last-child{border-right:1px solid var(--line)}
-.stat b{display:block;font-size:28px;font-weight:900;color:var(--navy);letter-spacing:-.5px;line-height:1.1}
-.stat span{font-size:13.5px;color:var(--muted);font-weight:500}
-
-/* Section base */
-section{padding:96px 0}
-.head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
-.head h2{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.2;letter-spacing:-.5px;margin-top:14px;color:var(--navy)}
-.head p{color:var(--muted);font-size:16px}
-.dark{background:var(--navy);color:#fff}
-.dark .head h2{color:#fff}
-.dark .head p{color:#a7b5cf}
-.gray{background:var(--bg-2)}
-
-/* Who must install */
-.who{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:#fff}
-.who > div{padding:32px 28px;display:flex;gap:18px}
-.who > div + div{border-left:1px solid var(--line)}
-.who .ic{flex:none;width:52px;height:52px;background:var(--bg-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--navy)}
-.who .ic .ico{width:26px;height:26px}
-.who h3{font-size:16px;font-weight:800;color:var(--navy)}
-.who p{font-size:14px;color:var(--muted);margin-top:4px}
-
-/* Features grid */
-.fgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.f{padding:32px 26px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;position:relative;transition:.15s}
-.f::before{content:"";position:absolute;left:-1px;top:-1px;width:0;height:3px;background:var(--amber);transition:.25s}
-.f:hover::before{width:calc(100% + 2px)}
-.f .n{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:1.5px}
-.f .ico{width:30px;height:30px;color:var(--navy-3);margin:22px 0 18px;stroke-width:1.6}
-.f h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
-.f p{font-size:14.5px;color:var(--muted)}
-
-/* Products */
-.plist{border-top:2px solid var(--navy)}
-.p{display:grid;grid-template-columns:90px 1.1fr 1.6fr auto;gap:32px;align-items:start;padding:36px 0;border-bottom:1px solid var(--line)}
-.p .num{font-size:44px;font-weight:900;color:var(--line);line-height:1;letter-spacing:-1px}
-.p:hover .num{color:var(--amber)}
-.p .tagline{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-3);background:#e7edf8;padding:3px 8px;margin-bottom:10px}
-.p h3{font-size:22px;font-weight:800;color:var(--navy);line-height:1.25}
-.p .for{font-size:14px;color:var(--muted);margin-top:6px}
-.p ul{list-style:none;display:grid;gap:10px}
-.p li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
-.p li::before{content:"";flex:none;width:8px;height:8px;background:var(--amber);margin-top:9px}
-.p .btn{align-self:center}
-
-/* Compare */
-.cmp{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
-.cmp-wrap{border:1px solid var(--line)}
-.cmp th,.cmp td{padding:18px 24px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
-.cmp tr:last-child td{border-bottom:none}
-.cmp thead th{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);background:var(--bg-2)}
-.cmp thead th.new{background:var(--navy);color:#fff;border-top:4px solid var(--amber)}
-.cmp td:first-child{font-weight:700;color:var(--navy);width:24%}
-.cmp td.old{color:var(--muted);width:34%}
-.cmp td.new{background:#f6f9ff;font-weight:600;border-left:1px solid var(--line)}
-.cell{display:flex;gap:10px}
-.cell .ico{flex:none;width:18px;height:18px;margin-top:2px}
-.old .ico{color:#b3bcc8}
-.new .ico{color:var(--green)}
-
-/* Process */
-.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
-.steps::before{content:"";position:absolute;left:0;right:0;top:27px;border-top:2px dashed rgba(255,255,255,.25)}
-.s{position:relative;padding-right:24px}
-.s .sq{width:56px;height:56px;background:var(--amber);color:var(--navy-ink);display:grid;place-items:center;font-size:18px;font-weight:900;margin-bottom:22px}
-.s h4{font-size:17px;font-weight:800;margin-bottom:6px}
-.s p{font-size:14px;color:#a7b5cf}
-
-/* Contact */
-.contact{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}
-.c-left{padding:44px;background:#fff}
-.c-left h2{font-size:clamp(26px,3vw,36px);font-weight:900;color:var(--navy);line-height:1.2;margin:14px 0 12px}
-.c-left > p{color:var(--muted)}
-.lines{margin:28px 0;border-top:1px solid var(--line)}
-.ln{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.ln .ic{width:44px;height:44px;display:grid;place-items:center;background:var(--navy);color:#fff;flex:none}
-.ln .ic.z{background:#0068ff}
-.ln small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:700}
-.ln b{font-size:22px;color:var(--navy);letter-spacing:.3px}
-.ln .go{margin-left:auto;color:var(--muted)}
-.ln:hover .go{color:var(--navy)}
-.rate{display:flex;align-items:center;gap:14px}
-.rate .sc{font-size:34px;font-weight:900;color:var(--navy);line-height:1}
-.stars{display:flex;gap:2px;color:#f4b400}
-.stars svg{width:15px;height:15px;fill:currentColor}
-.rate small{font-size:13px;color:var(--muted)}
-.c-right{background:var(--navy);color:#fff;padding:44px;display:flex;flex-direction:column}
-.c-right h3{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--amber);font-weight:700;margin-bottom:8px}
-.loc{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:36px 1fr;gap:14px}
-.loc .ico{color:var(--amber);margin-top:2px}
-.loc small{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#8d9bb5;font-weight:700}
-.loc h4{font-size:17px;font-weight:800;margin:2px 0}
-.loc p{font-size:14.5px;color:#b5c2d9}
-.c-map-ph{margin-top:auto;height:150px;border:1px solid rgba(255,255,255,.15);background:
-  linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px) 0 0/28px 28px,
-  linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px) 0 0/28px 28px;display:grid;place-items:center;font-size:12px;color:#8d9bb5;letter-spacing:1px;text-transform:uppercase;margin-top:28px}
-
-/* CTA band */
-.band{background:var(--amber);color:var(--navy-ink);padding:0}
-.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:30px;padding-bottom:30px}
-.band h3{font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-.2px}
-.band p{font-size:14.5px;font-weight:500;opacity:.8}
-
-footer{background:var(--navy-ink);color:#7d8fb0;font-size:13px;padding:26px 0}
-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer .note{max-width:560px;color:#5b6c8c}
-
-.m-bar{display:none}
-
-
-/* ---------- Bo góc cân bằng (v3) ---------- */
-.label::before{border-radius:2px}
-.h-phone .ic,.burger,.drawer-top button{border-radius:10px}
-.std{border-radius:8px;overflow:hidden}
-.console{border-radius:16px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.65),0 0 0 6px rgba(255,180,0,.08)}
-.c-speed{border-top-right-radius:10px}
-.st{border-radius:4px}
-.who,.cmp-wrap{border-radius:14px;overflow:hidden}
-.who .ic{border-radius:12px}
-.fgrid{border-radius:14px;overflow:hidden}
-.f .ico{padding:10px;width:50px;height:50px;background:#eef2f9;border-radius:12px}
-.p .tagline{border-radius:4px}
-.p li::before{border-radius:2px}
-.plist{border-top:none}
-.plist .p:first-child{border-top:2px solid var(--navy)}
-.s .sq{border-radius:14px}
-.contact{border-radius:18px;overflow:hidden}
-.ln .ic{border-radius:10px}
-.c-map-ph{border-radius:12px;font-weight:700;transition:.15s}
-.c-map-ph:hover{color:#fff;border-color:var(--amber)}
-.stats .wrap{padding-top:0}
-
-/* ---------- Tablet ---------- */
-@media (max-width:1080px){
-  nav,.h-phone{display:none}
-  .burger{display:grid}
-  .hero .wrap{grid-template-columns:1fr}
-  .hero::after{display:none}
-  .stats .wrap{grid-template-columns:1fr 1fr}
-  .stat:nth-child(n+3){border-top:1px solid var(--line)}
-  .stat:nth-child(2){border-right:1px solid var(--line)}
-  .fgrid{grid-template-columns:1fr 1fr}
-  .who{grid-template-columns:1fr}
-  .who > div + div{border-left:none;border-top:1px solid var(--line)}
-  .p{grid-template-columns:70px 1fr;gap:16px 24px}
-  .p ul,.p .btn{grid-column:2}
-  .p .btn{justify-self:start}
-  .steps{grid-template-columns:1fr;gap:28px}
-  .steps::before{left:27px;right:auto;top:0;bottom:0;border-top:none;border-left:2px dashed rgba(255,255,255,.25)}
-  .s{display:grid;grid-template-columns:56px 1fr;column-gap:20px}
-  .s .sq{grid-row:span 2;margin:0}
-  .contact{grid-template-columns:1fr}
-  .head{grid-template-columns:1fr;gap:12px}
-}
-/* ---------- Mobile ---------- */
-@media (max-width:640px){
-  .wrap{padding:0 16px}
-  .topbar{display:none}
-  header .wrap{height:64px}
-  .brand-logo{height:44px}
-  .brand-txt{padding-left:10px}
-  .brand-name{font-size:17px}
-  section{padding:64px 0}
-  .hero .wrap{padding-top:40px;padding-bottom:48px;gap:36px}
-  .std span{white-space:nowrap}
-  .std span:last-child{display:none}
-  .hero h1{font-size:30px;margin:18px 0 16px}
-  .hero .lead{font-size:15.5px}
-  .hero .ctas{display:grid;grid-template-columns:1fr;margin-top:26px}
-  .console{margin-right:0}
-  .c-body{grid-template-columns:1fr}
-  .c-map{min-height:200px;border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
-  .c-row:nth-child(3){display:none}
-  .stat{padding:20px 16px}
-  .stat b{font-size:22px}
-  .stat span{font-size:12.5px}
-  .head{margin-bottom:28px}
-  .head h2{font-size:26px}
-  .who > div{padding:22px 18px}
-  .fgrid{grid-template-columns:1fr}
-  .f{padding:24px 20px;display:grid;grid-template-columns:auto 1fr;column-gap:16px}
-  .f .n{display:none}
-  .f .ico{grid-row:span 2;margin:2px 0 0;width:44px;height:44px;padding:9px}
-  .p{grid-template-columns:1fr;padding:28px 0;gap:14px}
-  .p .num{font-size:30px}
-  .p ul,.p .btn{grid-column:1}
-  .p .btn{justify-self:stretch}
-  .p h3{font-size:20px}
-  /* compare -> stacked cards */
-  .cmp-wrap{border:none}
-  .cmp thead{display:none}
-  .cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%!important}
-  .cmp tr{border:1px solid var(--line);margin-bottom:12px;border-radius:12px;overflow:hidden}
-  .cmp-wrap{border-radius:0;overflow:visible}
-  .cmp td{padding:12px 16px;border-bottom:1px solid var(--line-2)}
-  .cmp td:first-child{background:var(--navy);color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:.6px}
-  .cmp td.old::before,.cmp td.new::before{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:4px}
-  .cmp td.old::before{content:"Thiết bị cũ";color:var(--muted)}
-  .cmp td.new::before{content:"GIAMSATXE.NET";color:var(--navy-3)}
-  .cmp td.new{border-left:3px solid var(--amber);border-bottom:none}
-  .c-left,.c-right{padding:28px 18px}
-  .ln b{font-size:19px}
-  .band .wrap{flex-direction:column;align-items:stretch;text-align:left}
-  .band h3{font-size:19px}
-  .m-bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;padding-bottom:env(safe-area-inset-bottom);background:var(--navy-ink)}
-  .m-bar a{display:flex;align-items:center;justify-content:center;gap:8px;height:56px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
-  .m-bar a:first-child{background:var(--amber);color:var(--navy-ink)}
-  .m-bar a:last-child{background:#0068ff;color:#fff}
-  footer{padding-bottom:84px}
-}
-</style>
+  </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute">
+<!-- ================= HIỆU ỨNG TRỐNG ĐỒNG NEON XOAY 2 GÓC ================= -->
+<div class="bg-pattern-corner corner-top-left" aria-hidden="true">
+  <div class="bg-neon-aura"></div>
+  <div class="bg-neon-ring"></div>
+  <div class="bg-trongdong"></div>
+</div>
+<div class="bg-pattern-corner corner-bottom-right" aria-hidden="true">
+  <div class="bg-neon-aura"></div>
+  <div class="bg-neon-ring"></div>
+  <div class="bg-trongdong"></div>
+</div>
+
+<!-- ================= SVG ICON DEFINITIONS ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/></symbol>
@@ -434,7 +1337,6 @@ footer .note{max-width:560px;color:#5b6c8c}
     <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
     <symbol id="i-video" viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12"/></symbol>
     <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
-    <symbol id="i-gps" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
     <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15"/><path d="M4 11h16M8 18v3M16 18v3M4 7h16"/></symbol>
     <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 4h14v12H1zM15 9h4l3 3v4h-7"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
@@ -443,276 +1345,601 @@ footer .note{max-width:560px;color:#5b6c8c}
     <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9l-3.8 3.8z"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+    <!-- Biểu tượng xe hướng +X (tự động xoay đúng chiều khi chạy trên lộ trình animateMotion) -->
+    <g id="car">
+      <rect x="-8.2" y="-3.4" width="4" height="1.6" rx=".6" fill="#06142e"/>
+      <rect x="-8.2" y="1.8" width="4" height="1.6" rx=".6" fill="#06142e"/>
+      <rect x="4.2" y="-3.4" width="4" height="1.6" rx=".6" fill="#06142e"/>
+      <rect x="4.2" y="1.8" width="4" height="1.6" rx=".6" fill="#06142e"/>
+      <rect x="-12" y="-7" width="24" height="14" rx="5" fill="currentColor" stroke="#fff" stroke-width="1.5"/>
+      <path d="M4.5 -5v10l-4.2-1.4v-7.2z" fill="#06142e" opacity=".82"/>
+      <rect x="-8.8" y="-4.6" width="3.2" height="9.2" rx="1.2" fill="#06142e" opacity=".72"/>
+      <rect x="-0.3" y="-3.6" width="5.9" height="7.2" rx="1" fill="#fff" opacity=".2"/>
+      <rect x="9.6" y="-5.2" width="1.8" height="3" rx=".8" fill="#fff7c2"/>
+      <rect x="9.6" y="2.2" width="1.8" height="3" rx=".8" fill="#fff7c2"/>
+    </g>
   </defs>
 </svg>
 
+<!-- ================= TOPBAR ================= -->
 <div class="topbar">
   <div class="wrap">
     <div class="l">
-      <span><svg class="ico"><use href="#i-shield"/></svg>Đạt chuẩn <b>QCVN 06:2024/BCA</b></span>
-      <span><svg class="ico"><use href="#i-pin"/></svg>Lắp đặt &amp; bảo hành tận nơi tại Khánh Hòa</span>
+      <span><svg class="ico"><use href="#i-shield"/></svg>Hệ thống <b>Giám sát xe</b> đạt chuẩn <b>QCVN 06:2024/BCA</b></span>
+      <span><svg class="ico"><use href="#i-pin"/></svg>Lắp đặt &amp; bảo hành tận nơi tại Nha Trang, Khánh Hòa</span>
     </div>
-    <span>Hotline 2: <b>0588.588.114</b></span>
+    <span>Hotline kỹ thuật: <b>0588.588.114</b></span>
   </div>
 </div>
 
+<!-- ================= HEADER ================= -->
 <header>
   <div class="wrap">
-    <a href="#" class="brand">
-      <img class="brand-logo" src="logoVPK.png" alt="Logo Vạn Phú Khánh">
-      <div class="brand-txt"><div class="brand-name">GIAMSATXE<em>.NET</em></div><div class="brand-sub">114 Vạn Phú Khánh</div></div>
+    <a href="#" class="brand" aria-label="GIAMSATXE.NET - Hệ thống giám sát xe Vạn Phú Khánh">
+      <div class="brand-logo-wrap">
+        <img class="brand-logo" src="logoVPK.png" alt="Logo Giám Sát Xe Vạn Phú Khánh">
+      </div>
+      <div class="brand-txt">
+        <div class="brand-name">GIAMSATXE<em>.NET</em></div>
+        <div class="brand-sub">114 Vạn Phú Khánh</div>
+      </div>
     </a>
-    <nav>
+    <nav aria-label="Điều hướng chính">
       <a href="#doi-tuong">Quy định</a>
       <a href="#giai-phap">Giải pháp</a>
-      <a href="#san-pham">Sản phẩm</a>
+      <a href="#san-pham">Thiết bị</a>
       <a href="#so-sanh">So sánh</a>
       <a href="#quy-trinh">Quy trình</a>
+      <a href="#hoi-dap">Hỏi đáp</a>
       <a href="#lien-he">Liên hệ</a>
     </nav>
     <div class="h-cta">
-      <a href="tel:0585114114" class="h-phone"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Hotline tư vấn</small><b>0585.114.114</b></div></a>
+      <a href="tel:0585114114" class="h-phone">
+        <div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div>
+        <div><small>Hotline giám sát xe</small><b>0585.114.114</b></div>
+      </a>
     </div>
-    <button class="burger" aria-label="Mở menu" onclick="toggleMenu(true)"><svg class="ico"><use href="#i-menu"/></svg></button>
+    <button class="burger" aria-label="Mở menu" onclick="toggleMenu(true)">
+      <svg class="ico"><use href="#i-menu"/></svg>
+    </button>
   </div>
 </header>
 
-<div class="drawer" id="drawer">
+<!-- ================= MOBILE DRAWER ================= -->
+<div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-top">
-    <div class="d-brand"><div class="logo-tile"><img src="logoVPK.png" alt="Logo Vạn Phú Khánh"></div><div class="brand-name">GIAMSATXE<em>.NET</em></div></div>
+    <div class="d-brand">
+      <div class="brand-logo-wrap"><img class="brand-logo" src="logoVPK.png" alt="Logo Vạn Phú Khánh"></div>
+      <div class="brand-name">GIAMSATXE<em>.NET</em></div>
+    </div>
     <button aria-label="Đóng menu" onclick="toggleMenu(false)"><svg class="ico"><use href="#i-x"/></svg></button>
   </div>
   <ol>
-    <li><a href="#doi-tuong" onclick="toggleMenu(false)"><span>Quy định</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#giai-phap" onclick="toggleMenu(false)"><span>Giải pháp</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#san-pham" onclick="toggleMenu(false)"><span>Sản phẩm</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#so-sanh" onclick="toggleMenu(false)"><span>So sánh</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#quy-trinh" onclick="toggleMenu(false)"><span>Quy trình</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#lien-he" onclick="toggleMenu(false)"><span>Liên hệ</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#doi-tuong" onclick="toggleMenu(false)"><span>Quy định lắp giám sát xe</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#giai-phap" onclick="toggleMenu(false)"><span>Giải pháp công nghệ</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#san-pham" onclick="toggleMenu(false)"><span>Thiết bị giám sát xe</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#so-sanh" onclick="toggleMenu(false)"><span>So sánh chuẩn mới</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#quy-trinh" onclick="toggleMenu(false)"><span>Quy trình lắp đặt</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#hoi-dap" onclick="toggleMenu(false)"><span>Câu hỏi thường gặp</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#lien-he" onclick="toggleMenu(false)"><span>Liên hệ bảo hành</span><svg class="ico"><use href="#i-arrow"/></svg></a></li>
   </ol>
   <div class="drawer-bottom">
-    <p>Tư vấn &amp; báo giá miễn phí — phản hồi trong giờ hành chính</p>
+    <p>Tư vấn &amp; báo giá hệ thống giám sát xe miễn phí — lắp đặt tận nơi</p>
     <a href="tel:0585114114" class="btn btn-amber"><svg class="ico"><use href="#i-phone"/></svg>0585.114.114</a>
     <a href="https://zalo.me/0585114114" class="btn btn-line"><svg class="ico"><use href="#i-chat"/></svg>Chat Zalo</a>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" style="padding:0">
+<main>
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
   <div class="wrap">
     <div>
       <div class="std"><span>QCVN 06:2024/BCA</span><span>Luật TTATGT đường bộ</span></div>
-      <h1>Giải pháp giám sát hành trình &amp; camera <span>cho doanh nghiệp vận tải</span></h1>
-      <p class="lead">Định vị GPS, camera ghi hình người lái và camera khoang khách. Tự động truyền dữ liệu hành trình về máy chủ Cục CSGT theo thời gian thực.</p>
+      <h1>Giải pháp <span>giám sát xe</span>, định vị hành trình &amp; camera AI cho vận tải</h1>
+      <p class="lead">Hệ thống <strong>giám sát xe trực tuyến GIAMSATXE.NET</strong> tích hợp định vị GPS 4G, camera ghi nhận hình ảnh người lái xe và khoang hành khách. Tự động truyền dữ liệu hành trình về máy chủ Cục CSGT theo thời gian thực.</p>
       <div class="ctas">
         <a href="tel:0585114114" class="btn btn-amber"><svg class="ico"><use href="#i-phone"/></svg>Gọi 0585.114.114</a>
-        <a href="#san-pham" class="btn btn-line">Xem thiết bị<svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a href="#san-pham" class="btn btn-line">Xem thiết bị giám sát xe<svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
+
+    <!-- MÔ PHỎNG BẢN ĐỒ XE CHẠY REAL-TIME -->
     <div>
-      <div class="console" aria-label="Minh họa phần mềm giám sát">
-        <div class="c-bar"><span>Trung tâm giám sát đội xe</span><span class="c-live">Real-time</span></div>
+      <div class="console" aria-label="Mô phỏng bản đồ giám sát xe trực tuyến">
+        <div class="c-bar">
+          <span>Trung tâm giám sát xe &bull; Khánh Hòa</span>
+          <span class="c-live">Live 4G &bull; Đồng bộ CSGT</span>
+        </div>
         <div class="c-body">
           <div class="c-map">
+            <div class="c-hud-top">
+              <span class="c-hud-tag">Vệ tinh: <b>GPS / GLONASS (14 sat)</b></span>
+              <span class="c-hud-tag">Server: <b>QCVN 06:2024</b></span>
+            </div>
+
             <svg viewBox="0 0 320 300" preserveAspectRatio="xMidYMid slice">
-              <rect width="320" height="300" fill="#06142e"/>
-              <g stroke="#13284d" stroke-width="9" fill="none"><path d="M-10 70 L330 100"/><path d="M60 -10 L85 310"/><path d="M-10 190 L330 165"/><path d="M215 -10 L200 310"/></g>
-              <g stroke="#0f2142" stroke-width="3" fill="none"><path d="M-10 128 L330 136"/><path d="M148 -10 L140 310"/><path d="M270 -10 L280 310"/></g>
-              <path d="M30 290 L72 190 L140 150 L148 100 L210 82 L295 30" stroke="#ffb400" stroke-width="3" fill="none" stroke-linejoin="miter"/>
-              <rect x="25" y="285" width="10" height="10" fill="#06142e" stroke="#ffb400" stroke-width="2"/>
-              <defs>
-                <g id="car">
-                  <rect x="-3.4" y="-8.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/><rect x="1.8" y="-8.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/>
-                  <rect x="-3.4" y="4.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/><rect x="1.8" y="4.2" width="1.6" height="4" rx=".6" fill="#0b0f1a"/>
-                  <rect x="-7" y="-12" width="14" height="24" rx="5" fill="currentColor" stroke="#fff" stroke-width="1.6"/>
-                  <path d="M-5 -4.5h10l-1.4 4.2h-7.2z" fill="#06142e" opacity=".8"/>
-                  <rect x="-4.6" y="5.6" width="9.2" height="3.2" rx="1.2" fill="#06142e" opacity=".7"/>
-                  <rect x="-3.6" y="-0.3" width="7.2" height="5.9" rx="1" fill="#fff" opacity=".18"/>
-                  <rect x="-5.2" y="-11.4" width="3" height="1.8" rx=".8" fill="#fff7c2"/><rect x="2.2" y="-11.4" width="3" height="1.8" rx=".8" fill="#fff7c2"/>
+              <rect width="320" height="300" fill="#041026"/>
+              <!-- Lưới tọa độ bản đồ số -->
+              <g stroke="#0b2147" stroke-width="1" opacity="0.7">
+                <path d="M0 50 H320 M0 100 H320 M0 150 H320 M0 200 H320 M0 250 H320"/>
+                <path d="M50 0 V300 M100 0 V300 M150 0 V300 M200 0 V300 M250 0 V300 M300 0 V300"/>
+              </g>
+              <!-- Các trục đường giao thông chính -->
+              <g stroke="#102a56" stroke-width="11" fill="none" stroke-linecap="round">
+                <path d="M-10 70 L330 100"/>
+                <path d="M60 -10 L85 310"/>
+                <path d="M-10 190 L330 165"/>
+                <path d="M215 -10 L200 310"/>
+              </g>
+              <g stroke="#0d2246" stroke-width="4" fill="none">
+                <path d="M-10 128 L330 136"/>
+                <path d="M148 -10 L140 310"/>
+                <path d="M270 -10 L280 310"/>
+              </g>
+
+              <!-- Tuyến đường phụ (Xe tải 79C-245.67 đang chạy) -->
+              <path id="route-truck" d="M-15 190 L85 183 L205 174 L335 165" stroke="#38bdf8" stroke-width="2.5" stroke-opacity="0.35" fill="none"/>
+              <path class="route-flow-cyan" d="M-15 190 L85 183 L205 174 L335 165" stroke="#38bdf8" stroke-width="2" fill="none"/>
+
+              <!-- Tuyến đường chính QL1A (Xe khách 79B-012.34 đang chạy) -->
+              <path id="route-main" d="M30 285 L72 190 L140 150 L148 100 L210 82 L295 28" stroke="#ffb400" stroke-width="4" stroke-opacity="0.28" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="route-glow route-flow" d="M30 285 L72 190 L140 150 L148 100 L210 82 L295 28" stroke="#ffb400" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <!-- Điểm xuất phát & đích trên lộ trình -->
+              <rect x="24" y="279" width="11" height="11" rx="2" fill="#06142e" stroke="#ffb400" stroke-width="2.2"/>
+              <g transform="translate(295 28)">
+                <circle r="9" fill="rgba(255,180,0,0.25)"/>
+                <circle r="4.5" fill="#ffb400"/>
+              </g>
+
+              <!-- Xe dừng đỗ: 79B-098.21 -->
+              <g transform="translate(232 212) rotate(180)">
+                <use href="#car" transform="scale(0.92)" style="color:#94a3b8"/>
+              </g>
+
+              <!-- Xe cảnh báo cabin: 79B-310.05 (nhấp nháy sóng cảnh báo) -->
+              <g transform="translate(74 84)">
+                <circle class="veh-pulse" r="20" fill="#ef4444"/>
+                <circle r="13" fill="#ef4444" opacity="0.28"/>
+                <use href="#car" transform="rotate(84) scale(0.95)" style="color:#ef4444"/>
+                <g transform="translate(0, -18)">
+                  <rect x="-28" y="-8" width="56" height="14" rx="3" fill="#7f1d1d" stroke="#fca5a5" stroke-width="1"/>
+                  <text x="0" y="2" text-anchor="middle" font-size="8" font-weight="800" fill="#fff">79B-310.05</text>
                 </g>
-              </defs>
-              <circle cx="148" cy="150" r="21" fill="#ffb400" opacity=".18"/>
-              <use href="#car" transform="translate(148 150) rotate(9) scale(1.05)" style="color:#ffb400"/>
-              <use href="#car" transform="translate(231 199) rotate(183) scale(.95)" style="color:#94a3b8"/>
-              <circle cx="85.5" cy="67.5" r="19" fill="#c62828" opacity=".25"/>
-              <use href="#car" transform="translate(85.5 67.5) rotate(5) scale(.95)" style="color:#e53935"/>
-              <use href="#car" transform="translate(267 133) rotate(91) scale(.95)" style="color:#22c55e"/>
+              </g>
+
+              <!-- XE 2 ĐANG CHẠY: Xe tải 79C-245.67 -->
+              <g>
+                <circle r="15" fill="#22c55e" opacity="0.2"/>
+                <use href="#car" transform="scale(0.96)" style="color:#22c55e"/>
+                <g transform="translate(0, -18)">
+                  <rect x="-28" y="-8" width="56" height="14" rx="3" fill="#06142e" stroke="#22c55e" stroke-width="1"/>
+                  <text x="0" y="2" text-anchor="middle" font-size="8" font-weight="800" fill="#4ade80">79C-245.67</text>
+                </g>
+                <animateMotion dur="15s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#route-truck"/>
+                </animateMotion>
+              </g>
+
+              <!-- XE 1 ĐANG CHẠY CHÍNH: Xe khách 79B-012.34 -->
+              <g>
+                <circle class="veh-pulse" r="22" fill="#ffb400"/>
+                <circle r="16" fill="#ffb400" opacity="0.24"/>
+                <use href="#car" transform="scale(1.1)" style="color:#ffb400"/>
+                <g transform="translate(0, -21)">
+                  <rect x="-31" y="-9" width="62" height="16" rx="4" fill="#ffb400" stroke="#06142e" stroke-width="1.4"/>
+                  <text x="0" y="2" text-anchor="middle" font-size="8.5" font-weight="900" fill="#06142e">79B-012.34</text>
+                </g>
+                <animateMotion dur="11s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#route-main"/>
+                </animateMotion>
+              </g>
             </svg>
-            <div class="c-speed"><small>79B-012.34 · QL1A</small><b>62 km/h</b></div>
+
+            <div class="c-speed" id="mapHud">
+              <small id="hudPlate">79B-012.34 &bull; QL1A Nha Trang</small>
+              <b id="hudSpeed">62 km/h</b>
+            </div>
           </div>
-          <div class="c-list">
-            <div class="c-row"><b>79B-012.34</b><span class="st run">Chạy</span><small>Xe khách 29 chỗ · 62 km/h</small></div>
-            <div class="c-row"><b>79C-245.67</b><span class="st run">Chạy</span><small>Xe tải 8T · 48 km/h</small></div>
-            <div class="c-row"><b>79B-098.21</b><span class="st stop">Dừng</span><small>Xe 16 chỗ · đỗ 12 phút</small></div>
-            <div class="c-row c-alert"><b>79B-310.05</b><span class="st warn">Cảnh báo</span><small style="color:#fecaca">Tài xế có dấu hiệu ngủ gật — đã phát cảnh báo cabin</small></div>
+
+          <div class="c-list" role="region" aria-label="Danh sách phương tiện giám sát">
+            <div class="c-row active" data-plate="79B-012.34 · QL1A Nha Trang" data-speed="62">
+              <b>79B-012.34</b><span class="st run">Đang chạy</span>
+              <small>Xe khách 29 chỗ &bull; <span class="js-live-spd">62</span> km/h &bull; Camera AI: Bật</small>
+            </div>
+            <div class="c-row" data-plate="79C-245.67 · Tuyến tránh Ninh Hòa" data-speed="48">
+              <b>79C-245.67</b><span class="st run">Đang chạy</span>
+              <small>Xe tải 8T &bull; 48 km/h &bull; Đã đồng bộ Cục CSGT</small>
+            </div>
+            <div class="c-row" data-plate="79B-098.21 · Bến xe Phía Nam" data-speed="0">
+              <b>79B-098.21</b><span class="st stop">Đang dừng</span>
+              <small>Xe hợp đồng 16 chỗ &bull; Đỗ 12 phút &bull; Lưu video 72h</small>
+            </div>
+            <div class="c-row c-alert" data-plate="79B-310.05 · Cảnh báo cabin AI" data-speed="54">
+              <b>79B-310.05</b><span class="st warn">Cảnh báo</span>
+              <small style="color:#fecaca">Tài xế có dấu hiệu ngủ gật — đã phát âm thanh cabin</small>
+            </div>
           </div>
         </div>
       </div>
-      <div class="c-note">* Hình minh họa giao diện phần mềm giám sát</div>
+      <div class="c-note">* Bấm vào từng biển số để xem trạng thái mô phỏng trên hệ thống giám sát xe</div>
     </div>
   </div>
 </section>
 
+<!-- ================= STATS BAR ================= -->
 <div class="stats">
   <div class="wrap">
     <div class="stat"><b>QCVN 06:2024</b><span>Hợp quy Bộ Công an</span></div>
-    <div class="stat"><b>72 giờ</b><span>Lưu trữ video tại xe</span></div>
-    <div class="stat"><b>03</b><span>Điểm bảo hành tại Khánh Hòa</span></div>
-    <div class="stat"><b>4.9 / 5</b><span>Đánh giá Google</span></div>
+    <div class="stat"><b>72 giờ+</b><span>Lưu trữ video giám sát xe</span></div>
+    <div class="stat"><b>03 trạm</b><span>Bảo hành tại Khánh Hòa</span></div>
+    <div class="stat"><b>4.9 / 5 ★</b><span>128+ đánh giá Google Maps</span></div>
   </div>
 </div>
 
-<!-- WHO -->
+<!-- ================= ĐỐI TƯỢNG BẮT BUỘC ================= -->
 <section id="doi-tuong" class="gray">
   <div class="wrap">
     <div class="head">
-      <div><span class="label">Đối tượng bắt buộc</span><h2>Phương tiện nào phải lắp đặt theo quy định mới?</h2></div>
-      <p>Theo Luật Trật tự, an toàn giao thông đường bộ, các phương tiện kinh doanh vận tải phải trang bị thiết bị giám sát hành trình và camera đạt chuẩn của Bộ Công an.</p>
+      <div>
+        <span class="label">Đối tượng bắt buộc</span>
+        <h2>Phương tiện nào phải lắp thiết bị giám sát xe theo quy định mới?</h2>
+      </div>
+      <p>Theo Luật Trật tự, an toàn giao thông đường bộ và quy chuẩn kỹ thuật quốc gia, các phương tiện kinh doanh vận tải bắt buộc trang bị thiết bị giám sát hành trình và camera giám sát xe đạt chuẩn của Bộ Công an.</p>
     </div>
     <div class="who">
-      <div><div class="ic"><svg class="ico"><use href="#i-bus"/></svg></div><div><h3>Xe kinh doanh vận tải hành khách</h3><p>Ô tô từ 08 chỗ trở lên (không kể chỗ người lái): xe khách, xe buýt, xe hợp đồng, xe du lịch.</p></div></div>
-      <div><div class="ic"><svg class="ico"><use href="#i-truck"/></svg></div><div><h3>Xe tải, xe đầu kéo</h3><p>Các dòng xe tải, xe container thuộc diện quy định phải lắp thiết bị giám sát.</p></div></div>
-      <div><div class="ic"><svg class="ico"><use href="#i-shield"/></svg></div><div><h3>Chuẩn kỹ thuật áp dụng</h3><p>QCVN 06:2024/BCA — dữ liệu truyền trực tiếp về máy chủ Cục CSGT.</p></div></div>
+      <div>
+        <div class="ic"><svg class="ico"><use href="#i-bus"/></svg></div>
+        <div>
+          <h3>Xe kinh doanh vận tải hành khách</h3>
+          <p>Ô tô từ 08 chỗ trở lên (không kể chỗ người lái): xe khách tuyến cố định, xe buýt, xe hợp đồng, xe du lịch phải lắp định vị và camera giám sát xe.</p>
+        </div>
+      </div>
+      <div>
+        <div class="ic"><svg class="ico"><use href="#i-truck"/></svg></div>
+        <div>
+          <h3>Xe tải, xe đầu kéo, container</h3>
+          <p>Các dòng xe tải kinh doanh vận tải, xe đầu kéo, xe cứu thương, xe cứu hộ giao thông thuộc diện quy định phải trang bị giám sát hành trình và camera người lái.</p>
+        </div>
+      </div>
+      <div>
+        <div class="ic"><svg class="ico"><use href="#i-shield"/></svg></div>
+        <div>
+          <h3>Chuẩn kỹ thuật QCVN 06:2024/BCA</h3>
+          <p>Dữ liệu giám sát xe và hình ảnh người lái được mã hóa, truyền trực tiếp theo thời gian thực về hệ thống máy chủ Cục Cảnh sát giao thông.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ================= TÍNH NĂNG & GIẢI PHÁP ================= -->
 <section id="giai-phap">
   <div class="wrap">
     <div class="head">
-      <div><span class="label">Điểm mới quan trọng</span><h2>Đáp ứng đầy đủ yêu cầu kỹ thuật &amp; pháp lý</h2></div>
-      <p>Một giải pháp trọn gói giúp doanh nghiệp vận tải tuân thủ quy định, giảm rủi ro tai nạn và quản lý đội xe hiệu quả.</p>
+      <div>
+        <span class="label">Công nghệ giám sát xe thế hệ mới</span>
+        <h2>Đáp ứng đầy đủ yêu cầu kỹ thuật, pháp lý &amp; quản trị đội xe</h2>
+      </div>
+      <p>Giải pháp giám sát xe trọn gói từ 114 Vạn Phú Khánh giúp doanh nghiệp vận tải tuân thủ đăng kiểm, cấp phù hiệu nhanh chóng và giảm thiểu rủi ro tai nạn.</p>
     </div>
     <div class="fgrid">
-      <div class="f"><span class="n">01</span><svg class="ico"><use href="#i-signal"/></svg><h3>Truyền dữ liệu real-time</h3><p>GPS và cảnh báo vi phạm truyền ngay về máy chủ CSGT để xử lý sự cố tức thì.</p></div>
-      <div class="f"><span class="n">02</span><svg class="ico"><use href="#i-bell"/></svg><h3>Tự động cảnh báo cabin</h3><p>Cảnh báo âm thanh khi tài xế ngủ gật, mất tập trung, dùng điện thoại hoặc quá tốc độ.</p></div>
-      <div class="f"><span class="n">03</span><svg class="ico"><use href="#i-video"/></svg><h3>Ghi hình &amp; lưu trữ an toàn</h3><p>Camera hồng ngoại ghi hình liên tục cả ban đêm, lưu tại xe từ 72 giờ, trích xuất theo luật bảo vệ dữ liệu cá nhân.</p></div>
-      <div class="f"><span class="n">04</span><svg class="ico"><use href="#i-cal"/></svg><h3>Lộ trình áp dụng rõ ràng</h3><p>Bắt buộc với xe kinh doanh vận tải hành khách từ 08 chỗ và xe tải thuộc diện quy định.</p></div>
+      <div class="f">
+        <span class="n">01</span>
+        <svg class="ico"><use href="#i-signal"/></svg>
+        <h3>Truyền dữ liệu Real-time</h3>
+        <p>Tọa độ GPS, tốc độ, thời gian lái xe liên tục và cảnh báo vi phạm được truyền tức thời qua mạng 4G về máy chủ Cục CSGT.</p>
+      </div>
+      <div class="f">
+        <span class="n">02</span>
+        <svg class="ico"><use href="#i-bell"/></svg>
+        <h3>Cảnh báo AI trên cabin</h3>
+        <p>Tự động phát cảnh báo âm thanh khi phát hiện tài xế ngủ gật, mất tập trung, sử dụng điện thoại hoặc chạy quá tốc độ cho phép.</p>
+      </div>
+      <div class="f">
+        <span class="n">03</span>
+        <svg class="ico"><use href="#i-video"/></svg>
+        <h3>Ghi hình hồng ngoại 24/7</h3>
+        <p>Camera giám sát xe ghi hình rõ nét cả ban đêm, lưu trữ tại xe tối thiểu 72 giờ và bảo mật theo quy định bảo vệ dữ liệu cá nhân.</p>
+      </div>
+      <div class="f">
+        <span class="n">04</span>
+        <svg class="ico"><use href="#i-cal"/></svg>
+        <h3>Quản lý trên App &amp; Web</h3>
+        <p>Theo dõi trực tiếp vị trí, xem Live View camera và trích xuất báo cáo hành trình xe mọi lúc trên điện thoại hoặc máy tính.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- ================= SẢN PHẨM PHÂN PHỐI ================= -->
 <section id="san-pham" class="gray">
   <div class="wrap">
     <div class="head">
-      <div><span class="label">Sản phẩm phân phối</span><h2>Thiết bị đạt chuẩn cho mọi loại phương tiện</h2></div>
-      <p>Lắp riêng từng thiết bị hoặc trọn bộ. Kỹ thuật viên tư vấn cấu hình phù hợp cho từng loại xe trong đội.</p>
+      <div>
+        <span class="label">Thiết bị phân phối chính hãng</span>
+        <h2>Bộ thiết bị giám sát xe đạt chuẩn cho mọi dòng phương tiện</h2>
+      </div>
+      <p>Linh hoạt lắp riêng từng thiết bị hoặc trọn bộ tích hợp. Kỹ thuật viên 114 Vạn Phú Khánh khảo sát và tư vấn cấu hình tối ưu chi phí cho từng đội xe.</p>
     </div>
     <div class="plist">
-      <div class="p">
+      <article class="p">
         <div class="num">01</div>
-        <div><span class="tagline">Hợp quy BCA</span><h3>Thiết bị giám sát hành trình GPS</h3><p class="for">Cho tất cả xe kinh doanh vận tải</p></div>
-        <ul><li>Định vị vị trí, tốc độ, lộ trình chính xác theo thời gian thực</li><li>Đạt chuẩn hợp quy QCVN 06:2024/BCA của Bộ Công an</li><li>Cảnh báo quá tốc độ, vi phạm thời gian lái xe liên tục</li></ul>
-        <a href="#lien-he" class="btn btn-navy">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="p">
+        <div>
+          <span class="tagline">Hợp quy BCA</span>
+          <h3>Thiết bị giám sát hành trình GPS 4G</h3>
+          <p class="for">Dành cho mọi xe ô tô kinh doanh vận tải</p>
+        </div>
+        <ul>
+          <li>Giám sát vị trí, tốc độ, lộ trình và trạng thái dừng đỗ theo thời gian thực</li>
+          <li>Chứng nhận hợp quy QCVN 06:2024/BCA phục vụ đăng kiểm &amp; cấp phù hiệu</li>
+          <li>Tích hợp đầu đọc thẻ lái xe RFID, cảnh báo quá tốc độ và quá giờ lái liên tục</li>
+        </ul>
+        <a href="#lien-he" class="btn btn-amber">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="p">
         <div class="num">02</div>
-        <div><span class="tagline">Nhận diện hành vi</span><h3>Camera ghi nhận hình ảnh lái xe</h3><p class="for">Lắp trong cabin, hướng về tài xế</p></div>
-        <ul><li>Ghi hình tài xế trong cabin theo chuẩn QCVN 06:2024/BCA</li><li>Nhận diện hành vi nguy hiểm: ngủ gật, dùng điện thoại</li><li>Cảnh báo âm thanh tức thì, phòng ngừa tai nạn từ sớm</li></ul>
-        <a href="#lien-he" class="btn btn-navy">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="p">
+        <div>
+          <span class="tagline">Camera AI DMS</span>
+          <h3>Camera giám sát người lái xe</h3>
+          <p class="for">Lắp trong cabin, nhận diện hành vi tài xế</p>
+        </div>
+        <ul>
+          <li>Ghi nhận và truyền hình ảnh người lái xe đúng chuẩn QCVN 06:2024/BCA</li>
+          <li>AI nhận diện hành vi nguy hiểm: ngủ gật, mất tập trung, dùng điện thoại</li>
+          <li>Phát cảnh báo âm thanh tức thì tại cabin, ngăn ngừa rủi ro tai nạn từ sớm</li>
+        </ul>
+        <a href="#lien-he" class="btn btn-amber">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="p">
         <div class="num">03</div>
-        <div><span class="tagline">Xe từ 8 chỗ</span><h3>Camera khoang chở khách</h3><p class="for">Xe khách, xe buýt, xe hợp đồng</p></div>
-        <ul><li>Ghi hình toàn cảnh khoang hành khách</li><li>Hỗ trợ an ninh và giải quyết tranh chấp</li><li>Tuân thủ quy định bảo vệ dữ liệu cá nhân</li></ul>
-        <a href="#lien-he" class="btn btn-navy">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
-      </div>
+        <div>
+          <span class="tagline">Xe từ 08 chỗ</span>
+          <h3>Camera giám sát khoang chở khách</h3>
+          <p class="for">Xe khách, xe buýt, xe hợp đồng, xe du lịch</p>
+        </div>
+        <ul>
+          <li>Ghi hình góc rộng toàn cảnh khoang hành khách với hồng ngoại ban đêm</li>
+          <li>Kiểm soát số lượng hành khách, đảm bảo an ninh và minh bạch dịch vụ</li>
+          <li>Lưu trữ an toàn trên thẻ nhớ/ổ cứng tại xe từ 72 giờ, trích xuất nhanh qua Wifi/4G</li>
+        </ul>
+        <a href="#lien-he" class="btn btn-amber">Báo giá<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- COMPARE -->
+<!-- ================= BẢNG SO SÁNH ================= -->
 <section id="so-sanh">
   <div class="wrap">
     <div class="head">
-      <div><span class="label">Vì sao nên nâng cấp</span><h2>Giải pháp cũ và giải pháp mới</h2></div>
-      <p>Thiết bị theo quy chuẩn cũ của Bộ GTVT không còn đáp ứng yêu cầu truyền dữ liệu của Bộ Công an.</p>
+      <div>
+        <span class="label">Vì sao cần nâng cấp</span>
+        <h2>So sánh thiết bị cũ và hệ thống giám sát xe GIAMSATXE.NET</h2>
+      </div>
+      <p>Các thiết bị định vị và camera thế hệ cũ chỉ chụp ảnh định kỳ không còn đáp ứng yêu cầu truyền dữ liệu real-time và cảnh báo an toàn của Bộ Công an.</p>
     </div>
     <div class="cmp-wrap">
       <table class="cmp">
-        <thead><tr><th>Tiêu chí</th><th>Thiết bị cũ / chụp định kỳ</th><th class="new">Giải pháp GIAMSATXE.NET</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Tiêu chí đánh giá</th>
+            <th>Thiết bị cũ / Chụp định kỳ</th>
+            <th class="new">Hệ thống giám sát xe GIAMSATXE.NET</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>Truyền dữ liệu hành trình</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Chụp ảnh định kỳ, dễ trễ, thiếu nét</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Truyền real-time về Cục CSGT</div></td></tr>
-          <tr><td>Cảnh báo vi phạm</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Không có hoặc phát hiện chậm</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Cảnh báo tức thì cho tài xế trên cabin</div></td></tr>
-          <tr><td>Hạ tầng máy chủ</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Hay nghẽn mạng, tốn bộ nhớ</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Cloud tốc độ cao, tối ưu băng thông &amp; lưu trữ</div></td></tr>
-          <tr><td>Tiêu chuẩn kỹ thuật</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Quy chuẩn cũ (Bộ GTVT)</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>QCVN 06:2024/BCA (Bộ Công an)</div></td></tr>
-          <tr><td>Hỗ trợ kỹ thuật</td><td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Gia hạn, bảo hành chậm</div></td><td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Bảo hành tận nơi tại Khánh Hòa &amp; lân cận</div></td></tr>
+          <tr>
+            <td>Truyền dữ liệu hành trình</td>
+            <td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Chụp ảnh ngắt quãng, dễ trễ dữ liệu, mờ nhòe ban đêm</div></td>
+            <td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Truyền dữ liệu giám sát xe Real-time 4G về Cục CSGT</div></td>
+          </tr>
+          <tr>
+            <td>Cảnh báo hành vi tài xế</td>
+            <td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Không có AI phân tích hoặc phát hiện vi phạm chậm</div></td>
+            <td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Cảnh báo âm thanh tức thì trên cabin (ngủ gật, dùng điện thoại)</div></td>
+          </tr>
+          <tr>
+            <td>Hạ tầng máy chủ &amp; Phần mềm</td>
+            <td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Hay nghẽn mạng giờ cao điểm, khó trích xuất video</div></td>
+            <td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Cloud tốc độ cao, xem trực tiếp Live View trên App &amp; Web</div></td>
+          </tr>
+          <tr>
+            <td>Tiêu chuẩn pháp lý</td>
+            <td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Quy chuẩn cũ, nguy cơ bị từ chối đăng kiểm / phù hiệu</div></td>
+            <td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Hợp quy chuẩn QCVN 06:2024/BCA (Bộ Công an)</div></td>
+          </tr>
+          <tr>
+            <td>Dịch vụ kỹ thuật &amp; Bảo hành</td>
+            <td class="old"><div class="cell"><svg class="ico"><use href="#i-x"/></svg>Gửi bảo hành xa, xe phải nằm chờ nhiều ngày</div></td>
+            <td class="new"><div class="cell"><svg class="ico"><use href="#i-check"/></svg>Lắp đặt &amp; bảo hành tận nơi tại 3 điểm ở Khánh Hòa</div></td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- ================= QUY TRÌNH TRIỂN KHAI ================= -->
 <section id="quy-trinh" class="dark">
   <div class="wrap">
     <div class="head">
-      <div><span class="label">Quy trình triển khai</span><h2>Từ tư vấn đến vận hành trong 5 bước</h2></div>
-      <p>Lắp đặt tận nơi, hạn chế tối đa thời gian xe phải dừng hoạt động.</p>
+      <div>
+        <span class="label">Quy trình triển khai</span>
+        <h2>Từ tư vấn đến vận hành hệ thống giám sát xe trong 5 bước</h2>
+      </div>
+      <p>Đội ngũ kỹ thuật 114 Vạn Phú Khánh thi công tận bãi xe, gọn gàng, an toàn điện và không làm gián đoạn lịch trình khai thác của doanh nghiệp.</p>
     </div>
     <div class="steps">
-      <div class="s"><div class="sq">01</div><h4>Tư vấn</h4><p>Xác định loại xe và thiết bị bắt buộc theo quy định.</p></div>
-      <div class="s"><div class="sq">02</div><h4>Báo giá</h4><p>Báo giá minh bạch theo số lượng và cấu hình đội xe.</p></div>
-      <div class="s"><div class="sq">03</div><h4>Lắp đặt</h4><p>Kỹ thuật viên lắp đặt tận nơi, không gián đoạn vận hành.</p></div>
-      <div class="s"><div class="sq">04</div><h4>Kích hoạt</h4><p>Kết nối máy chủ, bàn giao tài khoản, hướng dẫn sử dụng.</p></div>
-      <div class="s"><div class="sq">05</div><h4>Bảo hành</h4><p>Hỗ trợ kỹ thuật tại 3 điểm bảo hành ở Khánh Hòa.</p></div>
+      <div class="s"><div class="sq">01</div><h4>Tư vấn quy định</h4><p>Kiểm tra loại phương tiện và xác định cấu hình giám sát xe bắt buộc.</p></div>
+      <div class="s"><div class="sq">02</div><h4>Báo giá minh bạch</h4><p>Báo giá trọn gói thiết bị, thuê bao máy chủ và ưu đãi theo số lượng xe.</p></div>
+      <div class="s"><div class="sq">03</div><h4>Lắp đặt tận nơi</h4><p>Kỹ thuật viên lắp đặt tận nơi tại Nha Trang và toàn tỉnh Khánh Hòa.</p></div>
+      <div class="s"><div class="sq">04</div><h4>Kích hoạt &amp; Hồ sơ</h4><p>Đồng bộ dữ liệu Cục CSGT, bàn giao tài khoản giám sát xe và giấy hợp quy.</p></div>
+      <div class="s"><div class="sq">05</div><h4>Bảo hành 24/7</h4><p>Hỗ trợ kỹ thuật xuyên suốt tại 3 trạm bảo hành thuộc Vạn Phú Khánh.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ================= HỎI ĐÁP VỀ GIÁM SÁT XE (SEO & AI KNOWLEDGE) ================= -->
+<section id="hoi-dap" class="gray">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="label">Giải đáp chuyên sâu</span>
+        <h2>Câu hỏi thường gặp về hệ thống giám sát xe QCVN 06:2024/BCA</h2>
+      </div>
+      <p>Tổng hợp thông tin pháp lý và kỹ thuật giúp chủ xe, hợp tác xã và doanh nghiệp vận tải nắm rõ quy định giám sát xe mới nhất.</p>
+    </div>
+    <div class="faq-grid">
+      <article class="faq-item">
+        <h3>1. Hệ thống giám sát xe cần đạt chuẩn gì theo quy định mới?</h3>
+        <p>Theo <strong>QCVN 06:2024/BCA</strong> của Bộ Công an, thiết bị giám sát xe phải truyền dữ liệu hành trình real-time về máy chủ Cục CSGT, tích hợp camera ghi nhận hình ảnh người lái xe và phát cảnh báo âm thanh khi tài xế ngủ gật, mất tập trung hoặc vi phạm tốc độ.</p>
+      </article>
+      <article class="faq-item">
+        <h3>2. Những loại xe nào bắt buộc phải lắp giám sát xe và camera?</h3>
+        <p>Ô tô kinh doanh vận tải hành khách từ <strong>08 chỗ trở lên</strong> (không kể chỗ người lái), xe đầu kéo, xe container và xe tải kinh doanh vận tải bắt buộc phải lắp thiết bị giám sát hành trình và camera ghi nhận hình ảnh người lái xe.</p>
+      </article>
+      <article class="faq-item">
+        <h3>3. Vạn Phú Khánh có hỗ trợ lắp đặt giám sát xe tận nơi tại Nha Trang không?</h3>
+        <p>Có. <strong>114 Vạn Phú Khánh (GIAMSATXE.NET)</strong> có 3 điểm phục vụ tại xã Tân Định, KĐT Phước Long (Nam Nha Trang) và xã Thuận Bắc, sẵn sàng lắp đặt tận nơi và xử lý sự cố nhanh chóng trong ngày.</p>
+      </article>
+      <article class="faq-item">
+        <h3>4. Chủ xe theo dõi vị trí và xem camera giám sát xe bằng cách nào?</h3>
+        <p>Sau khi lắp đặt, khách hàng được cấp tài khoản quản lý trên ứng dụng điện thoại (iOS/Android) và trang web giám sát xe để xem trực tiếp vị trí GPS, tốc độ, lịch sử lộ trình và video hồng ngoại 24/7.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIÊN HỆ ================= -->
 <section id="lien-he">
   <div class="wrap">
     <div class="contact">
       <div class="c-left">
-        <span class="label">Liên hệ</span>
-        <h2>Tư vấn &amp; lắp đặt ngay hôm nay</h2>
-        <p>Đơn vị thực hiện: <b style="color:var(--navy)">114 Vạn Phú Khánh</b>. Gọi hotline hoặc nhắn Zalo để nhận tư vấn cấu hình và báo giá cho đội xe.</p>
+        <span class="label">Liên hệ chính thức</span>
+        <h2>Tư vấn &amp; lắp đặt thiết bị giám sát xe ngay hôm nay</h2>
+        <p>Đơn vị phân phối &amp; bảo hành: <b style="color:var(--amber)">114 Vạn Phú Khánh (GIAMSATXE.NET)</b>. Gọi trực tiếp hotline hoặc nhắn Zalo để kiểm tra cấu hình hợp quy và nhận báo giá ưu đãi cho đội xe.</p>
         <div class="lines">
-          <a href="tel:0585114114" class="ln"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Hotline tư vấn</small><b>0585.114.114</b></div><svg class="ico go"><use href="#i-arrow"/></svg></a>
-          <a href="tel:0588588114" class="ln"><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Hotline 2</small><b>0588.588.114</b></div><svg class="ico go"><use href="#i-arrow"/></svg></a>
-          <a href="https://zalo.me/0585114114" class="ln"><div class="ic z"><svg class="ico"><use href="#i-chat"/></svg></div><div><small>Nhắn tin nhanh</small><b>Chat Zalo</b></div><svg class="ico go"><use href="#i-arrow"/></svg></a>
+          <a href="tel:0585114114" class="ln">
+            <div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div>
+            <div><small>Hotline tư vấn &amp; báo giá</small><b>0585.114.114</b></div>
+            <svg class="ico go"><use href="#i-arrow"/></svg>
+          </a>
+          <a href="tel:0588588114" class="ln">
+            <div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div>
+            <div><small>Hotline kỹ thuật &amp; gia hạn</small><b>0588.588.114</b></div>
+            <svg class="ico go"><use href="#i-arrow"/></svg>
+          </a>
+          <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="ln">
+            <div class="ic z"><svg class="ico"><use href="#i-chat"/></svg></div>
+            <div><small>Nhắn tin nhanh 24/7</small><b>Chat Zalo 0585.114.114</b></div>
+            <svg class="ico go"><use href="#i-arrow"/></svg>
+          </a>
         </div>
-        <div class="rate"><div class="sc">4.9</div><div><div class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><small>Đánh giá trên Google · <a href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener" style="color:var(--navy-3);font-weight:700">Xem đánh giá</a></small></div></div>
+        <div class="rate">
+          <div class="sc">4.9</div>
+          <div>
+            <div class="stars" aria-label="Đánh giá 4.9 trên 5 sao">
+              <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
+            </div>
+            <small>Đánh giá thực tế trên Google &bull; <a href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener" style="color:var(--amber);font-weight:700;text-decoration:underline">Xem bản đồ &amp; đánh giá</a></small>
+          </div>
+        </div>
       </div>
+
       <div class="c-right">
-        <h3>Hệ thống điểm phục vụ</h3>
-        <div class="loc"><svg class="ico"><use href="#i-pin"/></svg><div><small>Trụ sở chính</small><h4>114 Vạn Phú Khánh</h4><p>Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p></div></div>
-        <div class="loc"><svg class="ico"><use href="#i-tool"/></svg><div><small>Trung tâm bảo hành</small><h4>Nha Trang</h4><p>KĐT Phước Long, Nam Nha Trang, Khánh Hòa</p></div></div>
-        <div class="loc"><svg class="ico"><use href="#i-tool"/></svg><div><small>Trung tâm bảo hành</small><h4>Nam Khánh Hòa</h4><p>Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p></div></div>
-        <a class="c-map-ph" href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener">Xem bản đồ chỉ đường →</a>
+        <h3>Hệ thống điểm phục vụ tại Khánh Hòa</h3>
+        <div class="loc">
+          <svg class="ico"><use href="#i-pin"/></svg>
+          <div><small>Trụ sở chính</small><h4>114 Vạn Phú Khánh</h4><p>Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa</p></div>
+        </div>
+        <div class="loc">
+          <svg class="ico"><use href="#i-tool"/></svg>
+          <div><small>Trung tâm lắp đặt &amp; bảo hành 1</small><h4>Khu vực Nha Trang</h4><p>KĐT Phước Long, Nam Nha Trang, tỉnh Khánh Hòa</p></div>
+        </div>
+        <div class="loc">
+          <svg class="ico"><use href="#i-tool"/></svg>
+          <div><small>Trung tâm lắp đặt &amp; bảo hành 2</small><h4>Khu vực Nam Khánh Hòa</h4><p>Thôn Suối Đá, xã Thuận Bắc, tỉnh Khánh Hòa</p></div>
+        </div>
+        <a class="c-map-ph" href="https://maps.app.goo.gl/nePVen1FDzinLxLk9" target="_blank" rel="noopener">Mở Google Maps chỉ đường &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ================= CTA BAND ================= -->
 <section class="band">
   <div class="wrap">
-    <div><h3>Xe của bạn đã đạt chuẩn QCVN 06:2024/BCA?</h3><p>Kiểm tra miễn phí — kỹ thuật viên tư vấn trực tiếp qua điện thoại.</p></div>
+    <div>
+      <h3>Phương tiện của bạn đã lắp giám sát xe chuẩn QCVN 06:2024/BCA?</h3>
+      <p>Kiểm tra miễn phí — Kỹ thuật viên 114 Vạn Phú Khánh tư vấn trực tiếp qua điện thoại.</p>
+    </div>
     <a href="tel:0585114114" class="btn btn-navy"><svg class="ico"><use href="#i-phone"/></svg>Gọi 0585.114.114</a>
   </div>
 </section>
+</main>
 
+<!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
-    <div>© 2026 GIAMSATXE.NET — Phân phối &amp; bảo hành bởi 114 Vạn Phú Khánh.</div>
-    <div class="note">Thông tin trên website mang tính tham khảo. Vui lòng liên hệ hotline để được xác nhận thông tin chính xác nhất.</div>
+    <div>© 2026 <strong>GIAMSATXE.NET</strong> — Hệ thống giám sát xe phân phối &amp; bảo hành bởi <strong>114 Vạn Phú Khánh</strong>.</div>
+    <div class="note">Chuyên thiết bị giám sát hành trình GPS 4G &amp; Camera ô tô chuẩn QCVN 06:2024/BCA. Liên hệ hotline 0585.114.114 để được tư vấn chính xác nhất.</div>
   </div>
 </footer>
 
+<!-- ================= MOBILE FIXED BAR ================= -->
 <div class="m-bar">
-  <a href="tel:0585114114"><svg class="ico"><use href="#i-phone"/></svg>Gọi ngay</a>
-  <a href="https://zalo.me/0585114114"><svg class="ico"><use href="#i-chat"/></svg>Chat Zalo</a>
+  <a href="tel:0585114114"><svg class="ico"><use href="#i-phone"/></svg>Gọi 0585.114.114</a>
+  <a href="https://zalo.me/0585114114" target="_blank" rel="noopener"><svg class="ico"><use href="#i-chat"/></svg>Chat Zalo</a>
 </div>
 
 <script>
-function toggleMenu(open){
-  document.getElementById('drawer').classList.toggle('open', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-}
+  // Đóng/mở menu di động kèm hỗ trợ phím Escape
+  function toggleMenu(open) {
+    var drawer = document.getElementById('drawer');
+    if (!drawer) return;
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
 
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') toggleMenu(false);
+  });
+
+  // Mô phỏng tốc độ xe chạy Real-time & tương tác chọn xe trên bảng điều khiển
+  document.addEventListener('DOMContentLoaded', function () {
+    var hudPlate = document.getElementById('hudPlate');
+    var hudSpeed = document.getElementById('hudSpeed');
+    var liveSpdText = document.querySelector('.js-live-spd');
+    var rows = document.querySelectorAll('.c-row');
+    var activeBaseSpeed = 62;
+
+    rows.forEach(function (row) {
+      row.addEventListener('click', function () {
+        rows.forEach(function (r) { r.classList.remove('active'); });
+        row.classList.add('active');
+        var plateInfo = row.getAttribute('data-plate') || '79B-012.34 · QL1A';
+        activeBaseSpeed = parseInt(row.getAttribute('data-speed'), 10) || 0;
+        if (hudPlate) hudPlate.textContent = plateInfo;
+        if (hudSpeed) hudSpeed.textContent = activeBaseSpeed + ' km/h';
+      });
+    });
+
+    setInterval(function () {
+      if (activeBaseSpeed > 0 && hudSpeed) {
+        var delta = Math.floor(Math.random() * 5) - 2;
+        var current = Math.min(72, Math.max(42, activeBaseSpeed + delta));
+        hudSpeed.textContent = current + ' km/h';
+        if (liveSpdText && activeBaseSpeed === 62) {
+          liveSpdText.textContent = current;
+        }
+      }
+    }, 2200);
+  });
 </script>
 </body>
 </html>
