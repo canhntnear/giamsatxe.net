@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- ================= Security Headers ================= -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com https://*.openstreetmap.org data:; frame-src 'self' https://www.openstreetmap.org; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://maps.googleapis.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com https://github.com https://maps.gstatic.com https://*.google.com https://*.openstreetmap.org data:; media-src 'self' data: blob:; frame-src 'self' https://www.openstreetmap.org; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://maps.googleapis.com;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta name="theme-color" content="#06142e">
@@ -1524,6 +1524,505 @@
       .m-bar a:last-child { background: #0068ff; color: #fff; }
       footer { padding-bottom: 82px; }
     }
+
+    /* ==========================================================================
+       MOTION-DIRECTOR SERVICE INTRO VIDEO PLAYER (PURE FUNCTION OF TIME t, 60FPS)
+       ========================================================================== */
+    .md-video-sec {
+      padding: 72px 0;
+      position: relative;
+      z-index: 2;
+      border-bottom: 1px solid var(--line);
+    }
+    .md-player-shell {
+      background: rgba(5, 15, 35, 0.94);
+      border: 1px solid rgba(56, 189, 248, 0.42);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px -20px rgba(0, 0, 0, 0.78), 0 0 36px rgba(56, 189, 248, 0.16);
+      color: #f8fafc;
+    }
+    .md-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 12px 18px;
+      background: rgba(3, 10, 24, 0.92);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      font-size: 12px;
+    }
+    .md-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .md-rec-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: rgba(255, 180, 0, 0.16);
+      border: 1px solid rgba(255, 180, 0, 0.5);
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+    .md-rec-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 8px var(--amber);
+    }
+    .md-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .md-chip-btn {
+      background: rgba(15, 42, 90, 0.65);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .md-chip-btn:hover { border-color: var(--cyan); color: #fff; }
+    .md-chip-btn.active {
+      background: var(--amber);
+      color: var(--navy-ink);
+      border-color: var(--amber);
+      font-weight: 800;
+    }
+
+    /* Stage Viewport (Responsive 16:9 or 9:16 scaled from 1920x1080 / 1080x1920) */
+    .md-viewport-wrap {
+      position: relative;
+      width: 100%;
+      background: #040d21;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .md-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 640px;
+      background: radial-gradient(120% 90% at 50% 105%, rgba(15, 42, 90, 0.95), #040d21 75%);
+      overflow: hidden;
+      user-select: none;
+    }
+    .md-viewport[data-aspect="9:16"] {
+      max-width: 380px;
+      aspect-ratio: 9 / 16;
+      max-height: 660px;
+      margin: 14px auto;
+      border-radius: 18px;
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+    }
+
+    /* Stationary Dong Son Drum Watermark inside Motion Film Stage */
+    .md-stage-drum {
+      position: absolute;
+      right: -6%;
+      top: 50%;
+      width: 52%;
+      aspect-ratio: 1 / 1;
+      transform: translateY(-50%) !important;
+      animation: none !important;
+      background-image: url('https://raw.githubusercontent.com/canhntnear/giamsatxe.net/main/trong-dong-o.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.14;
+      filter: drop-shadow(0 0 18px rgba(255, 180, 0, 0.55));
+      pointer-events: none;
+    }
+    .md-stage-grid {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px) 0 0 / 48px 48px,
+        linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px) 0 0 / 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Scene Layers */
+    .md-scene {
+      position: absolute;
+      inset: 0;
+      padding: clamp(18px, 3.2vw, 42px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .md-scene.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .md-scene-head {
+      max-width: 820px;
+      z-index: 2;
+    }
+    .md-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber);
+      color: var(--navy-ink);
+      font-size: clamp(10px, 1.1vw, 13px);
+      font-weight: 900;
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+    .md-headline {
+      font-size: clamp(20px, 2.7vw, 38px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #fff;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+    .md-headline em {
+      font-style: normal;
+      color: var(--amber);
+    }
+    .md-subline {
+      font-size: clamp(12.5px, 1.35vw, 16.5px);
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+    .md-word {
+      display: inline-block;
+      margin-right: 0.26em;
+      will-change: transform, opacity;
+    }
+
+    /* Scene Cards Grid */
+    .md-cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(10px, 1.6vw, 18px);
+      margin-top: auto;
+      margin-bottom: 52px;
+      z-index: 2;
+    }
+    .md-viewport[data-aspect="9:16"] .md-cards-3 {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-bottom: 64px;
+    }
+    .md-card {
+      background: rgba(10, 31, 68, 0.86);
+      border: 1px solid rgba(56, 189, 248, 0.38);
+      border-radius: 14px;
+      padding: clamp(12px, 1.6vw, 20px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+    .md-card-num {
+      font-family: "JetBrains Mono", monospace;
+      font-size: clamp(13px, 1.4vw, 18px);
+      font-weight: 800;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .md-card h4 {
+      font-size: clamp(14px, 1.5vw, 19px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .md-card p {
+      font-size: clamp(11.5px, 1.15vw, 14px);
+      color: #94a3b8;
+      line-height: 1.45;
+    }
+
+    /* Scene 2: Split Map + Telemetry */
+    .md-split-stage {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: clamp(12px, 1.8vw, 20px);
+      flex: 1;
+      margin: 14px 0 52px;
+      min-height: 0;
+      z-index: 2;
+    }
+    .md-viewport[data-aspect="9:16"] .md-split-stage {
+      grid-template-columns: 1fr;
+      margin-bottom: 64px;
+    }
+    .md-map-box {
+      position: relative;
+      background: rgba(4, 14, 34, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .md-map-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .md-telem-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+    }
+    .md-telem-tile {
+      background: rgba(10, 31, 68, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 4px solid var(--amber);
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+    .md-telem-tile small {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .md-telem-tile b {
+      font-family: "JetBrains Mono", monospace;
+      font-size: clamp(18px, 2vw, 26px);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    /* Scene 3: Dual AI Camera HUD */
+    .md-dual-cam {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(12px, 1.8vw, 20px);
+      flex: 1;
+      margin: 14px 0 52px;
+      z-index: 2;
+    }
+    .md-viewport[data-aspect="9:16"] .md-dual-cam {
+      grid-template-columns: 1fr;
+      margin-bottom: 64px;
+    }
+    .md-cam-panel {
+      position: relative;
+      background: rgba(4, 14, 34, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.42);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .md-cam-alert-banner {
+      background: rgba(239, 68, 68, 0.22);
+      border: 1px solid #f87171;
+      color: #fecaca;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Scene 5: End Card */
+    .md-endcard-box {
+      margin: auto;
+      max-width: 780px;
+      width: 100%;
+      background: rgba(8, 24, 56, 0.92);
+      border: 2px solid rgba(255, 180, 0, 0.65);
+      border-radius: 20px;
+      padding: clamp(20px, 3vw, 38px);
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 180, 0, 0.2);
+      z-index: 2;
+    }
+    .md-end-hotline {
+      font-family: "JetBrains Mono", monospace;
+      font-size: clamp(26px, 3.8vw, 48px);
+      font-weight: 900;
+      color: var(--amber);
+      letter-spacing: 1px;
+      margin: 10px 0;
+    }
+
+    /* Live Captions Overlay (Karaoke Subtitles) */
+    .md-caption-bar {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      width: min(92%, 860px);
+      text-align: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .md-caption-pill {
+      display: inline-block;
+      background: rgba(3, 10, 24, 0.86);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #fff;
+      font-size: clamp(12px, 1.35vw, 16px);
+      font-weight: 700;
+      padding: 7px 18px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      line-height: 1.4;
+    }
+    .md-caption-pill em {
+      font-style: normal;
+      color: var(--amber);
+    }
+
+    /* Big Center Play Overlay */
+    .md-play-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      background: rgba(4, 12, 28, 0.42);
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: opacity 0.25s ease;
+    }
+    .md-play-overlay.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .md-big-play-btn {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      color: var(--navy-ink);
+      border: 3px solid #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 35px rgba(255, 180, 0, 0.75);
+      transition: transform 0.2s ease;
+    }
+    .md-play-overlay:hover .md-big-play-btn { transform: scale(1.08); }
+    .md-play-hint {
+      background: rgba(6, 20, 46, 0.92);
+      border: 1px solid rgba(255, 180, 0, 0.5);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 99px;
+      letter-spacing: 0.4px;
+    }
+
+    /* Timeline Scrubber & Chapters Control Bar */
+    .md-controls {
+      background: rgba(3, 10, 24, 0.95);
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 12px 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .md-timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .md-play-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      background: var(--amber);
+      color: var(--navy-ink);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-weight: 900;
+      flex: none;
+    }
+    .md-play-btn:hover { background: var(--amber-2); }
+    .md-scrubber-wrap {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .md-scrubber {
+      width: 100%;
+      accent-color: var(--amber);
+      cursor: pointer;
+      height: 6px;
+    }
+    .md-time-readout {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+      min-width: 96px;
+      text-align: right;
+    }
+    .md-chapters-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .md-chapter-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .md-chap-btn {
+      background: rgba(15, 42, 90, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      color: #cbd5e1;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .md-chap-btn:hover { border-color: var(--cyan); color: #fff; }
+    .md-chap-btn.active {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .md-cards-3, .md-split-stage, .md-dual-cam { grid-template-columns: 1fr; }
+      .md-viewport { aspect-ratio: auto; min-height: 540px; }
+    }
   </style>
 </head>
 <body data-drum-mode="normal">
@@ -1599,6 +2098,7 @@
       </div>
     </a>
     <nav aria-label="Điều hướng chính">
+      <a href="#video-gioi-thieu">Video dịch vụ</a>
       <a href="#doi-tuong">Quy định</a>
       <a href="#giai-phap">Giải pháp</a>
       <a href="#san-pham">Thiết bị</a>
@@ -1654,7 +2154,8 @@
       <p class="lead">Hệ thống <strong>giám sát xe trực tuyến GIAMSATXE.NET</strong> tích hợp định vị GPS 4G, camera ghi nhận hình ảnh người lái xe và khoang hành khách. Tự động truyền dữ liệu hành trình về máy chủ Cục CSGT theo thời gian thực.</p>
       <div class="ctas">
         <a href="tel:0585114114" class="btn btn-amber"><svg class="ico"><use href="#i-phone"/></svg>Gọi 0585.114.114</a>
-        <a href="#san-pham" class="btn btn-line">Xem thiết bị giám sát xe<svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a href="#video-gioi-thieu" class="btn btn-line" onclick="setTimeout(function(){if(window.vpkMotionPlay)window.vpkMotionPlay(true);},350)"><svg class="ico"><use href="#i-video"/></svg>Xem Video Dịch Vụ (49s)</a>
+        <a href="#san-pham" class="btn btn-line">Xem thiết bị<svg class="ico"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
 
@@ -1847,6 +2348,254 @@
     <div class="stat"><b>4.9 / 5 ★</b><span>128+ đánh giá Google Maps</span></div>
   </div>
 </div>
+
+<!-- ================= 01B. MOTION-DIRECTOR SERVICE INTRO VIDEO PLAYER ================= -->
+<section id="video-gioi-thieu" class="md-video-sec" data-screen-label="01B Motion Video Intro">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="label">Motion Film &bull; Giới thiệu dịch vụ</span>
+        <h2>Video giới thiệu giải pháp giám sát xe chuẩn QCVN 06:2024/BCA</h2>
+      </div>
+      <p>Trải nghiệm phim đồ họa chuyển động (Motion Film 60FPS) kết hợp thuyết minh AI Tiếng Việt &amp; nhạc nền tổng hợp: Tóm tắt trọn bộ quy định pháp lý, công nghệ truyền dữ liệu Cục CSGT và hệ thống 3 trạm bảo hành 114 Vạn Phú Khánh trong 49 giây.</p>
+    </div>
+
+    <div class="md-player-shell" id="mdPlayerShell">
+      <!-- Top Control Bar -->
+      <div class="md-topbar">
+        <div class="md-title-group">
+          <span class="md-rec-pill">MOTION 60FPS &bull; AI VOICEOVER</span>
+          <strong style="color:#fff;font-size:13px">GIAMSATXE.NET — 114 Vạn Phú Khánh (Chuẩn QCVN 06:2024/BCA)</strong>
+        </div>
+        <div class="md-top-actions">
+          <button type="button" class="md-chip-btn active" id="mdAspect169" onclick="window.vpkSetAspect('16:9')">16:9 Ngang (Web/TV)</button>
+          <button type="button" class="md-chip-btn" id="mdAspect916" onclick="window.vpkSetAspect('9:16')">9:16 Dọc (TikTok/Reels)</button>
+          <button type="button" class="md-chip-btn active" id="mdVoiceBtn" onclick="window.vpkToggleVoice()">🔊 Thuyết minh AI: Bật</button>
+          <button type="button" class="md-chip-btn active" id="mdMusicBtn" onclick="window.vpkToggleMusic()">🎵 Nhạc nền: Bật</button>
+          <button type="button" class="md-chip-btn active" id="mdCcBtn" onclick="window.vpkToggleCc()">CC Phụ đề</button>
+          <button type="button" class="md-chip-btn" onclick="window.vpkFullscreen()">⛶ Toàn màn hình</button>
+        </div>
+      </div>
+
+      <!-- Stage Viewport -->
+      <div class="md-viewport-wrap">
+        <div class="md-viewport" id="mdViewport" data-aspect="16:9">
+          <div class="md-stage-grid" aria-hidden="true"></div>
+          <!-- Trống đồng Đông Sơn đứng yên (Không xoay) -->
+          <div class="md-stage-drum" id="mdStageDrum" aria-hidden="true"></div>
+
+          <!-- SCENE 01 (0.00s - 9.47s): HOOK & QUY CHUẨN QCVN 06:2024/BCA -->
+          <div class="md-scene is-active" id="mdScene0">
+            <div class="md-scene-head">
+              <div class="md-kicker" id="s1Kicker">QUY CHUẨN BỘ CÔNG AN &bull; QCVN 06:2024/BCA</div>
+              <h3 class="md-headline" id="s1Head">Thiết bị <em>giám sát hành trình</em> &amp; Camera ô tô hợp quy bắt buộc từ 2025</h3>
+              <p class="md-subline" id="s1Sub">Áp dụng cho xe tải, xe đầu kéo, container, xe khách từ 08 chỗ, xe hợp đồng &amp; du lịch theo Luật TTATGT đường bộ.</p>
+            </div>
+            <div class="md-cards-3">
+              <div class="md-card" id="s1Card1">
+                <div class="md-card-num">01 &bull; ĐỊNH VỊ GPS 4G</div>
+                <h4>Truyền dữ liệu Cục CSGT</h4>
+                <p>Đồng bộ vị trí, tốc độ, lộ trình và thời gian lái xe liên tục theo thời gian thực (Real-time).</p>
+              </div>
+              <div class="md-card" id="s1Card2">
+                <div class="md-card-num">02 &bull; CAMERA AI CABIN</div>
+                <h4>Cảnh báo ngủ gật &lt; 2s</h4>
+                <p>Ghi nhận hình ảnh người lái xe, phát âm thanh nhắc nhở tức thì khi mất tập trung hoặc dùng điện thoại.</p>
+              </div>
+              <div class="md-card" id="s1Card3">
+                <div class="md-card-num">03 &bull; HỢP QUY ĐĂNG KIỂM</div>
+                <h4>Đạt chuẩn 100% BCA</h4>
+                <p>Cấp đầy đủ giấy chứng nhận hợp quy QCVN 06:2024/BCA phục vụ đăng kiểm và cấp phù hiệu vận tải.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 02 (9.47s - 18.20s): ĐỊNH VỊ GPS 4G TRUYỀN CỤC CSGT -->
+          <div class="md-scene" id="mdScene1">
+            <div class="md-scene-head">
+              <div class="md-kicker">CẢNH 02 &bull; ĐỊNH VỊ GPS 4G REAL-TIME</div>
+              <h3 class="md-headline" id="s2Head">Truyền dữ liệu trực tiếp về <em>Máy chủ Cục CSGT</em> 24/7</h3>
+            </div>
+            <div class="md-split-stage">
+              <div class="md-map-box">
+                <svg viewBox="0 0 640 340" preserveAspectRatio="xMidYMid slice">
+                  <rect width="640" height="340" fill="#041026"/>
+                  <g stroke="#0d254c" stroke-width="1">
+                    <path d="M0 68 H640 M0 136 H640 M0 204 H640 M0 272 H640"/>
+                    <path d="M128 0 V340 M256 0 V340 M384 0 V340 M512 0 V340"/>
+                  </g>
+                  <!-- Tuyến QL1A Nha Trang - Khánh Hòa -->
+                  <path d="M 60 280 C 190 260, 290 150, 410 160 C 490 165, 540 95, 580 68" fill="none" stroke="#1e3a8a" stroke-width="10" stroke-linecap="round"/>
+                  <path id="s2RouteDash" d="M 60 280 C 190 260, 290 150, 410 160 C 490 165, 540 95, 580 68" fill="none" stroke="#ffb400" stroke-width="4" stroke-dasharray="12 10"/>
+                  <!-- Nút xuất phát Nha Trang -->
+                  <circle cx="60" cy="280" r="8" fill="#38bdf8"/>
+                  <text x="76" y="285" fill="#cbd5e1" font-size="12" font-weight="700">TP. Nha Trang (QL1A)</text>
+                  <!-- Nút Máy chủ Cục CSGT -->
+                  <g transform="translate(565, 68)">
+                    <circle r="24" fill="rgba(74, 222, 128, 0.2)"/>
+                    <circle r="11" fill="#4ade80"/>
+                    <text x="-125" y="-18" fill="#4ade80" font-size="12" font-weight="800">MÁY CHỦ CỤC CSGT (BCA)</text>
+                  </g>
+                  <!-- Xe di chuyển theo hàm thời gian t -->
+                  <g id="s2VehGroup" transform="translate(120, 250)">
+                    <circle r="20" fill="rgba(255, 180, 0, 0.25)"/>
+                    <circle r="9" fill="#ffb400" stroke="#06142e" stroke-width="2"/>
+                    <rect x="-42" y="-32" width="84" height="20" rx="5" fill="#ffb400"/>
+                    <text x="0" y="-18" text-anchor="middle" fill="#06142e" font-size="11" font-weight="900">79B-012.34</text>
+                  </g>
+                </svg>
+              </div>
+              <div class="md-telem-col">
+                <div class="md-telem-tile" id="s2Tile1">
+                  <small>Tốc độ phương tiện (79B-012.34)</small>
+                  <b id="s2SpeedVal">62 km/h</b>
+                </div>
+                <div class="md-telem-tile" id="s2Tile2" style="border-left-color:var(--cyan)">
+                  <small>Chu kỳ truyền dữ liệu chuẩn BCA</small>
+                  <b>05 giây / gói tin</b>
+                </div>
+                <div class="md-telem-tile" id="s2Tile3" style="border-left-color:#4ade80">
+                  <small>Trạng thái kết nối Cục CSGT</small>
+                  <b style="color:#4ade80">4G LTE &bull; ĐỒNG BỘ 100%</b>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 03 (18.20s - 28.25s): CAMERA AI DMS & CAMERA KHOANG HÀNH KHÁCH -->
+          <div class="md-scene" id="mdScene2">
+            <div class="md-scene-head">
+              <div class="md-kicker">CẢNH 03 &bull; CAMERA AI CABIN &amp; KHOANG KHÁCH</div>
+              <h3 class="md-headline" id="s3Head">Cảnh báo âm thanh tức thì &bull; Lưu trữ video <em>tối thiểu 72 giờ</em></h3>
+            </div>
+            <div class="md-dual-cam">
+              <div class="md-cam-panel" id="s3Cam1">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--amber);font-weight:800">● CAM 01: AI DMS NGƯỜI LÁI</span>
+                  <span style="font-size:11px;color:#4ade80;font-weight:700">AI FACE MESH: ACTIVE</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:18px;margin:12px 0">
+                  <svg width="88" height="88" viewBox="0 0 100 100" id="s3FaceSvg" style="flex:none">
+                    <rect x="8" y="8" width="84" height="84" rx="14" fill="none" stroke="#ffb400" stroke-width="2.5" stroke-dasharray="8 6"/>
+                    <circle cx="50" cy="40" r="18" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
+                    <circle cx="43" cy="37" r="2.5" fill="#ffb400"/>
+                    <circle cx="57" cy="37" r="2.5" fill="#ffb400"/>
+                    <path d="M43 47 Q50 52 57 47" fill="none" stroke="#ffb400" stroke-width="2"/>
+                    <path d="M24 84 C30 66, 70 66, 76 84" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
+                  </svg>
+                  <div>
+                    <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:4px">Nhận diện hành vi tài xế AI</h4>
+                    <p style="font-size:12.5px;color:#cbd5e1">Tự động phát hiện ngủ gật, mệt mỏi, sử dụng điện thoại hoặc không thắt dây an toàn.</p>
+                  </div>
+                </div>
+                <div class="md-cam-alert-banner" id="s3AlertBanner">
+                  <span>🔊 CẢNH BÁO ÂM THANH TRÊN CABIN (&lt; 2 GIÂY): "Chú ý lái xe an toàn!"</span>
+                </div>
+              </div>
+
+              <div class="md-cam-panel" id="s3Cam2">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);font-weight:800">● CAM 02: KHOANG KHÁCH (≥ 08 CHỖ)</span>
+                  <span style="font-size:11px;color:#38bdf8;font-weight:700">IR 940NM NIGHT VISION</span>
+                </div>
+                <div style="margin:12px 0">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:clamp(22px,2.4vw,32px);font-weight:900;color:var(--amber)" id="s3StorageCounter">LƯU TRỮ TẠI XE ≥ 72 GIỜ</div>
+                  <p style="font-size:13px;color:#cbd5e1;margin-top:4px">Ống kính góc rộng 130° bao quát toàn bộ khoang hành khách, hồng ngoại quay đêm rõ nét, chống ngược sáng WDR.</p>
+                </div>
+                <div style="background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.35);padding:8px 12px;border-radius:8px;font-size:12px;color:#e0f2fe;font-weight:700">
+                  ✓ Xem trực tiếp (Live Stream) &amp; tải lại video từ xa qua App / Web GIAMSATXE.NET
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 04 (28.25s - 37.65s): HỆ THỐNG 3 TRẠM BẢO HÀNH KHÁNH HÒA -->
+          <div class="md-scene" id="mdScene3">
+            <div class="md-scene-head">
+              <div class="md-kicker">CẢNH 04 &bull; MẠNG LƯỚI BẢO HÀNH TẬN NƠI</div>
+              <h3 class="md-headline" id="s4Head">3 Trung tâm tại Khánh Hòa &bull; <em>Xử lý sự cố trong 2 giờ</em></h3>
+              <p class="md-subline">Đội ngũ kỹ thuật viên 114 Vạn Phú Khánh lắp đặt lưu động tận bãi xe — Đánh giá 4.9/5★ (128+ khách hàng trên Google Maps).</p>
+            </div>
+            <div class="md-cards-3">
+              <div class="md-card" id="s4Pin1">
+                <div class="md-card-num">01 &bull; TRỤ SỞ CHÍNH</div>
+                <h4>Xã Tân Định, Khánh Hòa</h4>
+                <p>Thôn Tân Mỹ, xã Tân Định, tỉnh Khánh Hòa — Trung tâm điều phối kỹ thuật &amp; kho thiết bị.</p>
+              </div>
+              <div class="md-card" id="s4Pin2">
+                <div class="md-card-num">02 &bull; TRUNG TÂM BẢO HÀNH 1</div>
+                <h4>Nam Nha Trang, Khánh Hòa</h4>
+                <p>KĐT Phước Long, Nam Nha Trang — Lắp đặt &amp; ứng cứu nhanh khu vực nội thành Nha Trang.</p>
+              </div>
+              <div class="md-card" id="s4Pin3">
+                <div class="md-card-num">03 &bull; TRUNG TÂM BẢO HÀNH 2</div>
+                <h4>Xã Thuận Bắc, Khánh Hòa</h4>
+                <p>Thôn Suối Đá, xã Thuận Bắc — Hỗ trợ kỹ thuật lưu động tuyến Quốc lộ 1A phía Nam.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 05 (37.65s - 49.40s): END CARD & CALL TO ACTION -->
+          <div class="md-scene" id="mdScene4">
+            <div class="md-endcard-box" id="s5Card">
+              <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:10px">
+                <img src="logoVPK.png" alt="Logo 114 Vạn Phú Khánh" style="width:48px;height:48px;object-fit:contain;background:#fff;padding:4px;border-radius:10px">
+                <div style="text-align:left">
+                  <div style="font-size:18px;font-weight:900;color:#fff">GIAMSATXE<span style="color:var(--amber)">.NET</span></div>
+                  <div style="font-size:11px;color:var(--cyan);font-weight:700;letter-spacing:1px;text-transform:uppercase">114 Vạn Phú Khánh</div>
+                </div>
+              </div>
+              <h3 class="md-headline" style="margin-bottom:6px">Lắp Đặt Giám Sát Xe Chuẩn <em>QCVN 06:2024/BCA</em></h3>
+              <p class="md-subline">Tư vấn cấu hình đúng loại xe &bull; Lắp đặt tận nơi &bull; Cấp hồ sơ hợp quy đăng kiểm ngay trong ngày</p>
+              <div class="md-end-hotline" id="s5Hotline">0585.114.114</div>
+              <p style="font-size:13px;color:#cbd5e1;margin-bottom:16px">Hotline kỹ thuật 24/7: <strong style="color:#fff">0588.588.114</strong> &bull; Website: <strong style="color:var(--cyan)">https://giamsatxe.net</strong></p>
+              <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+                <a href="tel:0585114114" class="btn btn-amber"><svg class="ico"><use href="#i-phone"/></svg>Gọi ngay 0585.114.114</a>
+                <a href="https://zalo.me/0585114114" target="_blank" rel="noopener" class="btn btn-line"><svg class="ico"><use href="#i-chat"/></svg>Nhắn Zalo Nhận Báo Giá</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Subtitle / Caption Pill -->
+          <div class="md-caption-bar" id="mdCaptionBar">
+            <span class="md-caption-pill" id="mdCaptionText">Từ năm 2025, mọi xe kinh doanh vận tải bắt buộc trang bị <em>thiết bị giám sát hành trình</em> và camera hợp quy Bộ Công An QCVN 06:2024/BCA.</span>
+          </div>
+
+          <!-- Initial Play Overlay -->
+          <div class="md-play-overlay" id="mdPlayOverlay" onclick="window.vpkMotionPlay(true)">
+            <div class="md-big-play-btn" aria-label="Phát video giới thiệu dịch vụ">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            </div>
+            <div class="md-play-hint">▶ Bấm để phát Video Giới Thiệu Dịch Vụ (Thuyết minh AI &amp; Nhạc nền · 49s)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Scrubber & Scene Chapters -->
+      <div class="md-controls">
+        <div class="md-timeline-row">
+          <button type="button" class="md-play-btn" id="mdPlayToggleBtn" onclick="window.vpkMotionPlay()" aria-label="Phát hoặc tạm dừng">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" id="mdPlayIcon"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+          </button>
+          <div class="md-scrubber-wrap">
+            <input type="range" class="md-scrubber" id="mdScrubber" min="0" max="49.4" step="0.05" value="0" aria-label="Thanh thời gian video">
+          </div>
+          <div class="md-time-readout" id="mdTimeReadout">0:00 / 0:49</div>
+        </div>
+        <div class="md-chapters-row">
+          <div class="md-chapter-pills" role="tablist" aria-label="Các phân cảnh video">
+            <button type="button" class="md-chap-btn active" data-t="0" onclick="window.vpkSeekTo(0)">01. QCVN 06:2024/BCA</button>
+            <button type="button" class="md-chap-btn" data-t="9.47" onclick="window.vpkSeekTo(9.47)">02. Định vị Cục CSGT</button>
+            <button type="button" class="md-chap-btn" data-t="18.20" onclick="window.vpkSeekTo(18.20)">03. Camera AI &amp; Khoang khách</button>
+            <button type="button" class="md-chap-btn" data-t="28.25" onclick="window.vpkSeekTo(28.25)">04. 3 Trạm Khánh Hòa</button>
+            <button type="button" class="md-chap-btn" data-t="37.65" onclick="window.vpkSeekTo(37.65)">05. Liên hệ 0585.114.114</button>
+          </div>
+          <span style="font-size:11px;color:#94a3b8">Đạo diễn bằng <strong>Motion-Director</strong> &bull; Chuẩn QCVN 06:2024/BCA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= 02. ĐỐI TƯỢNG BẮT BUỘC & CÔNG CỤ KIỂM TRA NHANH ================= -->
 <section id="doi-tuong" class="gray" data-screen-label="02 Mandatory Compliance & Quick Checker">
@@ -2313,6 +3062,450 @@
         document.body.setAttribute('data-drum-mode', twDrum.value);
       });
     }
+
+    // =========================================================================
+    // 3. MOTION-DIRECTOR ENGINE: PURE FUNCTION OF TIME render(t) + AUDIO SYNTH
+    // =========================================================================
+    var DURATION = 49.4;
+    var SCENES = [
+      {
+        idx: 0, id: 's01', start: 0.00, end: 9.47, audioFile: 'voiceover_vpk/s01.mp3',
+        cues: [
+          { t0: 0.00, t1: 6.39, html: 'Từ năm 2025, mọi xe kinh doanh vận tải bắt buộc trang bị <em>thiết bị giám sát hành trình</em>' },
+          { t0: 6.39, t1: 9.47, html: 'và camera hợp quy Bộ Công An <em>QCVN 06:2024/BCA</em>.' }
+        ],
+        ttsText: 'Từ năm 2025, mọi xe kinh doanh vận tải bắt buộc trang bị thiết bị giám sát hành trình và camera hợp quy Bộ Công An QCVN 06:2024.'
+      },
+      {
+        idx: 1, id: 's02', start: 9.47, end: 18.20, audioFile: 'voiceover_vpk/s02.mp3',
+        cues: [
+          { t0: 0.00, t1: 3.02, html: 'Thiết bị <em>định vị GPS 4G</em> truyền dữ liệu vị trí, tốc độ và lộ trình theo thời gian thực' },
+          { t0: 3.02, t1: 8.73, html: 'về máy chủ <em>Cục Cảnh sát Giao thông</em>, thông suốt 24/7.' }
+        ],
+        ttsText: 'Thiết bị định vị GPS 4G truyền dữ liệu vị trí, tốc độ và lộ trình theo thời gian thực về máy chủ Cục Cảnh sát Giao thông, thông suốt 24 trên 7.'
+      },
+      {
+        idx: 2, id: 's03', start: 18.20, end: 28.25, audioFile: 'voiceover_vpk/s03.mp3',
+        cues: [
+          { t0: 0.00, t1: 5.94, html: '<em>Camera AI</em> nhận diện khuôn mặt, phát cảnh báo âm thanh tức thì khi tài xế ngủ gật hay mất tập trung.' },
+          { t0: 5.94, t1: 10.05, html: '<em>Camera hồng ngoại</em> giám sát khoang khách sắc nét cả ngày lẫn đêm, lưu trữ 72 giờ.' }
+        ],
+        ttsText: 'Camera AI nhận diện khuôn mặt, phát cảnh báo âm thanh tức thì khi tài xế ngủ gật hay mất tập trung. Camera hồng ngoại giám sát khoang khách sắc nét cả ngày lẫn đêm.'
+      },
+      {
+        idx: 3, id: 's04', start: 28.25, end: 37.65, audioFile: 'voiceover_vpk/s04.mp3',
+        cues: [
+          { t0: 0.00, t1: 5.24, html: '<em>114 Vạn Phú Khánh</em> sở hữu 3 trung tâm bảo hành tại Nha Trang, Tân Định và Thuận Bắc.' },
+          { t0: 5.24, t1: 9.40, html: 'Lắp đặt tận nơi, cam kết <em>xử lý sự cố trong vòng 2 giờ</em>.' }
+        ],
+        ttsText: '114 Vạn Phú Khánh sở hữu 3 trung tâm bảo hành tại Nha Trang, Tân Định và Thuận Bắc. Lắp đặt tận nơi, cam kết xử lý sự cố trong vòng 2 giờ.'
+      },
+      {
+        idx: 4, id: 's05', start: 37.65, end: 49.40, audioFile: 'voiceover_vpk/s05.mp3',
+        cues: [
+          { t0: 0.00, t1: 5.40, html: 'Liên hệ ngay <em>114 Vạn Phú Khánh</em> qua hotline <em>0585.114.114</em>' },
+          { t0: 5.40, t1: 11.75, html: 'hoặc truy cập <em>giamsatxe.net</em> để lắp đặt trọn gói ngay hôm nay!' }
+        ],
+        ttsText: 'Liên hệ ngay 114 Vạn Phú Khánh qua hotline 0585.114.114 hoặc truy cập giamsatxe.net để lắp đặt trọn gói ngay hôm nay!'
+      }
+    ];
+
+    // Pure math helpers (claude-motion kit equivalents)
+    function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+    function seg(t, a, b) { return clamp01((t - a) / (b - a)); }
+    function lerp(a, b, p) { return a + (b - a) * p; }
+    function eo(p) { return 1 - Math.pow(1 - clamp01(p), 3); }
+    function eio(p) { p = clamp01(p); return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
+    function eob(p, s) {
+      p = clamp01(p);
+      s = s || 1.65;
+      var c1 = s, c3 = c1 + 1;
+      return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2);
+    }
+    function fmtTime(sec) {
+      sec = Math.max(0, Math.min(DURATION, sec));
+      var m = Math.floor(sec / 60);
+      var s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' + s : s);
+    }
+
+    // Cache DOM elements for deterministic render(t)
+    var mdSceneEls = [
+      document.getElementById('mdScene0'),
+      document.getElementById('mdScene1'),
+      document.getElementById('mdScene2'),
+      document.getElementById('mdScene3'),
+      document.getElementById('mdScene4')
+    ];
+    var s1Card1 = document.getElementById('s1Card1');
+    var s1Card2 = document.getElementById('s1Card2');
+    var s1Card3 = document.getElementById('s1Card3');
+    var s2VehGroup = document.getElementById('s2VehGroup');
+    var s2RouteDash = document.getElementById('s2RouteDash');
+    var s2SpeedVal = document.getElementById('s2SpeedVal');
+    var s2Tile1 = document.getElementById('s2Tile1');
+    var s2Tile2 = document.getElementById('s2Tile2');
+    var s2Tile3 = document.getElementById('s2Tile3');
+    var s3Cam1 = document.getElementById('s3Cam1');
+    var s3Cam2 = document.getElementById('s3Cam2');
+    var s3AlertBanner = document.getElementById('s3AlertBanner');
+    var s3FaceSvg = document.getElementById('s3FaceSvg');
+    var s4Pin1 = document.getElementById('s4Pin1');
+    var s4Pin2 = document.getElementById('s4Pin2');
+    var s4Pin3 = document.getElementById('s4Pin3');
+    var s5Card = document.getElementById('s5Card');
+    var s5Hotline = document.getElementById('s5Hotline');
+    var mdStageDrum = document.getElementById('mdStageDrum');
+    var mdCaptionText = document.getElementById('mdCaptionText');
+    var mdCaptionBar = document.getElementById('mdCaptionBar');
+    var mdScrubber = document.getElementById('mdScrubber');
+    var mdTimeReadout = document.getElementById('mdTimeReadout');
+    var mdPlayOverlay = document.getElementById('mdPlayOverlay');
+    var mdPlayIcon = document.getElementById('mdPlayIcon');
+    var chapBtns = document.querySelectorAll('.md-chap-btn');
+
+    // Pre-create HTMLAudioElements for the 5 studio Neural TTS takes
+    var audioTakes = {};
+    SCENES.forEach(function (sc) {
+      var a = new Audio();
+      a.preload = 'auto';
+      a.src = sc.audioFile;
+      audioTakes[sc.id] = a;
+    });
+
+    var filmTime = 0;
+    var isPlaying = false;
+    var rafId = null;
+    var lastFrameTs = 0;
+    var voiceEnabled = true;
+    var musicEnabled = true;
+    var ccEnabled = true;
+    var activeVoiceSceneId = null;
+    var audioCtx = null;
+    var lastBeatPlayed = -1;
+    var lastAlertPlayedScene = -1;
+
+    function ensureAudioCtx() {
+      if (!audioCtx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (AC) audioCtx = new AC();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    // Procedural WebAudio Score & Foley Synthesizer (96 BPM)
+    function playSynthNote(freq, dur, type, gainVal) {
+      if (!musicEnabled || !audioCtx) return;
+      try {
+        var now = audioCtx.currentTime;
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = type || 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(gainVal || 0.04, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0008, now + dur);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + dur + 0.02);
+      } catch (e) {}
+    }
+
+    function stopAllVoiceTakes() {
+      Object.keys(audioTakes).forEach(function (k) {
+        var a = audioTakes[k];
+        if (a && !a.paused) {
+          a.pause();
+        }
+      });
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      activeVoiceSceneId = null;
+    }
+
+    function syncVoiceoverAt(t, forceSync) {
+      if (!isPlaying || !voiceEnabled) {
+        stopAllVoiceTakes();
+        return;
+      }
+      var curScene = SCENES[0];
+      for (var i = 0; i < SCENES.length; i++) {
+        if (t >= SCENES[i].start && t < SCENES[i].end) {
+          curScene = SCENES[i];
+          break;
+        }
+      }
+      var localT = t - curScene.start;
+      if (activeVoiceSceneId !== curScene.id || forceSync) {
+        stopAllVoiceTakes();
+        activeVoiceSceneId = curScene.id;
+        var take = audioTakes[curScene.id];
+        if (take && localT < 8.8) {
+          try {
+            take.currentTime = Math.max(0, localT);
+            var playProm = take.play();
+            if (playProm && playProm.catch) {
+              playProm.catch(function () {
+                // Fallback to browser SpeechSynthesis if local mp3 cannot play
+                if (window.speechSynthesis && localT < 1.5) {
+                  var u = new SpeechSynthesisUtterance(curScene.ttsText);
+                  u.lang = 'vi-VN';
+                  u.rate = 1.1;
+                  window.speechSynthesis.speak(u);
+                }
+              });
+            }
+          } catch (e) {}
+        }
+      }
+    }
+
+    // Pure deterministic render(t): sets stage DOM from filmTime t alone
+    function renderFilm(t) {
+      t = Math.max(0, Math.min(DURATION, t));
+      var curScene = SCENES[0];
+      for (var i = 0; i < SCENES.length; i++) {
+        if (t >= SCENES[i].start && t <= SCENES[i].end) {
+          curScene = SCENES[i];
+          break;
+        }
+      }
+      var lt = t - curScene.start;
+
+      // Toggle active scene
+      for (var s = 0; s < mdSceneEls.length; s++) {
+        if (mdSceneEls[s]) {
+          mdSceneEls[s].classList.toggle('is-active', s === curScene.idx);
+        }
+        if (chapBtns[s]) {
+          chapBtns[s].classList.toggle('active', s === curScene.idx);
+        }
+      }
+
+      // Stationary Dong Son Drum Neon Breathing (NEVER rotates: translateY(-50%) only!)
+      if (mdStageDrum) {
+        var glowAlpha = lerp(0.11, 0.24, 0.5 + 0.5 * Math.sin(t * 1.8));
+        mdStageDrum.style.opacity = glowAlpha.toFixed(3);
+        mdStageDrum.style.transform = 'translateY(-50%)';
+      }
+
+      // Scene 01 choreography (t = 0 includes full poster state at t=0)
+      if (curScene.idx === 0) {
+        var p1 = t === 0 ? 1 : eo(seg(lt, 0.15, 0.85));
+        var p2 = t === 0 ? 1 : eo(seg(lt, 0.45, 1.15));
+        var p3 = t === 0 ? 1 : eo(seg(lt, 0.75, 1.45));
+        if (s1Card1) { s1Card1.style.opacity = p1; s1Card1.style.transform = 'translateY(' + lerp(24, 0, p1) + 'px)'; }
+        if (s1Card2) { s1Card2.style.opacity = p2; s1Card2.style.transform = 'translateY(' + lerp(24, 0, p2) + 'px)'; }
+        if (s1Card3) { s1Card3.style.opacity = p3; s1Card3.style.transform = 'translateY(' + lerp(24, 0, p3) + 'px)'; }
+      }
+
+      // Scene 02 choreography (Vehicle 79B-012.34 moving along QL1A -> CSGT Server)
+      if (curScene.idx === 1) {
+        var u = eio(seg(lt, 0, 8.2));
+        var vx = lerp(75, 540, u);
+        var vy = lerp(272, 76, u) - Math.sin(u * Math.PI) * 38;
+        if (s2VehGroup) s2VehGroup.setAttribute('transform', 'translate(' + vx.toFixed(1) + ',' + vy.toFixed(1) + ')');
+        if (s2RouteDash) s2RouteDash.style.strokeDashoffset = (-lt * 36).toFixed(1) + 'px';
+        if (s2SpeedVal) s2SpeedVal.textContent = Math.round(lerp(52, 64, 0.5 + 0.5 * Math.sin(lt * 2.1))) + ' km/h';
+        var tp1 = eo(seg(lt, 0.1, 0.7));
+        var tp2 = eo(seg(lt, 0.5, 1.1));
+        var tp3 = eo(seg(lt, 0.9, 1.5));
+        if (s2Tile1) { s2Tile1.style.opacity = tp1; s2Tile1.style.transform = 'translateX(' + lerp(22, 0, tp1) + 'px)'; }
+        if (s2Tile2) { s2Tile2.style.opacity = tp2; s2Tile2.style.transform = 'translateX(' + lerp(22, 0, tp2) + 'px)'; }
+        if (s2Tile3) { s2Tile3.style.opacity = tp3; s2Tile3.style.transform = 'translateX(' + lerp(22, 0, tp3) + 'px)'; }
+      }
+
+      // Scene 03 choreography (AI DMS + Cabin Alert + 72h Storage)
+      if (curScene.idx === 2) {
+        var cp1 = eo(seg(lt, 0.1, 0.75));
+        var cp2 = eo(seg(lt, 0.4, 1.05));
+        if (s3Cam1) { s3Cam1.style.opacity = cp1; s3Cam1.style.transform = 'translateY(' + lerp(20, 0, cp1) + 'px)'; }
+        if (s3Cam2) { s3Cam2.style.opacity = cp2; s3Cam2.style.transform = 'translateY(' + lerp(20, 0, cp2) + 'px)'; }
+        if (s3FaceSvg) {
+          var sc = lerp(0.95, 1.04, 0.5 + 0.5 * Math.sin(lt * 4));
+          s3FaceSvg.style.transform = 'scale(' + sc.toFixed(3) + ')';
+        }
+        if (s3AlertBanner) {
+          var alertP = eo(seg(lt, 1.4, 2.0));
+          s3AlertBanner.style.opacity = alertP;
+          s3AlertBanner.style.transform = 'scale(' + lerp(0.92, 1, eob(seg(lt, 1.4, 2.1), 1.7)) + ')';
+        }
+      }
+
+      // Scene 04 choreography (3 Warranty Centers in Khanh Hoa)
+      if (curScene.idx === 3) {
+        var b1 = eob(seg(lt, 0.15, 0.85), 1.65);
+        var b2 = eob(seg(lt, 0.55, 1.25), 1.65);
+        var b3 = eob(seg(lt, 0.95, 1.65), 1.65);
+        if (s4Pin1) { s4Pin1.style.opacity = eo(seg(lt, 0.15, 0.65)); s4Pin1.style.transform = 'scale(' + lerp(0.86, 1, b1) + ')'; }
+        if (s4Pin2) { s4Pin2.style.opacity = eo(seg(lt, 0.55, 1.05)); s4Pin2.style.transform = 'scale(' + lerp(0.86, 1, b2) + ')'; }
+        if (s4Pin3) { s4Pin3.style.opacity = eo(seg(lt, 0.95, 1.45)); s4Pin3.style.transform = 'scale(' + lerp(0.86, 1, b3) + ')'; }
+      }
+
+      // Scene 05 choreography (End Card held >= 3s)
+      if (curScene.idx === 4) {
+        var ec = eo(seg(lt, 0.05, 0.75));
+        var hl = eob(seg(lt, 0.6, 1.35), 1.7);
+        if (s5Card) { s5Card.style.opacity = ec; s5Card.style.transform = 'scale(' + lerp(0.92, 1, ec) + ')'; }
+        if (s5Hotline) { s5Hotline.style.transform = 'scale(' + lerp(0.88, 1, hl) + ')'; }
+      }
+
+      // Update Caption Bar
+      if (mdCaptionText) {
+        var activeCue = curScene.cues[0];
+        for (var c = 0; c < curScene.cues.length; c++) {
+          if (lt >= curScene.cues[c].t0) activeCue = curScene.cues[c];
+        }
+        mdCaptionText.innerHTML = activeCue.html;
+      }
+      if (mdCaptionBar) {
+        mdCaptionBar.style.display = ccEnabled ? 'block' : 'none';
+      }
+
+      // Update Scrubber & Time Readout
+      if (mdScrubber && document.activeElement !== mdScrubber) {
+        mdScrubber.value = t.toFixed(2);
+      }
+      if (mdTimeReadout) {
+        mdTimeReadout.textContent = fmtTime(t) + ' / 0:49';
+      }
+    }
+
+    function stepLoop(ts) {
+      if (!isPlaying) return;
+      if (!lastFrameTs) lastFrameTs = ts;
+      var dt = Math.min(0.1, (ts - lastFrameTs) / 1000);
+      lastFrameTs = ts;
+      filmTime += dt;
+
+      // Trigger procedural score notes on 96 BPM grid (1 beat = 0.625s)
+      var beatIdx = Math.floor(filmTime / 0.625);
+      if (beatIdx !== lastBeatPlayed) {
+        lastBeatPlayed = beatIdx;
+        var scale = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63, 293.66, 392.00];
+        playSynthNote(scale[beatIdx % scale.length], 0.35, 'triangle', 0.022);
+        if (beatIdx % 4 === 0) {
+          playSynthNote(130.81, 0.9, 'sine', 0.032);
+        }
+      }
+
+      // Trigger Cabin AI Alert acoustic beep at Scene 3 t = 19.6s
+      if (filmTime >= 19.6 && filmTime < 20.2 && lastAlertPlayedScene !== 2) {
+        lastAlertPlayedScene = 2;
+        playSynthNote(880, 0.16, 'square', 0.035);
+        setTimeout(function () { playSynthNote(1174.66, 0.22, 'square', 0.035); }, 180);
+      }
+
+      if (filmTime >= DURATION) {
+        filmTime = DURATION;
+        renderFilm(filmTime);
+        window.vpkMotionPlay(false);
+        return;
+      }
+
+      renderFilm(filmTime);
+      syncVoiceoverAt(filmTime, false);
+      rafId = requestAnimationFrame(stepLoop);
+    }
+
+    window.vpkMotionPlay = function (forceState) {
+      ensureAudioCtx();
+      var next = typeof forceState === 'boolean' ? forceState : !isPlaying;
+      if (next && filmTime >= DURATION - 0.1) {
+        filmTime = 0;
+        lastBeatPlayed = -1;
+        lastAlertPlayedScene = -1;
+      }
+      isPlaying = next;
+      if (mdPlayOverlay) mdPlayOverlay.classList.toggle('is-hidden', isPlaying);
+      if (mdPlayIcon) {
+        mdPlayIcon.innerHTML = isPlaying
+          ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+          : '<polygon points="6 4 20 12 6 20 6 4"/>';
+      }
+      if (isPlaying) {
+        lastFrameTs = performance.now();
+        syncVoiceoverAt(filmTime, true);
+        rafId = requestAnimationFrame(stepLoop);
+      } else {
+        if (rafId) cancelAnimationFrame(rafId);
+        stopAllVoiceTakes();
+      }
+    };
+
+    window.vpkSeekTo = function (targetSec) {
+      ensureAudioCtx();
+      filmTime = Math.max(0, Math.min(DURATION, parseFloat(targetSec) || 0));
+      lastBeatPlayed = -1;
+      lastAlertPlayedScene = -1;
+      renderFilm(filmTime);
+      if (!isPlaying) {
+        window.vpkMotionPlay(true);
+      } else {
+        syncVoiceoverAt(filmTime, true);
+      }
+    };
+
+    window.vpkSetAspect = function (ratio) {
+      var vp = document.getElementById('mdViewport');
+      var b169 = document.getElementById('mdAspect169');
+      var b916 = document.getElementById('mdAspect916');
+      if (vp) vp.setAttribute('data-aspect', ratio);
+      if (b169) b169.classList.toggle('active', ratio === '16:9');
+      if (b916) b916.classList.toggle('active', ratio === '9:16');
+    };
+
+    window.vpkToggleVoice = function () {
+      voiceEnabled = !voiceEnabled;
+      var btn = document.getElementById('mdVoiceBtn');
+      if (btn) {
+        btn.classList.toggle('active', voiceEnabled);
+        btn.textContent = voiceEnabled ? '🔊 Thuyết minh AI: Bật' : '🔇 Thuyết minh AI: Tắt';
+      }
+      if (!voiceEnabled) stopAllVoiceTakes();
+      else if (isPlaying) syncVoiceoverAt(filmTime, true);
+    };
+
+    window.vpkToggleMusic = function () {
+      musicEnabled = !musicEnabled;
+      var btn = document.getElementById('mdMusicBtn');
+      if (btn) {
+        btn.classList.toggle('active', musicEnabled);
+        btn.textContent = musicEnabled ? '🎵 Nhạc nền: Bật' : '🎵 Nhạc nền: Tắt';
+      }
+    };
+
+    window.vpkToggleCc = function () {
+      ccEnabled = !ccEnabled;
+      var btn = document.getElementById('mdCcBtn');
+      if (btn) btn.classList.toggle('active', ccEnabled);
+      renderFilm(filmTime);
+    };
+
+    window.vpkFullscreen = function () {
+      var shell = document.getElementById('mdPlayerShell');
+      if (!shell) return;
+      if (!document.fullscreenElement) {
+        if (shell.requestFullscreen) shell.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    };
+
+    if (mdScrubber) {
+      mdScrubber.addEventListener('input', function () {
+        filmTime = parseFloat(mdScrubber.value) || 0;
+        renderFilm(filmTime);
+        if (isPlaying) syncVoiceoverAt(filmTime, true);
+      });
+    }
+
+    // Initialize poster frame at t = 0
+    renderFilm(0);
   });
 </script>
 </body>
